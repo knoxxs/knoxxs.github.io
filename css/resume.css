@@ -55,6 +55,8 @@ a#pdf:hover { background: #222; }
 .job h4 { position: absolute; top: 0.35em; right: 0 }
 .job h5 {margin: 0.75em 0 0 0; font-style: italic;}
 .job p { margin: 0.1em 0 0 0; }
+.job.last a {text-decoration: none;}
+.job.last a:hover {text-decoration: underline;}
 
 .education {position: relative; margin-bottom: 20px; padding-bottom: 5px; border-bottom: 1px solid #ccc;}
 .education h4 { position: absolute; top: 0.35em; right: 0 }
