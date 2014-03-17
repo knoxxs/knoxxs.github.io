@@ -16,7 +16,7 @@
 .msg a:hover { background: #266400; }
 
 /* //-- yui-grids style overrides -- */
-body { font-family: Georgia; color: #222; }
+body { font-family: 'Ubuntu', Georgia; color: #222; }
 #inner { padding: 10px 80px; margin: 0; background: #fff; border: solid #666; border-width: 8px 0 2px 0; }
 .yui-gf { margin-bottom: 2em; padding-bottom: 2em; border-bottom: 1px solid #ccc; }
 
@@ -53,7 +53,7 @@ a#pdf:hover { background: #222; }
 
 .job { position: relative; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #ccc; }
 .job h4 { position: absolute; top: 0.35em; right: 0 }
-.job h5 {margin: 0.75em 0 0 0; font-style: italic;}
+.job h5 {margin: 0.75em 0 0 0; font-style: italic; color:#777;}
 .job p { margin: 0.1em 0 0 0; }
 .job.last a {text-decoration: none;}
 .job.last a:hover {text-decoration: underline;}
