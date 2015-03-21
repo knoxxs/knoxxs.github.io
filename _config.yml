@@ -4,8 +4,6 @@ email: abhi.bansal21@gmail.com
 description: > 
   Here I blog about I everything I learn.
   I am kind of amnesiac person. So I decided to blog everything I learn. Let see how it goes.
-source: /blog
-destination: /_site
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://knoxxs.github.io/" # the base hostname & protocol for your site
 twitter_username: knoxxs
