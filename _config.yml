@@ -13,4 +13,4 @@ github: [Repository metadata]
 
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet

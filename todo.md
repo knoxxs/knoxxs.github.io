@@ -5,6 +5,8 @@ permalink: /todo/
 ---
 
 # Learning
+- Mongo backup: http://docs.mongodb.org/manual/tutorial/backup-with-filesystem-snapshots/
+
 
 # To blog
 - Annotation

@@ -33,7 +33,7 @@ Check out the [Jekyll docs][jekyll] for more info on how to get the most out of 
 
 
 Sample Image:
-![Sample screenshot]({{ site.url }}/assets/sample_image.jpg)
+![Sample screenshot]({{ site.url }}assets/welcome-to-jekyll/sample_image.jpg)
 
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
