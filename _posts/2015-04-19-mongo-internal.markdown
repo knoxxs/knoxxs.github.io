@@ -28,15 +28,15 @@ Executables also use this technique to run in operating systems.
 
 > In journaling each file will be mapped twice.
 
-![Memory Structure]({{ site.url }}assets/mongo-internal/mmap.jpg)
+![Memory Structure]({{ site.url }}assets/mongo-internal/mmap.png)
 
-![32-bit Machine]({{ site.url }}assets/mongo-internal/32bit_machine.jpg)
+![32-bit Machine]({{ site.url }}assets/mongo-internal/32bit_machine.png)
 
-![64-bit Machine]({{ site.url }}assets/mongo-internal/64bit_machine.jpg)
+![64-bit Machine]({{ site.url }}assets/mongo-internal/64bit_machine.png)
 
 # Doubly Link list
 
-![Mongo's Doubly Link list]({{ site.url }}assets/mongo-internal/doublyLinkedList.jpg)
+![Mongo's Doubly Link list]({{ site.url }}assets/mongo-internal/doublyLinkedList.png)
 
 # .ns file (16 mB)
 
@@ -51,7 +51,7 @@ A giant hash table. 1 kb per bucket (represents a collection), i.e. 16000 namesp
 
 Then there is a special namespace `$freelist`. (??)
 
-![NameSpcae file]({{ site.url }}assets/mongo-internal/namespace.jpg)
+![NameSpcae file]({{ site.url }}assets/mongo-internal/namespace.png)
 
 # DiscLoc:
 
@@ -97,5 +97,5 @@ A record contains:
 
 A tree with fixed bucket size. If a bucket is full split it in two, with 50-50 data in each. But in mongo index the data is usualy incrementing as id has time parementer so for incrementing index mongo splits a bucket in 90% and 10% data bucket.
 
-![Sample B-Tree]({{ site.url }}assets/mongo-internal/b-tree.jpg)
-![Sample tree bucket]({{ site.url }}assets/mongo-internal/b-tree_bucket.jpg)
+![Sample B-Tree]({{ site.url }}assets/mongo-internal/b-tree.png)
+![Sample tree bucket]({{ site.url }}assets/mongo-internal/b-tree_bucket.png)
