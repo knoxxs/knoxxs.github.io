@@ -129,5 +129,5 @@ The one thing you always have to do is, you have to explicit write a handling co
 
 1. [Login validation](http://engineering.webengage.com/2012/03/12/a-peek-into-webengages-security-layer-super-cool-use-of-java-annotations/)
 2. AutowiredSprLogger
-3. RACDescription
+3. Annotations to write documentation of your API at runtime.
 4. @PreAuthorize
