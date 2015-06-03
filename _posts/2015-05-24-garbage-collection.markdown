@@ -6,7 +6,7 @@ categories: java programming
 tags: java programming "garbage collection"
 ---
 
-The Java virtual machine's heap stores all objects created by a running Java application. Garbage collection is the process of automatically freeing objects that are no longer referenced by the program.
+The Java virtual machine's heap stores all objects created by a running Java application. Garbage collection is the process of automatically freeing objects that are no longer referenced by the program. Many people think garbage collection collects and discards dead objects. In reality, Java garbage collection is doing the opposite! Live objects are tracked and everything else designated garbage.
 
 #### Benefits
 Garbage collection relieves you from the burden of freeing allocated memory. Knowing when to explicitly free allocated memory can be very tricky. Giving this job to the Java virtual machine has several advantages:
@@ -19,12 +19,23 @@ Garbage collection relieves you from the burden of freeing allocated memory. Kno
 1. _Managing Overhead_: GC adds an overhead that can affect program performance. The Java virtual machine has to keep track of which objects are being referenced by the executing program, and finalize and free unreferenced objects on the fly.
 2. _Unpredictable_: This activity will likely require more CPU time than would have been required if the program explicitly freed unnecessary memory. In addition, programmers in a garbage-collected environment have less control over the scheduling of CPU time devoted to freeing objects that are no longer needed.
 
+The [graph below](http://www.oracle.com/technetwork/java/javase/gc-tuning-6-140523.html) models an ideal system that is perfectly scalable with the exception of garbage collection. The red line is an application spending only 1% of the time in garbage collection on a uniprocessor system. This translates to more than a 20% loss in throughput on 32 processor systems. At 10% of the time in garbage collection (not considered an outrageous amount of time in garbage collection in uniprocessor applications) more than 75% of throughput is lost when scaling up to 32 processors.
+
+![GC suspensions with increasing number of CPUs](http://www.oracle.com/ocom/groups/public/@otn/documents/digitalasset/190242.gif)
+
 ## Why Garbage Collection?
 
 1. Limited Memory
 2. Compacting (De-fragmentation)
 
 The JVM specification does not require any particular garbage collection technique. It doesn't even require garbage collection at all. But until infinite memory is invented, most Java virtual machine implementations will likely come with garbage-collected heaps.
+
+Let's start with the heap, which is the area of memory used for dynamic allocation. In most configurations the operating system allocates the heap in advance to be managed by the JVM while the program is running. This has a couple of important ramifications:
+
+- Object creation is faster because global synchronization with the operating system is not needed for every single object.
+- When an object is no longer used, the garbage collector reclaims the underlying memory and reuses it for future object allocation. This means there is no explicit deletion and no memory is given back to the operating system.
+
+All objects are allocated on the heap area managed by the JVM.
 
 ## Garbage Collection Algorithms
 
@@ -50,6 +61,13 @@ The root set in a JVM is implementation dependent, but would always include:
 - Any object references, such as strings, in the constant pool of loaded classes. The constant pool of a loaded class may refer to strings stored on the heap, such as the class name, superclass name, superinterface names, field names, field signatures, method names, and method signatures.
 - Any object references that were passed to native methods that either haven't been "released" by the native method. (Depending upon the native method interface, a native method may be able to release references by simply returning, by explicitly invoking a call back that releases passed references, or some combination of both.)
 - The Java virtual machine's runtime data areas that are allocated from the garbage-collected heap. For example, the class data in the method area itself could be placed on the garbage-collected heap in some implementations, allowing the same garbage collection algorithm that frees objects to detect and unload unreferenced classes.
+
+There are four kinds of GC roots in Java:
+
+1. **Local variables** are kept alive by the stack of a thread. This is not a real object virtual reference and thus is not visible. For all intents and purposes, local variables are GC roots.
+2. **Active Java threads** are always considered live objects and are therefore GC roots. This is especially important for thread local variables.
+3. **Static variables** are referenced by their classes. This fact makes them de facto GC roots. Classes themselves can be garbage-collected, which would remove all referenced static variables. This is of special importance when we use application servers, OSGi containers or class loaders in general. We will discuss the related problems in the Problem Patterns section.
+4. **JNI References** are Java objects that the native code has created as part of a JNI call. Objects thus created are treated specially because the JVM does not know if it is being referenced by the native code or not.
 
 > The Java virtual machine can be implemented such that the garbage collector knows the difference between a genuine object reference and a primitive type (for example, an int) that appears to be a valid object reference. (One example is an int that, if it were interpreted as a native pointer, would point to an object on the heap.) Some garbage collectors, however, may choose not to distinguish between genuine object references and look-alikes. Such garbage collectors are called conservative because they may not always free every unreferenced object. Sometimes a garbage object will be wrongly considered to be live by a conservative collector, because an object reference look-alike referred to it. Conservative collectors trade off an increase in garbage collection speed for occasionally not freeing some actual garbage.
 
@@ -119,6 +137,8 @@ In this approach, the heap is divided into two or more sub-heaps, each of which 
 - Each progressively older generation is garbage collected less often than the next younger generation. As objects "mature" (survive multiple garbage collections) in their current generation, they are moved to the next older generation.
 
 The generational collection technique can be applied to mark and sweep algorithms as well as copying algorithms. In either case, dividing the heap into generations of objects can help improve the efficiency of the basic underlying garbage collection algorithm.
+
+![Weak generational hypothesis, which states that most objects survive for only a short period of time]({{ site.url }}assets/garbageCollection/generational_graph.gif)
 
 #### 4. Adaptive Collectors
 An adaptive garbage collection algorithm takes advantage of the fact that some garbage collection algorithms work better in some situations, while others work better in other situations.
@@ -208,6 +228,8 @@ Finalization Pseudocode:
 
 > If an object with a finalizer becomes unreferenced, and its finalizer is run, the garbage collector must in some way ensure that it never runs the finalizer on that object again. If that object is resurrected by its own finalizer or some other object's finalizer and later becomes unreferenced again, the garbage collector must treat it as an object that has no finalizer.
 
+More about finalization can be found at [How to Handle Java Finalization's Memory-Retention Issues - See more at: http://www.devx.com/Java/Article/30192#sthash.fLBHOsXe.dpuf](http://www.devx.com/Java/Article/30192).
+
 ## The Reachability Lifecycle of Objects
 
 In versions prior to 1.2, every object on the heap is in one of three states from the perspective of the garbage collector: reachable, resurrectable, or unreachable.
@@ -222,3 +244,5 @@ In version 1.2, the three original reachability states -- reachable, resurrectab
 
 1. [Garbage Collection - Inside the Java Virtual Machine - Artima](http://www.artima.com/insidejvm/ed2/gcP.html)
 2. [Andrew Turley on Incremental Mature Garbage Collection Using the Train Algorithm](https://www.youtube.com/watch?v=kpW4lCwQWHc)
+3. [dynatrace - memory Management](http://www.dynatrace.com/en/javabook/how-garbage-collection-works.html)
+4. [How to Handle Java Finalization's Memory-Retention Issues - See more at: http://www.devx.com/Java/Article/30192#sthash.fLBHOsXe.dpuf](http://www.devx.com/Java/Article/30192).
