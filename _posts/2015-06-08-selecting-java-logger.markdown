@@ -130,7 +130,7 @@ Till now its clear that I will be using logback with slf4j. There are many thing
 
 ## Sample project:
 
-![Here]({{ site.url }}assets/selecting-java-logger/sprinklr-clone.zip) you can download the sample intellij project in which all the things till now are set-up.
+[Here]({{ site.url }}assets/selecting-java-logger/sprinklr-clone.zip) you can download the sample intellij project in which all the things till now are set-up.
 
 ## References:
 
