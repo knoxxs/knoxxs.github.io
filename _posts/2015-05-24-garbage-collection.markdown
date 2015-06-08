@@ -2,7 +2,7 @@
 layout: post
 title:  "Garbage Collection"
 date:   2015-05-24 4:30:09
-categories: java programming
+categories: programming java
 tags: java programming "garbage collection"
 ---
 

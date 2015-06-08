@@ -2,11 +2,11 @@
 layout: post
 title:  "Garbage Collection - 2"
 date:   2015-05-24 4:30:09
-categories: java programming
+categories: programming java
 tags: java programming "garbage collection"
 ---
 
-In this post we have covered Java's implementation of GC. This post is continuation of [Garbage Collection Post](http://knoxxs.github.io/java/programming/2015/05/24/garbage-collection.html) in which we have covered the theory for GC.
+In this post we have covered Java's implementation of GC. This post is continuation of [Garbage Collection Post](http://knoxxs.github.io/programming/java/2015/05/24/garbage-collection.html) in which we have covered the theory for GC.
 
 There are multiple garbage collection strategies which one can use.  From `J2SE™ 5.0`, the garbage collector is selected based on the class of the machine on which the application is run.
 
