@@ -11,9 +11,7 @@ permalink: /todo/
 # To blog
 - Encoding
 - ES
-- Regex
 - Cooking
-- Monitoring Logger
 - RAC
 - ES Time Shard (Understand it deeply and write about it)
 - Git Flow
@@ -28,7 +26,6 @@ permalink: /todo/
 - Command Patter - Why RAC
 - Scan and Process
 - Inner class in java
-- java.lang.ref.Reference
 - access logs
 - takipi
 - java agents
@@ -36,6 +33,9 @@ permalink: /todo/
 - Old blog posts
 - Add table capability in any markdown parser as there it is in MarkdownToggle
 - read how floating point are stored () rounding off error
+- http://www.ibm.com/developerworks/java/library/
+- Dagger
+- http://www.cockroachlabs.com/blog/hello-world/
 
 # Jekyll
 - A simple script to create new post with a terminal calender.
