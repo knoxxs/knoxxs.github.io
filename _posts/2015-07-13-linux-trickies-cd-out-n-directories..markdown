@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Linux Trickies: cd out n-directories"
+title:  "Linux Trickies: cd out n-directories"
 date:   2015-07-13 14:17:00
 categories: linux tips-n-trick programming
 tags: linux tips-n-trick programming cd bash_rc bash_profile
