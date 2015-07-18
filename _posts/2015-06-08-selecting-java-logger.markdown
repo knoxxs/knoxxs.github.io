@@ -111,7 +111,7 @@ Summary:
     log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
     ```
 8. We need to add `log4j.properties` in resources folder.
-9. As mentioned in a lot of places `logback` should be the one which one should use with `slf4j` as it natively implements `slf4j`, so no need to include any bindings. Then how will slf4j knows which logger implementation to use? May be it check for logback by default, lets run it and see.
+9. As mentioned in a lot of places `logback` should be the one which one should use with `slf4j` as it natively implements `slf4j`, so no need to include any bindings. Then how will slf4j knows which logger implementation to use? May be it check for logback by default, lets run it and see. [Download](http://logback.qos.ch/download.html) and attach logback.
 10. Now my libs contain `slf4j-api-1.7.12.jar`, `logback-classic-1.1.3` and `logback-core-1.1.3.jar`.
 11. On running I got the following output.
 
