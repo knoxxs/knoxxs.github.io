@@ -36,6 +36,8 @@ permalink: /todo/
 - http://www.ibm.com/developerworks/java/library/
 - Dagger
 - http://www.cockroachlabs.com/blog/hello-world/
+- http://python-history.blogspot.in/
+
 
 # Jekyll
 - A simple script to create new post with a terminal calender.
