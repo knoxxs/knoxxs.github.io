@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "philosophical-ideas-that-everyone-should-know-Highbrow"
+title:  "Philosophical ideas that everyone should know - Highbrow"
 date:   2015-07-05 10:26:00
 categories: philosophy course
 tags: philosophy course learning highbrow daily-lessons
