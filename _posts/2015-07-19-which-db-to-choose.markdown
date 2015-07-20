@@ -33,7 +33,7 @@ The rise of the web as a platform also created a vital factor change in data sto
 ### Distribution Models
 Aggregate oriented databases make distribution of data easier, since the distribution mechanism has to move the aggregate and not have to worry about related data, as all the related data is contained in the aggregate.
 
-**Sharding**: Sharding distributes different data across multiple servers, so each server acts as the single source for a subset of data.
+**Sharding**: Sharding distributes different data across multiple servers, so each server acts as the single source for a subset of data.  
 **Replication**: Replication copies data across multiple servers, so each bit of data can be found in multiple places. Replication comes in two forms:
 
 1. Master-slave replication makes one node the authoritative copy that handles writes while slaves synchronize with the master and may handle reads.
@@ -55,6 +55,7 @@ As you can see, there are three primary concerns you must balance when choosing 
 
 >Eric Brewer put forth the CAP theorem which states that in any distributed system we can choose only two of consistency, availability or partition tolerance. 
 
+## The choice dbs have to make
 Many NoSQL databases try to provide options where the developer has choices where they can tune the database as per their needs. For example if you consider [Riak](http://basho.com/riak) a distributed key-value database. There are essentially three variables r, w, n where:
 
 - r=number of nodes that should respond to a read request before its considered successful.
