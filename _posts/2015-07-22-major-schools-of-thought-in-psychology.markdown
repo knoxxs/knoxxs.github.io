@@ -45,6 +45,20 @@ This study brought up the understanding of difference between Sensation and Perc
 6. Functionalism also focused on individuals by assuming that everyone approaches thinking and problems differently. This idea laid the groundwork for more individualized education approaches.
 7. It also led to the behaviorist school of thought later. Functionalists like John Dewey argued that thought creates behavior, so people should focus on studying behavior instead of trying to observe consciousness, which is extremely difficult to study.
 
+## Psychoanalysis
+Sigmund Freud founded psychoanalysis. He believed that people could deal with many of their mental ailments by bringing out repressed memories. That is, he wanted to make unconscious thoughts and feelings conscious so that people could deal with them. This process is commonly used to deal with anxiety and depression. He placed a great deal of focus on childhood memories and dreams because these were, he thought, manifestations of the unconscious mind.
+
+Psychoanalysis operated upon several assumptions.
+
+1. the theory assumes that all psychological problems have their origins in the unconscious mind.
+2. symptoms are caused by these hidden disturbances in the unconscious mind.
+3. the causes are usually related to repressed trauma or unresolved issues that occurred during childhood development.
+4. Lastly, treatment’s focus is to bring out these repressed memories so that the person can deal with them in his or her conscious mind.
+
+Freud would have his patients lie on a couch and discuss their childhood and dreams. He sat behind them taking notes, and he let them discuss openly. Freud attempted to be a listening figure and only contributed when needed. He did not share personal information with his patients and did not pass judgment. Classic psychoanalysis takes an extremely long time; Freud recommended between 2 to 5 sessions per week for a period of several years. Part of the reason that psychoanalysis was such a time-consuming process was that most people used defense mechanisms to deal with conflict. Example defense mechanisms include things like repression, denial, projection, displacement, and sublimation. Freud was not focused on a reduction of symptoms; he wanted to find and bring out the underlying problem. The similarities between Freud’s approach and modern therapy are fairly apparent.
+
+Psychoanalysis can also involve the use of the Rorschach inkblot tests. This is a test where the subject is shown pictures of ink blots that are not supposed to any real picture, but the subject is asked what the inkblot resembles to them. It supposedly helps analysts determine what is in the subject’s unconscious thought processes.
+
 ## References:
 
 1. [Major Schools of Thought in Psychology](http://gohighbrow.com/portfolio/major-schools-of-thought-in-psychology/)
