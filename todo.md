@@ -37,6 +37,36 @@ permalink: /todo/
 - Dagger
 - http://www.cockroachlabs.com/blog/hello-world/
 - http://python-history.blogspot.in/
+- http://www.javacodegeeks.com/2015/07/jvm-buzzwords-java-developers-should-understand.html
+- Dev environments:
+    - https://www.vagrantup.com/
+    - dockr
+    - rocket (coreos)
+    - http://stackoverflow.com/questions/16647069/should-i-use-vagrant-or-docker-io-for-creating-an-isolated-environment
+    - https://news.ycombinator.com/item?id=9453558
+- http://kubernetes.io/ (with vagrant)
+- https://coreos.com/
+- https://www.getsentry.com/welcome/
+- TDD
+- http://www.openstreetmap.org/about
+- https://lumi.do/join
+- Markdown Viewer
+    - http://unix.stackexchange.com/questions/4140/markdown-viewer
+    - http://blog.metamatt.com/blog/2013/01/09/previewing-markdown-files-from-the-terminal/
+- http://startupstash.com/
+- http://www.learn-angular.org/#!/lessons/the-essentials
+- http://webcomponents.org/resources/
+- http://addyosmani.com/resources/essentialjsdesignpatterns/book/
+- https://medium.com/@kristynazdot/the-37-best-websites-to-learn-something-new-895e2cb0cad4
+- https://www.hakkalabs.co/articles/introduction-neural-networks-vector-reduction-natural-language-processing?utm_campaign=Mattermark+Daily&utm_source=hs_email&utm_medium=email&utm_content=20717695&_hsenc=p2ANqtz--ZTlbft6g6HkYOayGgoxaaMhYi0VJbRjlL84EVHxlNYFgwSfHWP9aR4uBVeIktb-MJRfGoUKp4SMxFmMzYnFwgzRi_eg&_hsmi=20717695
+- http://www.up.co/programs
+- http://tutorials.jenkov.com/java-concurrency/index.html
+- https://developers.google.com/optimization/
+- https://tour.golang.org/welcome/1
+- https://www.makerscabin.com/web?ref=producthunt#
+- https://courses.platzi.com/
+
+
 
 
 # Jekyll
