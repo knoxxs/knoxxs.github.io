@@ -65,9 +65,17 @@ permalink: /todo/
 - https://tour.golang.org/welcome/1
 - https://www.makerscabin.com/web?ref=producthunt#
 - https://courses.platzi.com/
-
-
-
+- https://www.hackster.io/platforms
+- Titanium backup
+- http://techblog.netflix.com/2015/07/java-in-flames.html
+- http://steike.com/code/intellij/
+- How this works http://www.similarweb.com/ourdata
+- http://commandlinepoweruser.com/, tmux, fish
+- http://matthewearl.github.io/2015/07/28/switching-eds-with-python/?imm_mid=0d6165&cmp=em-prog-na-na-newsltr_20150801
+- https://github.com/jlevy/the-art-of-command-line
+- https://dropwizard.github.io/dropwizard/manual/core.html
+- http://www.javacodegeeks.com/2013/01/integrating-bean-validation-with-jax-rs-in-java-ee-6.html
+- https://platform.sh/features/
 
 # Jekyll
 - A simple script to create new post with a terminal calender.
