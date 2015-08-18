@@ -76,6 +76,7 @@ permalink: /todo/
 - https://dropwizard.github.io/dropwizard/manual/core.html
 - http://www.javacodegeeks.com/2013/01/integrating-bean-validation-with-jax-rs-in-java-ee-6.html
 - https://platform.sh/features/
+- http://eshepelyuk.github.io/2014/10/28/automate-github-pages-travisci.html
 
 # Jekyll
 - A simple script to create new post with a terminal calender.
