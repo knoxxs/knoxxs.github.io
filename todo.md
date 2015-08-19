@@ -78,6 +78,7 @@ permalink: /todo/
 - https://platform.sh/features/
 - http://eshepelyuk.github.io/2014/10/28/automate-github-pages-travisci.html
 - http://jekyllbootstrap.com/usage/jekyll-quick-start.html
+- https://paragonie.com/blog/2015/08/gentle-introduction-application-security#resubmit
 
 # Jekyll
 - A simple script to create new post with a terminal calender.
