@@ -6,8 +6,10 @@ categories: course photography
 tags: course photography open2study introduction
 ---
 
-## Module I: Light Through Lenses
+My notes for the [course](https://www.open2study.com/courses/the-art-of-photography) : The Art of photography by Dr. Shane Hulbert.
 
+
+## Module I: Light Through Lenses
 ### Topic I: Photography as a Visual Language
 Four ways to think about images:
  - **Vantage point**: this is where we stand in respect to the subject
@@ -16,6 +18,7 @@ Four ways to think about images:
  - **Time**: When we click and how long we click (shutter speed)
 
 > Your own photography is never enough.
+
 
 ### Topic II: But Is it photography?
 
@@ -49,32 +52,44 @@ Auto Focus: accuracy
 - Mastering the delusion of view finder is must.
 
 
-Topic VI:
----------
+### Topic VI: Aperture & Shutter
 
-Aperture stop  = Actual diameter / focal length
-
-
-Topic VII:
-----------
-
-Accuracy of exposure (tradeoff)
-ISO - Sensitivity of the chip - higher means more intensified hence more noise
+- Aperture is the diameter from which light is entering
+- Shutter speed is time for the sensor is receiving light.
+- `Aperture stop / Maximum aperture = f/ ((Diameter of the actual physical lens cap) / (Focal length of the lend))`
+- Bigger the number smaller the aperture and vice-versa.
+- Bigger the number smaller the shutter speed and vice-versa. (1 inch is 1 second)
 
 
-Topic VIII:
------------
+### Topic VII: Everything in Photography is a Trade Off
 
-The world has no edges. So framing is very important to define a edge.
-Two types of frame:
-- Passive (When edges of the subject are fully contained in the image). The subject resides and rest there
-- Active (Not directly opposite but it has some different relation to edges)
+- Exposure is the combination of aperture and shutter speed.
+- To decide if combination of aperture and shutter is correct then you have check if the highlights are highlights, shadows are shadows and the mid-tones are mid-tones.
+- If f/8 and 1/125 is correct then:
+    - f/8 and 1/250 is under exposed (-): This means shadows will be too dark, mid-tones probably be looking like shadows and highlights are not highlighted enough.
+    - f/8 and 1/60 is over exposed (+): This means highlights will be too bright, mid-tones ... This will too much contrast or lacking of definition.
+ - ISO(100 - 6400) is the sensitivity of the chip - higher means more intensified to capture very less light but more noise
 
-Check for the corners (they are longest visual cues in the image)
+
+### Topic VIII: The Order of Things: Image, Composition and Structure
+
+- The world has no edges. So framing is very important to define a edge. Two types of frame:
+    - Passive (When edges of the subject are fully contained in the image). The subject resides and rest there
+    - Active (Not directly opposite but it has some different relation to edges)
+- Check for the corners (they are longest visual cues in the image)
+
+> Opposite to painter a photographer starts with the messiness in the world and find/creates order and structure in it.
 
 
-MODULE II:
-==========================================================================================================
+### Topic IX: Translating: The Ordinary & Everyday
+
+A camera gives power to translate the ordinary to something different. To give it new meaning.
+
+## Assessment 1
+ - *Hyperfocal distance* is a distance beyond which all objects can be brought into an "acceptable" focus or the closest distance at which a lens can be focused while keeping objects at infinity acceptably sharp.
+    - Formula H = f^2/((f-number)(circle of confusion = 0.03) mm. Acceptable range is from H/2 to infinity.
+
+## MODULE II: Photography's Evolution
 
 ## References:
 
