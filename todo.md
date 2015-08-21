@@ -79,6 +79,11 @@ permalink: /todo/
 - http://eshepelyuk.github.io/2014/10/28/automate-github-pages-travisci.html
 - http://jekyllbootstrap.com/usage/jekyll-quick-start.html
 - https://paragonie.com/blog/2015/08/gentle-introduction-application-security#resubmit
+- http://www.addalicense.com/
+- http://www.sitepoint.com/real-time-status-update-app-angularjs-firebase/?utm_source=SitePoint&utm_medium=email&utm_campaign=Versioning&utm_medium=email&utm_campaign=Versioning+299&utm_content=Versioning+299+Version+A+CID_b913f7ed61923ddde8c15d805927612c&utm_source=CampaignMonitor%20SitePoint&utm_term=building%20a%20real-time%20status%20update%20app%20with%20Angular%20and%20Firebase
+- http://socket.io/get-started/chat/
+- https://stripe.com/blog/distributed-ruby-testing?utm_source=SitePoint&utm_medium=email&utm_campaign=Versioning
+
 
 # Jekyll
 - A simple script to create new post with a terminal calender.
