@@ -83,8 +83,9 @@ permalink: /todo/
 - http://www.sitepoint.com/real-time-status-update-app-angularjs-firebase/?utm_source=SitePoint&utm_medium=email&utm_campaign=Versioning&utm_medium=email&utm_campaign=Versioning+299&utm_content=Versioning+299+Version+A+CID_b913f7ed61923ddde8c15d805927612c&utm_source=CampaignMonitor%20SitePoint&utm_term=building%20a%20real-time%20status%20update%20app%20with%20Angular%20and%20Firebase
 - http://socket.io/get-started/chat/
 - https://stripe.com/blog/distributed-ruby-testing?utm_source=SitePoint&utm_medium=email&utm_campaign=Versioning
-
-
+- https://linuxacademy.com/
+- http://info.mattermark.com/education-startups?utm_campaign=Mattermark+Daily+Weekend+Edition&utm_source=hs_email&utm_medium=email&utm_content=21338181&_hsenc=p2ANqtz-9rc9Vnqk-fEr-YiS489x_f6T9Yzew57Sjbx2Nv24Kx7X_4SOxhGLwP8SZzCwEFdj5SSSrf0Ue8b1pYpFkCtMQ4rocjnA&_hsmi=21338181
+- http://electron.atom.io/ : saavan app, bitbucket app
 # Jekyll
 - A simple script to create new post with a terminal calender.
 - A pre commit hook to copy todos from everywhere
