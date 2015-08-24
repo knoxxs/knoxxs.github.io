@@ -40,7 +40,7 @@ With both these facades you can specify which implementation to use at runtime.
 
 ## commons-logging vs slf4j
 
-![Class Hierarchy]({{ site.url }}assets/selecting-java-logger/commons-slf4j-hierarchy.png)
+![Class Hierarchy]({{ site.url }}assets/2015/06/selecting-java-logger/commons-slf4j-hierarchy.png)
 
 Slf4j does compile-time (dynamic) binding while commons does runtime(static) binding ([Dynamic v/s Static binding](http://geekexplains.blogspot.in/2008/06/dynamic-binding-vs-static-binding-in.html)). How can a java library which can log using different frameworks rely on compile time binding?  The answer is  that the *compile-time* binding only refers to the fact that SLF4J is compiled against an implementation of an SLF4J logger. However, you can still use a different binding at runtime. SLF4J doesn't use *classloaders*, instead, its very simple:  It loads `org.slf4j.impl.StaticLoggerBinder`.  Each implementation of SLF4J (i.e. the slf4j-log4j bindings) provides a class with this exact name. So there is no confusion.  At run-time, the same thing happens: The class is picked up from the classpath directly, without any runtime magic.  What if no slf4j-* implementations are on the classpath?  Well, then no logging will occur.
 
@@ -121,7 +121,7 @@ Summary:
 
 It worked fine. Our assumption about no need to find the binding is correct which can be confirmed from slf4j binding architecture:
 
-![slf4j binding architecture]({{ site.url }}assets/selecting-java-logger/concrete-bindings.png)
+![slf4j binding architecture]({{ site.url }}assets/2015/06/selecting-java-logger/concrete-bindings.png)
 
 
 ## Logback
@@ -130,7 +130,7 @@ Till now its clear that I will be using logback with slf4j. There are many thing
 
 ## Sample project:
 
-[Here]({{ site.url }}assets/selecting-java-logger/sprinklr-clone.zip) you can download the sample intellij project in which all the things till now are set-up.
+[Here]({{ site.url }}assets/2015/06/selecting-java-logger/sprinklr-clone.zip) you can download the sample intellij project in which all the things till now are set-up.
 
 ## References:
 
