@@ -284,6 +284,7 @@ pre > code {
     font-size: 15px;
     color: #828282;
     margin-left: -15px;
+    font-family: monospace;
 }
 
 .footer-col {
