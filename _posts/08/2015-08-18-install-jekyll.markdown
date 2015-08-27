@@ -14,6 +14,7 @@ All my experiments with jekyll.
     - [Control travis email notification](http://docs.travis-ci.com/user/notifications/)
     - [Mac app](http://ccmenu.org/)
     - [Android app](http://www.trevorapp.com/)
+- [Control order of pages](https://github.com/plusjade/jekyll-bootstrap/issues/42#issuecomment-18102302)
 
 References:
 
@@ -23,3 +24,4 @@ References:
 4. [Travis - Configuring Build Notifications](http://docs.travis-ci.com/user/notifications/)
 5. [Trevor](http://www.trevorapp.com/)
 6. [CCMenu](http://ccmenu.org/)
+7. [No way to order post or pages](https://github.com/plusjade/jekyll-bootstrap/issues/42)
