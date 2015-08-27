@@ -86,6 +86,13 @@ permalink: /todo/
 - https://linuxacademy.com/
 - http://info.mattermark.com/education-startups?utm_campaign=Mattermark+Daily+Weekend+Edition&utm_source=hs_email&utm_medium=email&utm_content=21338181&_hsenc=p2ANqtz-9rc9Vnqk-fEr-YiS489x_f6T9Yzew57Sjbx2Nv24Kx7X_4SOxhGLwP8SZzCwEFdj5SSSrf0Ue8b1pYpFkCtMQ4rocjnA&_hsmi=21338181
 - http://electron.atom.io/ : saavan app, bitbucket app
+- Config Management tools
+    - https://github.com/Aethylred/puppet-elasticsearch
+    - https://github.com/elastic/cookbook-elasticsearch
+    - https://forge.puppetlabs.com/elasticsearch/elasticsearch
+    - https://discuss.elastic.co/t/config-management/225/12
+    - https://docs.chef.io/chef_overview.html
+
 # Jekyll
 - A simple script to create new post with a terminal calender.
 - A pre commit hook to copy todos from everywhere
