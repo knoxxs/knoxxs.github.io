@@ -96,7 +96,6 @@ permalink: /todo/
 - A simple script to create new post with a terminal calender.
 - A pre commit hook to copy todos from everywhere
 - Copy option in code highlighter
-- Markdown editor to edit pages from browser
 - site.url for local
 - paginator
 
