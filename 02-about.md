@@ -1,6 +1,7 @@
 ---
 layout: page
-title: About
+title: about
+header: 'uname -a'
 permalink: /about/
 ---
 

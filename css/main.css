@@ -207,6 +207,7 @@ pre > code {
 .site-nav .page-link {
     color: #111;
     line-height: 1.5;
+    font-family: monospace;
 }
 
 .site-nav .page-link:not(:first-child) {
@@ -336,6 +337,7 @@ pre > code {
 
 .page-heading {
     font-size: 20px;
+    font-family: monospace;
 }
 
 .post-list {

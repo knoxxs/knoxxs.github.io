@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Todo
+title: todo
+header: 'cat /tmp/todos'
 permalink: /todo/
 ---
 
