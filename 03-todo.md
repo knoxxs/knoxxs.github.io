@@ -99,3 +99,5 @@ permalink: /todo/
 - Markdown editor to edit pages from browser
 - site.url for local
 - paginator
+
+{% include disqus.html %}
