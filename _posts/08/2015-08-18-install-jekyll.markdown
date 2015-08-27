@@ -15,6 +15,9 @@ All my experiments with jekyll.
     - [Mac app](http://ccmenu.org/)
     - [Android app](http://www.trevorapp.com/)
 - [Control order of pages](https://github.com/plusjade/jekyll-bootstrap/issues/42#issuecomment-18102302)
+- Setup Google Analytics
+    - [Registering on analytics](http://stackoverflow.com/questions/17207458/how-to-add-google-analytics-tracking-id-to-github-pages)
+    - [Including analytics in your site](http://joshualande.com/jekyll-github-pages-poole/)
 
 References:
 
@@ -25,3 +28,5 @@ References:
 5. [Trevor](http://www.trevorapp.com/)
 6. [CCMenu](http://ccmenu.org/)
 7. [No way to order post or pages](https://github.com/plusjade/jekyll-bootstrap/issues/42)
+8. [How I Created a Beautiful and Minimal Blog Using Jekyll, Github Pages, and poole](http://joshualande.com/jekyll-github-pages-poole/)
+9. [How to add Google Analytics Tracking ID to GitHub Pages](http://stackoverflow.com/questions/17207458/how-to-add-google-analytics-tracking-id-to-github-pages)
