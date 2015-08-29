@@ -98,5 +98,6 @@ permalink: /todo/
 - Copy option in code highlighter
 - site.url for local
 - paginator
+- a way to generate a list of popular posts using google analytics
 
 {% include disqus.html %}
