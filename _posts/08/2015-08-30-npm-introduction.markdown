@@ -43,6 +43,17 @@ All the other things which you want to know about npm like:
 
 are covered in [A Beginner’s Guide to npm](http://www.sitepoint.com/beginners-guide-node-package-manager/).
 
+> If you install node using nvm then you won't have to change the global installation dir
+
+```
+$ nvm install node
+######################################################################## 100.0%
+Now using node v0.12.7 (npm v2.11.3)
+
+$ npm config get prefix
+/Users/aapa/.nvm/versions/node/v0.12.7
+```
+
 ## npm vs bower
 As define in a [SO question](http://stackoverflow.com/questions/18641899/what-is-the-difference-between-bower-and-npm):
 
