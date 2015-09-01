@@ -99,5 +99,6 @@ permalink: /todo/
 - site.url for local
 - paginator
 - a way to generate a list of popular posts using google analytics
-
+- add support for http://stackoverflow.com/questions/7630144/how-to-add-google-chrome-omnibox-search-support-for-your-site
+- https://24ways.org/2013/get-started-with-github-pages/
 {% include disqus.html %}
