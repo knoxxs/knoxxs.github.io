@@ -90,6 +90,9 @@ permalink: /todo/
     - https://forge.puppetlabs.com/elasticsearch/elasticsearch
     - https://discuss.elastic.co/t/config-management/225/12
     - https://docs.chef.io/chef_overview.html
+- https://medium.com/javascript-scene/learn-javascript-b631a4af11f2
+- https://gist.github.com/calkan/eaad0bc4458da16a72dd
+- http://blog.npmjs.org/post/128237577345/how-to-build-a-slackbot-deploy-an-app-to-heroku?utm_source=SitePoint&utm_medium=email&utm_campaign=Versioning
 
 #### Jekyll
 
