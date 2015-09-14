@@ -12,6 +12,7 @@ My notes for the [course](https://www.open2study.com/courses/the-art-of-photogra
 ## Module I: Light Through Lenses
 ### Topic I: Photography as a Visual Language
 Four ways to think about images:
+
  - **Vantage point**: this is where we stand in respect to the subject
  - **Framing**: How we crop or position what is inside our frame
  - **Optical drawing**: lens or glass (light shifter/pusher)
@@ -22,16 +23,17 @@ Four ways to think about images:
 
 ### Topic II: But Is it photography?
 
-In portrait the eyes of he subject should be directly staring at us.
+In portrait the eyes of the subject should be directly staring at us.
 
 
 ### Topic III: Photography & Light
 
-> Photography is taking a 3d subject with depth, fell & texture to it and mapping it down on a 2d surface. Light is the way we create th third dimensionality.
+> Photography is taking a 3d subject with depth, feel & texture to it and mapping it down on a 2d surface. Light is the way we create the third dimensionality.
 
 When you change angle different things emerge because of light: texture, depth, dimensionality.
 
 Two types of light (Depends on the photographer and the time of the day):
+
 - Hard (when sun directly overhead, middle of the day. way to much details/definitions)
 - Soft (Can create more dimensionality)
 
@@ -46,7 +48,7 @@ Auto Focus: accuracy
 
 ### Topic V: Vantage Point & Framing
 
-- Though focus is the first this to step out things we want to give preference to, but Vantage point also plays an role.
+- Though focus is the first thing we use to stand out the things we want to give preference to, but Vantage point also plays an role.
 - The height and angle. Remember the rule of || lines.
 - Try to imagine where the photographer would be standing while looking at other photos.
 - Mastering the delusion of view finder is must.
@@ -55,7 +57,7 @@ Auto Focus: accuracy
 ### Topic VI: Aperture & Shutter
 
 - Aperture is the diameter from which light is entering
-- Shutter speed is time for the sensor is receiving light.
+- Shutter speed is the time for which the sensor is receiving light.
 - `Aperture stop / Maximum aperture = f/ ((Diameter of the actual physical lens cap) / (Focal length of the lend))`
 - Bigger the number smaller the aperture and vice-versa.
 - Bigger the number smaller the shutter speed and vice-versa. (1 inch is 1 second)
