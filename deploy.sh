@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-jekyll serve
+bundle exec jekyll serve

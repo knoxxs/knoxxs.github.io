@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 # http://jekyllrb.com/docs/drafts/
-jekyll serve --drafts
+bundle exec jekyll serve --drafts
