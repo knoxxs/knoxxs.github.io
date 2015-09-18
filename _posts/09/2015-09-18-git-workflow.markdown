@@ -54,7 +54,7 @@ Following are some the points which captures the gist of this workflow:
 
 ## Gitflow Workflow
 
-![Gitflow architecture]({{ site.url }}assets/2015/09/git-workflow/giflow.png)
+![Gitflow architecture]({{ site.url }}assets/2015/09/git-workflow/gitflow.png)
 
 The Gitflow Workflow defines a strict branching model designed around the project release. While somewhat more complicated than the Feature Branch Workflow, this provides a robust framework for managing larger projects. This workflow doesn’t add any new concepts or commands beyond what’s required for the Feature Branch Workflow. Instead, it assigns very specific roles to different branches and defines how and when they should interact. In addition to feature branches, it uses individual branches for preparing, maintaining, and recording releases.
 
