@@ -25,3 +25,10 @@ author:
 
 # Custom
 github: https://github.com/knoxxs/knoxxs.github.io
+
+# Issues
+
+# 1. Invalid date post
+# Error: https://travis-ci.org/knoxxs/knoxxs.github.io/builds/81470182
+# Solution: https://github.com/jekyll/jekyll/issues/2938#issuecomment-56237068
+exclude: [vendor]
