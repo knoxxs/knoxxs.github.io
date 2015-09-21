@@ -1,0 +1,492 @@
+---
+layout: post
+title:  "Git Hooks"
+date:   2015-09-20 18:27:00
+categories: programming operation git
+tags: git git-hooks github ci continuous-integration customize-git validation git-policy license
+---
+
+Its been long (about 3+ years) that I am using git as my primary version control system. Though over the time I never ignored any chance to know more about it. But one thing I always ignored - `git-hooks`. Today is the day :). At least at the end of it I want two hooks to be present in our current [supertext](http://supertextnow.com/) repo : 
+
+1. A pre-commit hook which won't let any file, without any _LICENCE_ info at the top, getting committed.
+2. A simple push hook which runs a CI script after every commit pushed to the `origin`.
+
+So lets get started.
+  
+## Introduction
+
+1. **Event-driven**: Git hooks are scripts that run automatically every time a particular event occurs in a Git repository. They let you customize Git’s internal behavior and trigger customizable actions at key points in the development life cycle.
+2. **Customizable**: All Git hooks are ordinary scripts that Git executes when certain events occur in the repository. This makes them very easy to install and configure.
+3. **Scope**: Hooks can reside in either local or server-side repositories, and they are only executed in response to actions in that repository.
+
+### Installing Hooks
+Hooks reside in the .git/hooks directory of every Git repository. Git automatically populates this directory with example scripts when you initialize a repository.
+
+```bash
+$ ls .git/hooks/
+applypatch-msg.sample		post-update.sample		pre-commit.sample		pre-rebase.sample		update.sample
+commit-msg.sample		pre-applypatch.sample		pre-push.sample			prepare-commit-msg.sample
+```
+
+To “install” a hook, all you have to do is remove the .sample extension.
+
+The built-in sample scripts are very useful references, as they document the parameters that are passed in to each hook (they vary from hook to hook).
+
+**Example**:
+
+Try installing a simple prepare-commit-msg hook.
+
+1. Remove the .sample extension from this script, and add the following to the file:
+    
+    ```bash
+    #!/bin/sh
+    
+    echo "# Please include a useful commit message!" > $1
+    ```
+2. Hooks need to be executable, so change the file permissions of the script if you’re creating it from scratch: `chmod +x prepare-commit-msg`
+3. You should now see this message in place of the default commit message every time you run git commit.
+
+### Scripting Languages
+The built-in scripts are mostly shell and PERL scripts, but you can use any scripting language you like as long as it can be run as an executable. The shebang line (`#!/bin/sh`) in each script defines how your file should be interpreted.
+
+**Example**:
+
+For instance, we can write an executable Python script in the prepare-commit-msg file instead of using shell commands.
+
+```python
+#!/usr/bin/env python
+
+import sys, os
+
+commit_msg_filepath = sys.argv[1]
+with open(commit_msg_filepath, 'w') as f:
+    f.write("# Please include a useful commit message!")
+```
+
+### Scope of Hooks
+
+Hooks are local to any given Git repository, and they are not copied over to the new repository when you run git clone.
+
+**Hooks for team**: This has an important impact when configuring hooks for a team of developers. 
+
+1. you need to find a way to make sure hooks stay up-to-date amongst your team members. 
+2. you can’t force developers to create commits that look a certain way—you can only encourage them to do so.
+
+*Solution*: A simple solution to both of these problems is to store your hooks in the actual project directory (above the .git directory). This lets you edit them like any other version-controlled file. To install the hook you can either of following:
+
+1. create a symlink to it in .git/hooks
+2. copy and paste it into the .git/hooks directory whenever the hook is updated.
+
+*Alternative solution*: As an alternative, Git also provides a Template Directory mechanism that makes it easier to install hooks automatically. All of the files and directories contained in this template directory are copied into the .git directory every time you use git init or git clone. ``????????????????????``
+
+**Ignoring Hooks**: All of the local hooks can be altered—or completely un-installed—by the owner of a repository. It’s entirely up to each team member whether or not they actually use a hook. With this in mind, it’s best to think of Git hooks as a convenient developer tool rather than a strictly enforced development policy.
+
+*Solution*: It is possible to reject commits that do not conform to some standard using server-side hooks.
+
+## Local Hooks
+
+Local hooks affect only the repository in which they reside. Each developer can alter their own local hooks, so you can’t use them as a way to enforce a commit policy. They can, however, make it much easier for developers to adhere to certain guidelines.
+
+We’ll be exploring 6 of the most useful local hooks:
+
+1. `pre-commit`
+2. `prepare-commit-msg`
+3. `commit-msg`
+4. `post-commit`
+5. `post-checkout`
+6. `pre-rebase`
+
+The first 4 hooks let you plug into the entire commit life cycle, and the final 2 let you perform some extra actions or safety checks for the git checkout and git rebase commands, respectively. All of the pre- hooks let you alter the action that’s about to take place, while the post- hooks are used only for notifications.
+
+### Pre-Commit
+
+The `pre-commit` script is executed every time you run `git commit` before Git asks the developer for a commit message or generates a commit object. You can use this hook to inspect the snapshot that is about to be committed. No arguments are passed to the `pre-commit` script, and exiting with a non-zero status aborts the entire commit.
+
+**Example**: This script aborts the commit if it finds any whitespace errors, as defined by the git diff-index command (_trailing whitespace, lines with only whitespace, and a space followed by a tab inside the initial indent of a line are considered errors by default_).
+
+```bash
+#!/bin/sh
+
+# Check if this is the initial commit
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+    echo "pre-commit: About to create a new commit..."
+    against=HEAD
+else
+    echo "pre-commit: About to create the first commit..."
+    # The 4b825d... hash is a magic commit ID that represents an empty commit.
+    against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+
+# Use git diff-index to check for whitespace errors
+echo "pre-commit: Testing for whitespace errors..."
+# The git diff-index --cached command compares a commit against the index.
+# --check option is to check whitespace erros
+if ! git diff-index --check --cached $against
+then
+    echo "pre-commit: Aborting commit due to whitespace errors"
+    exit 1
+else
+    echo "pre-commit: No whitespace errors :)"
+    exit 0
+fi
+```
+
+### Prepare Commit Message
+The `prepare-commit-msg` hook is called after the `pre-commit` hook to populate the text editor with a commit message. This is a good place to alter the automatically generated commit messages for squashed or merged commits.
+
+One to three arguments are passed to the prepare-commit-msg script:
+
+1. The name of a temporary file that contains the message. You change the commit message by altering this file in-place.
+2. The type of commit. This can be message (`-m` or `-F` option), template (`-t` option), `merge` (if the commit is a merge commit), or `squash` (if the commit is squashing other commits).
+3. The SHA1 hash of the relevant commit. Only given if `-c`, `-C`, or `--amend` option was given.
+
+As with `pre-commit`, exiting with a non-zero status aborts the commit.
+
+**Example**: When using an issue tracker, a common convention is to address each issue in a separate branch. If you include the issue number in the branch name, you can write a prepare-commit-msg hook to automatically include it in each commit message on that branch.
+
+```python
+#!/usr/bin/env python
+
+import sys, os, re
+from subprocess import check_output
+
+# Collect the parameters
+commit_msg_filepath = sys.argv[1]
+if len(sys.argv) > 2:
+    commit_type = sys.argv[2]
+else:
+    commit_type = ''
+if len(sys.argv) > 3:
+    commit_hash = sys.argv[3]
+else:
+    commit_hash = ''
+
+print "prepare-commit-msg: File: %s\nType: %s\nHash: %s" % (commit_msg_filepath, commit_type, commit_hash)
+
+# Figure out which branch we're on
+branch = check_output(['git', 'symbolic-ref', '--short', 'HEAD']).strip()
+print "prepare-commit-msg: On branch '%s'" % branch
+
+# Populate the commit message with the issue #, if there is one
+if branch.startswith('issue-'):
+    print "prepare-commit-msg: Oh hey, it's an issue branch."
+    result = re.match('issue-(.*)', branch)
+    issue_number = result.group(1)
+
+    with open(commit_msg_filepath, 'r+') as f:
+        content = f.read()
+        f.seek(0, 0)
+        f.write("ISSUE-%s %s" % (issue_number, content))
+```
+
+One thing to keep in mind when using `prepare-commit-msg` is that it runs even when the user passes in a message with the `-m` option of `git commit`. This means that the above script will automatically insert the `ISSUE-[#]` string without letting the user edit it. You can handle this case by seeing if the 2nd parameter (`commit_type`) is equal to message.
+
+### Commit Message
+The `commit-msg` hook is much like the `prepare-commit-msg` hook, but it’s called after the user enters a commit message. This is an appropriate place to warn developers that their message doesn't adhere to your team’s standards.
+
+The only argument passed to this hook is the name of the file that contains the message. If it doesn't like the message that the user entered, it can alter this file in-place (just like with `prepare-commit-msg`) or it can abort the commit entirely by exiting with a non-zero status.
+
+**Example**: The following script checks to make sure that the user didn't delete the `ISSUE-[#]` string that was automatically generated by the `prepare-commit-msg` hook.
+
+```python
+#!/usr/bin/env python
+
+import sys, os, re
+from subprocess import check_output
+
+# Collect the parameters
+commit_msg_filepath = sys.argv[1]
+
+# Figure out which branch we're on
+branch = check_output(['git', 'symbolic-ref', '--short', 'HEAD']).strip()
+print "commit-msg: On branch '%s'" % branch
+
+# Check the commit message if we're on an issue branch
+if branch.startswith('issue-'):
+    print "commit-msg: Oh hey, it's an issue branch."
+    result = re.match('issue-(.*)', branch)
+    issue_number = result.group(1)
+    required_message = "ISSUE-%s" % issue_number
+
+    with open(commit_msg_filepath, 'r') as f:
+        content = f.read()
+        if not content.startswith(required_message):
+            print "commit-msg: ERROR! The commit message must start with '%s'" % required_message
+            sys.exit(1)
+```
+
+### Post-Commit
+The `post-commit` hook is called immediately after the `commit-msg` hook. It can’t change the outcome of the `git commit` operation, so it’s used primarily for notification purposes.
+
+The script takes no parameters and its exit status does not affect the commit in any way. For most post-commit scripts, you’ll want access to the commit that was just created. You can use `git rev-parse HEAD` to get the new commit's SHA1 hash, or you can use `git log -l HEAD` to get all of its information.
+
+**Example**: If you want to email your boss every time you commit a snapshot, you could add the following post-commit hook.
+
+```python
+#!/usr/bin/env python
+
+import smtplib
+from email.mime.text import MIMEText
+from subprocess import check_output
+
+# Get the git log --stat entry of the new commit
+log = check_output(['git', 'log', '-1', '--stat', 'HEAD'])
+
+# Create a plaintext email message
+msg = MIMEText("Look, I'm actually doing some work:\n\n%s" % log)
+
+msg['Subject'] = 'Git post-commit hook notification'
+msg['From'] = 'mary@example.com'
+msg['To'] = 'boss@example.com'
+
+# Send the message
+SMTP_SERVER = 'smtp.example.com'
+SMTP_PORT = 587
+
+session = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+session.ehlo()
+session.starttls()
+session.ehlo()
+session.login(msg['From'], 'secretPassword')
+
+session.sendmail(msg['From'], msg['To'], msg.as_string())
+session.quit()
+```
+
+It’s possible to use `post-commit` to trigger a local continuous integration system, but most of the time you'll want to be doing this in the `post-receive` hook. This runs on the server instead of the user's local machine, and it also runs every time any developer pushes their code.
+
+### Post-Checkout
+The `post-checkout` hook works a lot like the `post-commit` hook, but it’s called whenever you successfully check out a reference with git checkout. This is nice for clearing out your working directory of generated files that would otherwise cause confusion.
+
+This hook accepts three parameters, and its exit status has no affect on the git checkout command.
+
+1. The ref of the previous HEAD
+2. The ref of the new HEAD
+3. A flag telling you if it was a branch checkout or a file checkout. The flag will be 1 and 0, respectively.
+
+**Example**: A common problem with Python developers occurs when generated `.pyc` files stick around after switching branches. The interpreter sometimes uses these `.pyc` instead of the `.py` source file. To avoid any confusion, you can delete all `.pyc` files every time you check out a new branch using the following `post-checkout` script:
+
+```python
+#!/usr/bin/env python
+
+import sys, os, re
+from subprocess import check_output
+
+# Collect the parameters
+previous_head = sys.argv[1]
+new_head = sys.argv[2]
+is_branch_checkout = sys.argv[3]
+
+if is_branch_checkout == "0":
+    print "post-checkout: This is a file checkout. Nothing to do."
+    sys.exit(0)
+
+print "post-checkout: Deleting all '.pyc' files in working directory"
+for root, dirs, files in os.walk('.'):
+    for filename in files:
+        ext = os.path.splitext(filename)[1]
+        if ext == '.pyc':
+            os.unlink(os.path.join(root, filename))
+```
+
+You can also use the `post-checkout` hook to alter your working directory based on which branch you have checked out. For example, you might use a `plugins` branch to store all of your plugins outside of the core codebase. If these plugins require a lot of binaries that other branches do not, you can selectively build them only when you’re on the `plugins` branch.
+
+### Pre-Rebase
+The `pre-rebase` hook is called before git rebase changes anything. This hook takes 2 parameters: the upstream branch that the series was forked from, and the branch being rebased. The second parameter is empty when rebasing the current branch. To abort the rebase, exit with a non-zero status.
+
+**Example**: Completely disallow rebasing in your repository, you could use the following pre-rebase script:
+
+```bash
+#!/bin/sh
+# Disallow all rebasing
+echo "pre-rebase: Rebasing is dangerous. Don't do it."
+exit 1
+```
+
+For a more in-depth example, take a look at the included `pre-rebase.sample` script. This script is a little more intelligent about when to disallow rebasing. It checks to see if the topic branch that you’re trying to rebase has already been merged into the next branch (which is assumed to be the mainline branch). If it has, you’re probably going to get into trouble by rebasing it, so the script aborts the rebase.
+
+## Server-side Hooks
+Server-side hooks work just like local ones, except they reside in server-side repositories. When attached to the official repository, some of these can serve as a way to enforce policy by rejecting certain commits. There are 3 server-side hooks:
+
+1. `pre-receive`
+2. `update`
+3. `post-receive`
+
+Some things to keep in mind:
+
+1. All of these hooks let you react to different stages of the git push process.
+2. The output from server-side hooks are piped to the client’s console.
+3. These scripts don’t return control of the terminal until they finish executing.
+
+### Pre-Receive
+The `pre-receive` hook is executed every time somebody uses git push to push commits to the repository. The hook runs before any references are updated, so it’s a good place to enforce any kind of development policy that you want:
+
+1. who is doing the pushing
+2. how the commit message is formatted
+3. the changes contained in the commit
+
+The script takes no parameters, but each ref that is being pushed is passed to the script on a separate line on standard input in the following format:
+
+```bash
+<old-value> <new-value> <ref-name>
+```
+
+**Example**: You can see how this hook works using a very basic pre-receive script that simply reads in the pushed refs and prints them out.
+
+```python
+#!/usr/bin/env python
+
+import sys
+import fileinput
+
+# Read in each ref that the user is trying to update
+for line in fileinput.input():
+    print "pre-receive: Trying to push ref: %s" % line
+
+# Abort the push
+# sys.exit(1)
+```
+
+After placing the above script in the .git/hooks directory of a remote repository and pushing the master branch, you’ll see something like the following in your console:
+
+```bash
+b6b36c697eb2d24302f89aa22d9170dfe609855b 85baa88c22b52ddd24d71f05db31f4e46d579095 refs/heads/master
+```
+
+You can use these SHA1 hashes, along with some lower-level Git commands, to inspect the changes that are going to be introduced. Some common use cases include:
+
+1. Rejecting changes that involve an upstream rebase
+2. Preventing non-fast-forward merges
+3. Checking that the user has the correct permissions to make the intended changes (mostly used for centralized Git workflows)
+
+If multiple refs are pushed, returning a non-zero status from `pre-receive` aborts all of them. If you want to accept or reject branches on a case-by-case basis, you need to use the `update` hook instead.
+
+### Update
+
+The `update` hook is called after `pre-receive`, and it works much the same way. It's still called before anything is actually updated, but it’s called separately for each ref that was pushed. Unlike `pre-receive`, this hook doesn't need to read from standard input. Instead, it accepts the following 3 arguments:
+
+1. The name of the ref being updated
+2. The old object name stored in the ref
+3. The new object name stored in the ref
+
+**Example**: Printing the details
+
+```python
+#!/usr/bin/env python
+
+import sys
+
+branch = sys.argv[1]
+old_commit = sys.argv[2]
+new_commit = sys.argv[3]
+
+print "Moving '%s' from %s to %s" % (branch, old_commit, new_commit)
+
+# Abort pushing only this branch
+# sys.exit(1)
+```
+
+### Post-Receive
+
+The `post-receive` hook gets called after a successful push operation, making it a good place to perform notifications. For many workflows, this is a better place to trigger notifications than `post-commit` because the changes are available on a public server instead of residing only on the user’s local machine.
+
+The script takes no parameters, but is sent the same information as `pre-receive` via standard input.
+
+## LICENSE check hook
+
+I have written a `update` hook which checks for the license info in the file. Here is the complete code: 
+
+```python
+#!/usr/bin/env python
+
+import sys
+import re
+from subprocess import check_output
+
+# Constants
+'''
+--diff-filter=[(A|C|D|M|R|T|U|X|B)...[*]]
+           Select only files that are Added (A), Copied (C), Deleted (D), Modified (M), Renamed (R), have their type (i.e. regular file, symlink, submodule, ...)
+           changed (T), are Unmerged (U), are Unknown (X), or have had their pairing Broken (B). Any combination of the filter characters (including none) can be
+           used. When * (All-or-none) is added to the combination, all paths are selected if there is any file that matches other criteria in the comparison; if
+           there is no file that matches other criteria, nothing is selected.
+'''
+git_diff_file_filters = {'added': 'A', 'modified': 'M'}
+
+# create regex pattern to parse the file_paths
+'''
+Example string for this regex
+
+$ git diff --name-status --diff-filter=AM
+A       supertext/test/com/stxt/Test.java
+M       .idea/artifacts/supertext_war_exploded.xml
+'''
+git_diff_regex_grp_add_or_mod = 'added_or_modified'
+git_diff_regex_grp_file_path = 'file_path'
+git_diff_regex_pattern = re.compile('(?P<' + git_diff_regex_grp_add_or_mod + '>' + '|'.join(
+    git_diff_file_filters.values()) + ') +(?P<' + git_diff_regex_grp_file_path + '>.*)')
+
+
+def license_info_not_present(file_content):
+    return "Copyright (C) 2015 Scupids - All Rights Reserved" not in file_content
+
+
+def get_affected_files():
+    git_diff_output = check_output(
+        ['git', 'diff', '--name-status', '--diff-filter=' + ''.join(git_diff_file_filters.values()), old_commit_sha,
+         new_commit_sha])
+    return git_diff_output.strip().split('\n')
+
+
+def parse_file_details(file_detail):
+    git_diff_regex_match = git_diff_regex_pattern.match(file_detail.expandtabs())
+    return git_diff_regex_match.group(git_diff_regex_grp_add_or_mod), git_diff_regex_match.group(
+        git_diff_regex_grp_file_path)
+
+
+if __name__ == "__main__":
+    # Collect the parameters
+    branch = sys.argv[1]
+    new_commit_sha = sys.argv[2]
+    old_commit_sha = sys.argv[3]
+
+    print "Checking license info in new/modified files in branch: " + branch
+
+    # get added or modified files
+    added_or_modified_files = get_affected_files()
+
+    missing_license_info = False
+    for added_or_modified_file in added_or_modified_files:
+        # get file details
+        added_or_modified, file_path = parse_file_details(added_or_modified_file)
+
+        # read file
+        file_content = check_output(['git', 'show', new_commit_sha + ':' + file_path])
+
+        # check if license info exists
+        if license_info_not_present(file_content):
+            missing_license_info = True
+
+            added_or_modified_str = "new" if (git_diff_file_filters.get('added') == added_or_modified) else "modified"
+            print "Missing license info in " + added_or_modified_str + " file: " + file_path
+
+    # if missing license info then abort the push for this branch
+    if missing_license_info:
+        print "Aborting push for branch: " + branch
+        sys.exit(1)
+
+```
+
+Improvements needed:
+
+1. Improve the regex to match the LICENSE
+2. Add a `pre-commit` hook for the same thing
+
+The other hook to call CI on every push will be just a `post-receive` hook.
+
+## References
+
+1. [Git Hooks](https://www.atlassian.com/git/tutorials/git-hooks)
+2. [Git server hook: get contents of files being pushed?](http://stackoverflow.com/questions/15314527/git-server-hook-get-contents-of-files-being-pushed)
+3. [Git show not working with python check_output](http://stackoverflow.com/questions/32703953/git-show-not-working-with-python-check-output)
