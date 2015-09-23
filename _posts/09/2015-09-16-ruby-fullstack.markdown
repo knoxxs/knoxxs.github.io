@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Ruby Fullstack
-date:   2015-09-15 22:16:00
+date:   2015-09-16 22:16:00
 categories: programming ruby
 tags: ruby rails fullstack course training learning skill
 ---
