@@ -1094,6 +1094,760 @@ To prevent conflicts between Spring and Git when using Guard, you should add the
 > To kill the spring: `pkill -9 -f spring`
 
 Lets run the guard: `bundle exec guard`
+
+## Chapter 4 Rails-flavored Ruby
+
+### Ruby in rails
+Lets start with the embedded ruby code we used in last chapter for our `app/views/layouts/application.html.erb` page:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>
+```
+
+`<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>` line uses the built-in Rails function `stylesheet_link_tag` to include `application.css` for all media types. There are four Ruby ideas in this line:
+ 
+1. built-in Rails methods
+2. method invocation with missing parentheses
+3. symbols
+4. hashes
+
+In addition to coming equipped with a large number of built-in functions for use in the views, Rails also allows the creation of new ones. Such functions are called **helpers**.
+
+`<%= yield(:title) %> | Ruby on Rails Tutorial Sample App` line relies on definition of a page title (using `provide`) in each view. What if we don't provide a title, it will render _| Ruby on Rails Tutorial Sample App_. To solve the problem of a missing page title, we’ll define a custom helper called `full_title`:
+ 
+```ruby
+# app/helpers/application_helper.rb
+module ApplicationHelper
+
+  # Returns the full title on a per-page basis.
+  def full_title(page_title = '')
+    base_title = "Ruby on Rails Tutorial Sample App"
+    if page_title.empty?
+      base_title
+    else
+      page_title + " | " + base_title
+    end
+  end
+end
+```
+
+Now we can use `<title><%= full_title(yield(:title)) %></title>` for our title in the layout file. And then remove the _Home_ from the test case and then from `home` page from the title.
+ 
+### Strings
+`Rails console` is built on top of interactive Ruby (irb), and thus has access to the full power of the Ruby language. By default, the console starts in a development environment, which is one of three separate environments defined by Rails (the others are test and production).
+
+```bash
+irb(main):007:0> first_name = 'Michael'
+=> "Michael"
+irb(main):008:0> last_name = 'Hartl'
+=> "Hartl"
+irb(main):009:0> first_name + " " + last_name    # Concatenation, with a space in between
+=> "Michael Hartl"
+irb(main):010:0> "#{first_name} #{last_name}"    # The equivalent interpolation
+=> "Michael Hartl"
+irb(main):011:0> '#{first_name} #{last_name}'    # Interpolation doesn't work on single quotes
+=> "\#{first_name} \#{last_name}"
+irb(main):012:0>
+
+irb(main):016:0* '\n'
+=> "\\n"
+irb(main):017:0> "\n"
+=> "\n"
+irb(main):018:0> puts "\n"
+
+=> nil
+irb(main):019:0> puts '\n'
+\n
+=> nil
+irb(main):020:0>
+```
+
+If double-quoted strings can do everything that single-quoted strings can do, and interpolate to boot, what’s the point of single-quoted strings? They are often useful because they are truly literal, and contain exactly the characters you type.
+
+`puts` is used to print. `puts` automatically appends a newline character `\n` to the output.
+
+```bash
+>> puts "foo"     # put string
+foo
+=> nil
+
+>> print "foo"    # print string (same as puts, but without the newline)
+foo=> nil
+>> print "foo\n"  # Same as puts "foo"
+foo
+=> nil
+```
+
+### Objects and message passing
+Everything in Ruby, including strings and even `nil`, is an object. Objects respond to messages. An object like a string, for example, can respond to the message `length`, 
+
+```bash
+>> nil.to_s
+=> ""
+
+>> nil.empty?
+NoMethodError: undefined method `empty?' for nil:NilClass
+>> nil.to_s.empty?      # Message chaining
+=> true
+
+>> "foo".nil?
+=> false
+>> "".nil?
+=> false
+>> nil.nil?
+=> true
+```
+
+Question mark at the end of the `empty?` method. This is a Ruby convention indicating that the return value is `boolean: true or false`.
+
+```bash
+>> s = "foobar"
+>> if s.nil?
+>>   "The variable is nil"
+>> elsif s.empty?
+>>   "The string is empty"
+>> elsif s.include?("foo")
+>>   "The string includes 'foo'"
+>> end
+=> "The string includes 'foo'"
+
+#logical operators
+
+>> x = "foo"
+=> "foo"
+>> y = ""
+=> ""
+>> puts "Both strings are empty" if x.empty? && y.empty?
+=> nil
+>> puts "One of the strings is empty" if x.empty? || y.empty?
+"One of the strings is empty"
+=> nil
+>> puts "x is not empty" if !x.empty?
+"x is not empty"
+=> nil
+```
+
+The alternate use of the `if` keyword allows you to write a statement that is evaluated only if the statement following if is `true`. There's a complementary `unless` keyword that works the same way.
+
+```bash
+>> string = "foobar"
+>> puts "The string '#{string}' is nonempty." unless string.empty?
+The string 'foobar' is nonempty.
+=> nil
+```
+
+It’s worth noting that the nil object is special, in that it is the only Ruby object that is false in a boolean context, apart from false itself.
+
+```bash
+>> !!nil
+=> false
+
+>> !!0
+=> true
+```
+
+### Method definitions
+
+```ruby
+>> def string_message(str = '')
+>>   if str.empty?
+>>     "It's an empty string!"
+>>   else
+>>     "The string is nonempty."
+>>   end
+>> end
+=> :string_message
+>> puts string_message("foobar")
+The string is nonempty.
+>> puts string_message("")
+It's an empty string!
+>> puts string_message
+It's an empty string!
+```
+
+It’s possible to leave out the argument entirely (in which case we can also omit the parentheses). Ruby functions have an implicit return, meaning they return the last statement evaluated. Ruby also has an explicit return option; the following function is equivalent to the one above:
+
+```ruby
+>> def string_message(str = '')
+>>   return "It's an empty string!" if str.empty?
+>>   return "The string is nonempty."
+>> end
+```
+
+### Back to tile helper
+
+```ruby
+# app/helpers/application_helper.rb
+module ApplicationHelper
+
+  # Returns the full title on a per-page basis.       # Documentation comment
+  def full_title(page_title = '')                     # Method def, optional arg
+    base_title = "Ruby on Rails Tutorial Sample App"  # Variable assignment
+    if page_title.empty?                              # Boolean test
+      base_title                                      # Implicit return
+    else
+      page_title + " | " + base_title                 # String concatenation
+    end
+  end
+end
+```
+
+The final element is `module ApplicationHelper`, modules give us a way to package together related methods, which can then be mixed in to Ruby classes using include. When writing ordinary Ruby, you often write modules and include them explicitly yourself, but in the case of a helper module Rails handles the inclusion for us. The result is that the full_title method is automagically available in all our views.
+
+
+### Arrays
+
+```bash
+>>  "foo bar     baz".split     # Split a string into a three-element array.
+=> ["foo", "bar", "baz"]
+
+>> "fooxbarxbazx".split('x')
+=> ["foo", "bar", "baz"]
+
+>> a = [42, 8, 17]
+=> [42, 8, 17]
+>> a[0]               # Ruby uses square brackets for array access.
+=> 42
+>> a[1]
+=> 8
+>> a[2]
+=> 17
+>> a[-1]              # Indices can even be negative!
+=> 17
+
+>> a                  # Just a reminder of what 'a' is
+=> [42, 8, 17]
+>> a.first
+=> 42
+>> a.second
+=> 8
+>> a.last
+=> 17
+>> a.last == a[-1]    # Comparison using ==
+=> true
+
+# Equality operators
+>> x = a.length       # Like strings, arrays respond to the 'length' method.
+=> 3
+>> x == 3
+=> true
+>> x == 1
+=> false
+>> x != 1
+=> true
+>> x >= 1
+=> true
+>> x < 1
+=> false
+
+# Array methods
+>> a
+=> [42, 8, 17]
+>> a.empty?
+=> false
+>> a.include?(42)
+=> true
+>> a.sort
+=> [8, 17, 42]
+>> a.reverse
+=> [17, 8, 42]
+>> a.shuffle
+=> [17, 42, 8]
+>> a
+=> [42, 8, 17]
+
+>> a.push(6)                  # Pushing 6 onto an array
+=> [42, 8, 17, 6]
+>> a << 7                     # Pushing 7 onto an array
+=> [42, 8, 17, 6, 7]
+>> a << "foo" << "bar"        # Chaining array pushes
+=> [42, 8, 17, 6, 7, "foo", "bar"]     # Ruby arrays can contain a mixture of different types
+
+>> a
+=> [42, 8, 17, 7, "foo", "bar"]
+>> a.join                       # Join on nothing.
+=> "428177foobar"
+>> a.join(', ')                 # Join on comma-space.
+=> "42, 8, 17, 7, foo, bar"
+```
+
+Note that none of the methods above changes a itself. To mutate the array, use the corresponding `bang` methods:
+
+```bash
+>> a
+=> [42, 8, 17]
+>> a.sort!
+=> [8, 17, 42]
+>> a
+=> [8, 17, 42]
+```
+
+### Ranges
+Closely related to arrays are ranges, which can probably most easily be understood by converting them to arrays using the `to_a` method:
+
+```ruby
+>> 0..9
+=> 0..9
+>> 0..9.to_a              # Oops, call to_a on 9.
+NoMethodError: undefined method `to_a' for 9:Fixnum
+>> (0..9).to_a            # Use parentheses to call to_a on the range.
+=> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+>> a = %w[foo bar baz quux]         # Use %w to make a string array.
+=> ["foo", "bar", "baz", "quux"]
+>> a[0..2]
+=> ["foo", "bar", "baz"]
+
+>> a = (0..9).to_a
+=> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>> a[2..(a.length-1)]               # Explicitly use the array's length.
+=> [2, 3, 4, 5, 6, 7, 8, 9]
+>> a[2..-1]                         # Use the index -1 trick.
+=> [2, 3, 4, 5, 6, 7, 8, 9]
+
+
+>> ('a'..'e').to_a                  # Ranges also work with characters
+=> ["a", "b", "c", "d", "e"]
+```
+
+### Blocks
+Both arrays and ranges respond to a host of methods that accept blocks, which are simultaneously one of Ruby’s most powerful and most confusing features:
+
+```ruby
+>> (1..5).each { |i| puts 2 * i }
+2
+4
+6
+8
+10
+=> 1..5
+```
+
+This code calls the each method on the `range (1..5)` and passes it the block `{ |i| puts 2 * i }`. The vertical bars around the variable name in `|i|` are Ruby syntax for a block variable, and it's up to the method to know what to do with the block. In this case, the range's `each` method can handle a block with a single local variable, which we've called i, and it just executes the block for each value in the range.
+
+Curly braces are one way to indicate a block, but there is a second way as well:
+
+```ruby
+>> (1..5).each do |i|
+?>   puts 2 * i
+>> end
+2
+4
+6
+8
+10
+=> 1..5
+```
+
+Some things one can do with blocks:
+
+```ruby
+>> (1..5).each do |number|
+?>   puts 2 * number
+>>   puts '--'
+>> end
+2
+--
+4
+--
+6
+--
+8
+--
+10
+--
+=> 1..5
+
+
+
+
+>> 3.times { puts "Betelgeuse!" }   # 3.times takes a block with no variables.
+"Betelgeuse!"
+"Betelgeuse!"
+"Betelgeuse!"
+=> 3
+>> (1..5).map { |i| i**2 }          # The ** notation is for 'power'.
+=> [1, 4, 9, 16, 25]
+>> %w[a b c]                        # Recall that %w makes string arrays.
+=> ["a", "b", "c"]
+>> %w[a b c].map { |char| char.upcase }
+=> ["A", "B", "C"]
+>> %w[A B C].map { |char| char.downcase }
+=> ["a", "b", "c"]
+
+
+
+>> %w[A B C].map { |char| char.downcase }
+=> ["a", "b", "c"]
+>> %w[A B C].map(&:downcase)        # (This strange-looking but compact code uses a symbol
+=> ["a", "b", "c"]
+
+
+
+test "should get home" do
+  get :home
+  assert_response :success
+  assert_select "title", "Ruby on Rails Tutorial Sample App"
+end
+```
+
+The `test` method takes in a string argument (the description) and a block, and then executes the body of the block as part of running the test suite.
+
+Let see how `('a'..'z').to_a.shuffle[0..7].join` works:
+
+```ruby
+>> ('a'..'z').to_a                     # An alphabet array
+=> ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
+"p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+>> ('a'..'z').to_a.shuffle             # Shuffle it.
+=> ["c", "g", "l", "k", "h", "z", "s", "i", "n", "d", "y", "u", "t", "j", "q",
+"b", "r", "o", "f", "e", "w", "v", "m", "a", "x", "p"]
+>> ('a'..'z').to_a.shuffle[0..7]       # Pull out the first eight elements.
+=> ["f", "w", "i", "a", "h", "p", "c", "x"]
+>> ('a'..'z').to_a.shuffle[0..7].join  # Join them together to make one string.
+=> "mznpybuj"
+```
+
+### Hashes and symbols
+Hashes are essentially arrays that aren’t limited to integer indices. Instead, hash indices, or keys, can be almost any object. For example, we can use strings as keys:
+
+```ruby
+>> user = {}                          # {} is an empty hash.
+=> {}
+>> user["first_name"] = "Michael"     # Key "first_name", value "Michael"
+=> "Michael"
+>> user["last_name"] = "Hartl"        # Key "last_name", value "Hartl"
+=> "Hartl"
+>> user["first_name"]                 # Element access is like arrays.
+=> "Michael"
+>> user                               # A literal representation of the hash
+=> {"last_name"=>"Hartl", "first_name"=>"Michael"}
+
+
+>> user = { "first_name" => "Michael", "last_name" => "Hartl" }
+=> {"last_name"=>"Hartl", "first_name"=>"Michael"}
+
+```
+
+Symbols look kind of like strings, but prefixed with a colon instead of surrounded by quotes. For example, `:name` is a symbol. You can think of symbols as basically strings without all the extra baggage.
+
+```ruby
+>> "name".split('')
+=> ["n", "a", "m", "e"]
+>> :name.split('')
+NoMethodError: undefined method `split' for :name:Symbol
+>> "foobar".reverse
+=> "raboof"
+>> :foobar.reverse
+NoMethodError: undefined method `reverse' for :foobar:Symbol
+
+
+# Unlike strings, not all characters are valid:
+>> :foo-bar
+NameError: undefined local variable or method `bar' for main:Object
+>> :2foo
+SyntaxError
+
+
+>> user = { :name => "Michael Hartl", :email => "michael@example.com" }
+=> {:name=>"Michael Hartl", :email=>"michael@example.com"}
+>> user[:name]              # Access the value corresponding to :name.
+=> "Michael Hartl"
+>> user[:password]          # Access the value of an undefined key.
+=> nil
+
+
+# Since it’s so common for hashes to use symbols as keys, as of version 1.9 Ruby supports a new syntax just for this special case:
+>> h1 = { :name => "Michael Hartl", :email => "michael@example.com" }
+=> {:name=>"Michael Hartl", :email=>"michael@example.com"}
+>> h2 = { name: "Michael Hartl", email: "michael@example.com" }
+=> {:name=>"Michael Hartl", :email=>"michael@example.com"}
+>> h1 == h2
+=> true
+
+
+# Nested hashes
+>> params = {}        # Define a hash called 'params' (short for 'parameters').
+=> {}
+>> params[:user] = { name: "Michael Hartl", email: "mhartl@example.com" }
+=> {:name=>"Michael Hartl", :email=>"mhartl@example.com"}
+>> params
+=> {:user=>{:name=>"Michael Hartl", :email=>"mhartl@example.com"}}
+>>  params[:user][:email]
+=> "mhartl@example.com"
+
+
+# Each on hashes
+>> flash = { success: "It worked!", danger: "It failed." }
+=> {:success=>"It worked!", :danger=>"It failed."}
+>> flash.each do |key, value|
+?>   puts "Key #{key.inspect} has value #{value.inspect}"
+>> end
+Key :success has value "It worked!"
+Key :danger has value "It failed."
+
+
+# The last example uses the useful inspect method, which returns a string with a literal representation of the object it’s called on:
+>> puts (1..5).to_a            # Put an array as a string.
+1
+2
+3
+4
+5
+>> puts (1..5).to_a.inspect    # Put a literal array.
+[1, 2, 3, 4, 5]
+>> puts :name, :name.inspect
+name
+:name
+>> puts "It worked!", "It worked!".inspect
+It worked!
+"It worked!"
+
+
+
+# By the way, using inspect to print an object is common enough that there’s a shortcut for it, the p function:11
+>> p :name             # Same output as 'puts :name.inspect'
+:name
+```
+
+### CSS revisited
+
+```ruby
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+
+# its a function call
+stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+```
+
+The media argument sure looks like a hash, but where are the curly braces? When hashes are the last argument in a function call, the curly braces are optional, so these two are equivalent:
+
+ ```ruby
+ # Curly braces on final hash arguments are optional.
+ stylesheet_link_tag 'application', { media: 'all', 'data-turbolinks-track' => true }
+ stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+ ```
+ 
+Next, why does the `data-turbolinks-track` key-value pair use the old-style hashrocket syntax? This is because using the newer syntax to write `data-turbolinks-track: true` is invalid because of the hyphens.
+
+
+Finally, why does Ruby correctly interpret the lines even with a line break between the final elements? The answer is that Ruby doesn't distinguish between newlines and other whitespace in this context.
+
+So, we see now that the line `stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true` calls the stylesheet_link_tag function with two arguments: a string, indicating the path to the stylesheet, and a hash with two elements, indicating the media type and telling Rails to use the turbolinks feature added in Rails 4.0. Because of the <%= %> brackets, the results are inserted into the template by ERb, and if you view the source of the page in your browser you should see the HTML needed to include a stylesheet (Listing 4.11). (You may see some extra things, like `?body=1`, after the CSS filenames. These are inserted by Rails to ensure that browsers reload the CSS when it changes on the server.)
+
+### Constructors
+Ruby, like many object-oriented languages, uses classes to organize methods; these classes are then instantiated to create objects.
+
+```ruby
+>> s = "foobar"       # A literal constructor for strings using double quotes
+=> "foobar"
+>> s.class
+=> String
+
+
+>> s = String.new("foobar")   # A named constructor for a string
+=> "foobar"
+>> s.class
+=> String
+>> s == "foobar"
+=> true
+
+
+>> a = Array.new([1, 3, 2])
+=> [1, 3, 2]
+
+
+# Hashes, in contrast, are different. While the array constructor Array.new takes an initial value for the array, Hash.new takes a default value for the hash, which is the value of the hash for a nonexistent key:
+>> h = Hash.new
+=> {}
+>> h[:foo]            # Try to access the value for the nonexistent key :foo.
+=> nil
+>> h = Hash.new(0)    # Arrange for nonexistent keys to return 0 instead of nil.
+=> {}
+>> h[:foo]
+=> 0
+```
+
+### Class inheritance
+When learning about classes, it’s useful to find out the class hierarchy using the `superclass` method:
+
+```ruby
+>> s = String.new("foobar")
+=> "foobar"
+>> s.class                        # Find the class of s.
+=> String
+>> s.class.superclass             # Find the superclass of String.
+=> Object
+>> s.class.superclass.superclass  # Ruby 1.9 uses a new BasicObject base class
+=> BasicObject
+>> s.class.superclass.superclass.superclass
+=> nil
+```
+
+Defining your own classes:
+
+```ruby
+>> class Word
+>>   def palindrome?(string)
+>>     string == string.reverse
+>>   end
+>> end
+=> :palindrome?
+
+
+>> w = Word.new              # Make a new Word object.
+=> #<Word:0x22d0b20>
+>> w.palindrome?("foobar")
+=> false
+>> w.palindrome?("level")
+=> true
+```
+
+Since a word is a string, it’s more natural to have our `Word` class inherit from `String`. (You should exit the console and re-enter it to clear out the old definition of Word.)
+
+```ruby
+>> class Word < String             # Word inherits from String.
+>>   # Returns true if the string is its own reverse.
+>>   def palindrome?
+>>     self == self.reverse        # self is the string itself.
+>>   end
+>> end
+=> nil
+# Ruby allows us to do this using the self keyword: inside the Word class, self is the object itself, which means we can use
+# In fact, inside the String class the use of self. is optional on a method or attribute (unless we’re making an assignment), so `self == reverse` would work as well.
+
+
+>> s = Word.new("level")    # Make a new Word, initialized with "level".
+=> "level"
+>> s.palindrome?            # Words have the palindrome? method.
+=> true
+>> s.length                 # Words also inherit all the normal string methods.
+=> 5
+```
+
+### Modifying built-in classes
+
+While inheritance is a powerful idea, in the case of palindromes it might be even more natural to add the `palindrome?` method to the String class itself, so that (among other things) we can call `palindrome?` on a string literal, which we currently can’t do:
+
+```ruby
+>> "level".palindrome?
+NoMethodError: undefined method `palindrome?' for "level":String
+```
+
+Amazingly, Ruby lets you do just this; Ruby classes can be opened and modified, allowing ordinary mortals such as ourselves to add methods to them:
+
+```ruby
+>> class String
+>>   # Returns true if the string is its own reverse.
+>>   def palindrome?
+>>     self == self.reverse
+>>   end
+>> end
+=> nil
+>> "deified".palindrome?
+=> true
+```
+
+Modifying built-in classes is a powerful technique, but with great power comes great responsibility, and it’s considered bad form to add methods to built-in classes without having a really good reason for doing so. Rails does have some good reasons; for example, in web applications we often want to prevent variables from being blank—e.g., a user’s name should be something other than spaces and other whitespace—so Rails adds a blank? method to Ruby.
+
+```ruby
+>> "".blank?
+=> true
+>> "      ".empty?
+=> false
+>> "      ".blank?
+=> true
+>> nil.blank?
+=> true
+```
+
+### A controller class
+
+```ruby
+class StaticPagesController < ApplicationController
+
+  def home
+  end
+
+  def help
+  end
+
+  def about
+  end
+end
+```
+
+Since each Rails console session loads the local Rails environment, we can even create a controller explicitly and examine its class hierarchy:
+
+```ruby
+>> controller = StaticPagesController.new
+=> #<StaticPagesController:0x22855d0>
+>> controller.class
+=> StaticPagesController
+>> controller.class.superclass
+=> ApplicationController
+>> controller.class.superclass.superclass
+=> ActionController::Base
+>> controller.class.superclass.superclass.superclass
+=> ActionController::Metal
+>> controller.class.superclass.superclass.superclass.superclass
+=> AbstractController::Base
+>> controller.class.superclass.superclass.superclass.superclass.superclass
+=> Object
+
+
+>> controller.home
+=> nil
+```
+
+But wait—actions don’t have return values, at least not ones that matter. The point of the home action is to render a web page, not to return a value. And I sure don’t remember ever calling StaticPagesController.new anywhere. What’s going on?
+
+What’s going on is that Rails is written in Ruby, but Rails isn’t Ruby. Some Rails classes are used like ordinary Ruby objects, but some are just grist for Rails’ magic mill.
+
+### A user class
+
+
+```ruby
+# example_user.rb
+class User
+  attr_accessor :name, :email           # This creates “getter” and “setter” methods that allow us to retrieve (get) and assign (set) @name and @email instance variables
+
+  def initialize(attributes = {})
+    @name  = attributes[:name]
+    @email = attributes[:email]
+  end
+
+  def formatted_email
+    "#{@name} <#{@email}>"
+  end
+end
+```
+
+```ruby
+>> require './example_user'     # This is how you load the example_user code.
+=> true
+>> example = User.new
+=> #<User:0x224ceec @email=nil, @name=nil>
+>> example.name                 # nil since attributes[:name] is nil
+=> nil
+>> example.name = "Example User"           # Assign a non-nil name
+=> "Example User"
+>> example.email = "user@example.com"      # and a non-nil email address
+=> "user@example.com"
+>> example.formatted_email
+=> "Example User <user@example.com>"
+```
 ## Reference
 
 1. [Ruby on rails tutorial - Michael Hartl](https://www.railstutorial.org/book/)
