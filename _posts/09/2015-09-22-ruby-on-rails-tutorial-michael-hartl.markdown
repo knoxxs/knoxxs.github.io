@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  Ruby on rails tutorial - Michael Hartl
-date:   2015-09-23 16:35:00
+date:   2015-09-22 16:35:00
 categories: programming rails learning
 tags: ruby rails learning full-stack tutorial notes
 ---
 
-This is my notes for the book: [Ruby on rails tutorial - Michael Hartl](https://www.railstutorial.org/book/).
+These are my notes for the book: [Ruby on rails tutorial - Michael Hartl](https://www.railstutorial.org/book/).
 
 This is a big book but is quite famous on the web to teach you the complete package not the chit-chats. So lets get started:
 
