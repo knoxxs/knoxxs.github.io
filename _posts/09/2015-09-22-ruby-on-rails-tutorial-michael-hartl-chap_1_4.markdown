@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Ruby on rails tutorial - Michael Hartl
+title:  Ruby on rails tutorial - Michael Hartl - Chap 1-4
 date:   2015-09-22 16:35:00
 categories: programming rails learning
 tags: ruby rails learning full-stack tutorial notes
