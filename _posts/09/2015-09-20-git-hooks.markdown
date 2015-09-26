@@ -485,8 +485,11 @@ Improvements needed:
 
 The other hook to call CI on every push will be just a `post-receive` hook.
 
+Also for a example on controlling ACL with hooks follow [Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)
+
 ## References
 
 1. [Git Hooks](https://www.atlassian.com/git/tutorials/git-hooks)
 2. [Git server hook: get contents of files being pushed?](http://stackoverflow.com/questions/15314527/git-server-hook-get-contents-of-files-being-pushed)
 3. [Git show not working with python check_output](http://stackoverflow.com/questions/32703953/git-show-not-working-with-python-check-output)
+4. [Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)
