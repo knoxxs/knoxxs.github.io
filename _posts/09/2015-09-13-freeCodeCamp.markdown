@@ -256,7 +256,7 @@ This is a default blockquote example. This is a default blockquote example. This
 
 Also this just the tip, there many layout components like: Glyphicons, Dropdowns, Button Groups, Button Dropdowns, Input Groups, Navigation Elements, Navbar, Breadcrumb, Pagination, Labels, Badges, Jumbotron, Page Header, Thumbnails, Alerts, Progress Bars, Media Object, List Group, Panels, Wells which can be found in the tutorial itself.
 
-Also there online Bootstrap snippet library: [Bootsnipp](http://bootsnipp.com/) and themes showcase: [Bootswatch](http://bootswatch.com/).
+Also there online Bootstrap snippet library: [Bootsnipp](http://bootsnipp.com/) and themes showcase: [Bootswatch](http://bootswatch.com/), [Theme Finder](http://themefindr.net/).
 
 ## Reference
 
@@ -268,3 +268,4 @@ Also there online Bootstrap snippet library: [Bootsnipp](http://bootsnipp.com/) 
 6. [TutorialsPoint - Bootstrap](http://www.tutorialspoint.com/bootstrap/index.htm)
 7. [Bootsnipp](http://bootsnipp.com/)
 8. [Bootswatch](http://bootswatch.com/)
+9. [Theme Finder](http://themefindr.net/)
