@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  "Date and elasticsearch"
-date:   2015-09-30 12:42:00
+date:   2015-09-29 12:42:00
 categories: programming elasticsearch
 tags: date time-parsing es range-query
 ---
 
-So yesterday I was trying to find the best way to store the opening hours for any vendor in the db(elasticsearch). I found out about the really flexible support given by elasticsearch.
+So today I was trying to find the best way to store the opening hours for any vendor in the db(elasticsearch). I found out about the really flexible support given by elasticsearch.
 
 
 ## Storing
