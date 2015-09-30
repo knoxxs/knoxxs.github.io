@@ -650,6 +650,22 @@ h2:nth-of-type(2) {
   margin-top: 20px;
 }
 ```
+
+## Publishing your app
+During development, Ember CLI continuously built our files and served them on our local server when we used the ember serve command. This build process was optimized for debugging and iterating on our application. However, we now want a build process optimized for production (e.g., file minification, fingerprinting, portable code). Fortunately, Ember CLI handles most of this for you. We just need to set some configuration options and run a build command specifically for a production environment.
+
+In your project directory, navigate to the `/config/environment.js` file. At the bottom of this file, you'll see an if block where you can set configuration options for the production environment. In this block, we want to set `ENV.locationType` to hash. This will ensure that Ember CLI appropriately handles the URLs for our application's assets when we publish them. Update the bottom code block to the following:
+
+```javascript
+if (environment === 'production') {
+  ENV.locationType = 'hash';
+}
+```
+
+Next, go to your terminal or command line, and run the following build command in the root of your app: `ember build --environment=production`. Assuming the application built successfully, you'll see in the `/dist` directory that all of your files are minified and fingerprinted — optimized for production.
+
+### Uploading to Github
+
 ## References
 
 1. [Modern web app architecture](https://developer.mozilla.org/en-US/Apps/Build/Modern_web_app_architecture)
