@@ -216,6 +216,8 @@ If you open the console tab in your developer tools, you should see an error com
 
 This is because we are trying to link to a timezones route that does not yet exist. We'll deal with this in a later article, so for now, update the line `<li>{{#link-to 'timezones'}}Manage Timezones{{/link-to}}</li>` to simply `<li>Manage Timezones</li>`.
 
+## Controllers
+
 ### Generating a controller for our clock display
 Create the controller `ember generate controller clock`.
 
@@ -265,6 +267,227 @@ The two methods you've added are as follows:
 This demonstrates how to work with Ember’s data-binding between controllers and templates.
 
 > Note: var `_this = this;` is used because of variable scoping in functions — we want to run the functions inside `Ember.run.later(function() { ... });` on `this` as it relates to `updateTime: function() { ... }`, so we store a reference to this inside the `_this` variable before we run the inner function. [Jack Franklin's Scope and this in JavaScript](http://javascriptplayground.com/blog/2012/04/javascript-variable-scope-this/) provides more context and explanation.
+
+## Models and application data
+
+Here we'll add functionality that enables users to choose additional timezones to display when they click on the timezones link.
+
+### Generating resource in Ember
+`ember generate model name-of-model` will generate a model.
+
+In Ember terms, model + route + template together make up a resource. To generate a resource: `ember generate resource plural-name-of-model`.
+
+### Generating a resource for our app
+
+1. `ember generate resource timezones`
+2. You can also now revert the change we made to `app/templates/application.hbs` — open this file up and change the line `<li>Manage Timezones</li>` to `<li>{{#link-to 'timezones'}}Manage Timezones{{/link-to}}</li>`
+
+### Ember Data
+Our app needs a data store — we want each timezone included in our app to have a name and an offset value associated with it, and be able to save our data on the client-side so the app will work offline.
+
+To manage data in Ember apps, we can use [Ember Data](https://github.com/emberjs/data), a library included with Ember CLI that acts as a data store inside your model. You define data structures in your model using Ember Data, reference the model in your route and the controller/template for your app will then have access to that data. Models don't have any data themselves; they just define the properties and behavior of specific instances, which are called `records`.
+
+Ember Data lets you use pretty much any underlying storage mechanism you like to store your application data, as long as there is an `adapter` available to translate data between the actual data storage mechanism you are using, and Ember data records.
+
+When an app requires data:
+
+1. It goes to the model's data store to find it.
+2. The data store sends a request to the adapter to return the data to it.
+3. The adapter goes to the actual data storage mechanism (IndexedDB, RESTful XHR API, whatever), retrieves the data, and converts it into JSON — which the model can understand.
+4. The model receives the JSON, converts it into a data record via a serializer, and sends it back to the app.
+
+In our case, we're going to make use of the `LocalForage` library, which automatically detects data stores available in the browser and selects the most optimal store available (it uses IndexedDB, and then falls back to WebSQL/localStorage for browsers that don't support the former).
+
+To know more about models click [here](http://guides.emberjs.com/v1.10.0/models/).
+
+This code simply specifies what the data structure is going to be, according to Ember — a string to contain each timezone name, and a number to contain each timezone's offset value.
+
+### Storing data with LocalForage
+Now we'll install the LocalForage Adapter so we can use it with Ember Data. Do this by running the following command: `ember install:addon ember-localforage-adapter`. un the following bower command with the specific version: `$ bower install localforage -v '1.2.2'`
+
+Once Bower has finished installing the LocalForage package, you should see a new localforage directory under world-clock/bower_components.
+
+### Creating a new Ember adapter
+Now that we've included LocalForage and the Ember LocalForage adapter into our app, we have access to an LFAdapter object that we can use to feed data from our data store into Ember Data: we'll use this to create our timezones database.
+
+Ember allows you to generate an adapter file specifically to contain this code, meaning that it can be kept separate from your models, controllers, etc. Let's generate our new adapter file using the following command — run this from the root of your project: `ember generate adapter application`. This generates:
+
+1. A JavaScript adapter file at app/adapters that contains our adapter code.
+2. A JavaScript file at tests/unit/adapters for you to include an adapter unit test in.
+
+You may also have to run bower install to install some missing dependencies — this is fine.
+
+With this done, open up the `app/adapters/application.js` and replace the code in it with this:
+
+```javascript
+import LFAdapter from 'ember-localforage-adapter/adapters/localforage';
+
+export default LFAdapter.extend({
+    namespace: 'WorldTimeZones'
+});
+```
+This code creates a data store called WorldTimeZones in LocalForage and joins it to our Ember Data instance.
+
+### Retrieving records from the data store
+Finally, we'll want to return our timezone records as the model for our timezone route. Setting a model (using Ember.Route's [`model method`](http://emberjs.com/api/classes/Ember.Route.html#method_model), also see [Specifying a route's model](http://emberjs.com/guides/routing/specifying-a-routes-model/)) on a route gives the controller and template access to the data specified so that it can be manipulated and displayed.
+
+Open up `app/routes/timezones.js` and modify the code inside to look like this:
+
+```javascript
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+    model: function() {
+        return this.get('store').findAll('timezone');
+    }
+});
+```
+
+This code simply tells Ember to make the timezone data model available at the timezones route: "let me have access to this data when I navigate to this route, so I can control it with my controller and display it with my template".
+
+### Gathering timezone data
+We're going to want to let users choose from a list of all timezones. For this we’ll use [Moment Timezone](http://momentjs.com/timezone/), an awesome library for dealing with dates and times in JavaScript. This library will give us a list of all available timezones, and allow us to format them in a more readable way.
+
+In order to make sure our app can access the moment scripts when formatting a timezone, we'll need to edit `ember-cli-build.js` and `.jshintrc` in the root of our project.
+
+1. `ember-cli-build.js` an asset pipeline/dependency manager that Ember CLI uses to include dependencies into a project. Ember CLI will look at `ember-cli-build.js` during build time, and incorporate any dependencies you specify with `app.import()`. This ensures that your application has all the components it needs to function properly.
+2. `ember-cli-build.js` will import the moment scripts our application needs. Add the following two lines into `ember-cli-build.js`, below the `var app = new EmberApp();` line:
+    
+    ```javascript
+    app.import('bower_components/moment/moment.js');
+    app.import('bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js');
+    ```
+3. In the `.jshintrc` file, add moment to the `predef` array. This will prevent `jshint`, a code-quality tool included in Ember CLI apps, from throwing errors while checking your code for errors or potential problems.
+    
+    ```javascript
+    "predef": [
+        "document",
+        "window",
+        "-Promise",
+        "moment"
+      ]
+    ```
+    
+> Warning: So far, we've been able to see any changes to our application automatically reflected in the browser without having to refresh or restart the server. However, whenever you edit ember-cli-build.js, you must restart the Ember server.
+
+### Interacting with timezone models
+Our application should allow users to add a timezone from a select menu, or delete a previously selected timezone. As mentioned before, Ember controllers can be used to manipulate data. When creating the clock, we sent information about the current local time from our clock controller to our clock template. In this example, we'll send information from our timezones template to our timezones controller through user interactions.
+
+Let's create a timezones controller that adds the timezone data from Moment.js, and implements two actions: "add" and "remove".
+
+1. `ember generate controller timezones`
+2. Now update app/controllers/timezones.js to look like so:
+    
+    ```javascript
+    import Ember from 'ember';
+    
+    export default Ember.Controller.extend({
+        /* create array of timezones with name & offset */
+        init: function() {
+            var timezones = [];
+            for (var i in moment.tz._zones) {
+              timezones.push({
+                name: moment.tz._zones[i].name,
+                offset: moment.tz._zones[i].offset[0]
+              });
+            }
+            this.set('timezones', timezones);
+            this._super();
+          },
+          selectedTimezone: null,
+          actions: {
+            /* save a timezone record to our offline datastore */
+            add: function() {
+              var timezone = this.store.createRecord('timezone', {
+                name: this.get('selectedTimezone').name,
+                offset: this.get('selectedTimezone').offset
+              });
+              timezone.save();
+            },        
+            /* delete a timezone record from our offline datastore */
+            remove: function(timezone) {
+              timezone.destroyRecord();
+            }
+          }
+    });
+    ```
+    
+Next we'll modify the timezones template to use the actions and variables we just created. We can use the `Ember.SelectView` and `{{action}}` helper to call our add and remove methods — update app/templates/timezones.hbs so it looks like this:
+
+```html
+<h2>Add Timezone</h2>
+
+<div>{{ view Ember.Select content=timezones selection=selectedTimezone
+   optionValuePath='content.offset' optionLabelPath='content.name'}}</div>
+
+<button {{action 'add'}}>Add Timezone</button>
+
+<h2>My Timezones</h2>
+
+<ul>
+{{#each model}}
+  <li>{{name}} <button {{action 'remove' this}}>Delete</button></li>
+{{/each}}
+</ul>
+```
+
+Also Now I faced a error that `offset` is not defined. Finally I found the solution and answered it on [SO](http://stackoverflow.com/a/32869186/742173).
+
+### Comparing timezones
+The last thing we need to do is show these times relative to our local time in our clock route. To do this we need to load the timezone model in the clock route — update the contents of app/routes/clock.js to this:
+
+```javascript
+import Ember from 'ember';
+export default Ember.Route.extend({
+    model: function() {
+        return this.get('store').find('timezone');
+    }
+});
+```
+
+In our clock controller, we will update each timezone's current time using moment.js, as well as update our local time — update the contents of app/controllers/clock.js to the following:
+
+```javascript
+import Ember from 'ember';
+
+export default Ember.Controller.extend({
+    init: function() {
+        // Update the time.
+        this.updateTime();
+    },
+
+    updateTime: function() {
+        var _this = this;
+ 
+        // Update the time every second.
+        Ember.run.later(function() {
+            _this.set('localTime', moment().format('h:mm:ss a'));
+ 
+            _this.get('model').forEach(function(model) {
+                model.set('time',
+                          moment().tz(model.get('name')).format('h:mm:ss a'));
+            });
+ 
+            _this.updateTime();
+        }, 1000);
+    },
+
+   localTime: moment().format('h:mm:ss a')
+});
+```
+
+Finally, we will add an {{each}} helper to our clock template that will iterate over the timezones in our model and output their name and time properties to our view — update app/templates/clock.hbs like this:
+
+```html
+<h2>Local Time: <strong>{{localTime}}</strong></h2>
+ 
+<ul>
+  {{#each model}}
+    <li>{{name}}: <strong>{{time}}</strong></li>
+  {{/each}}
+</ul>
+```
+
 ## References
 
 1. [Modern web app architecture](https://developer.mozilla.org/en-US/Apps/Build/Modern_web_app_architecture)
@@ -281,3 +504,7 @@ This demonstrates how to work with Ember’s data-binding between controllers an
 12. [redirect()](http://emberjs.com/api/classes/Ember.Route.html#method_redirect)
 13. [transitionTo()](http://emberjs.com/api/classes/Ember.Route.html#sts=transitionTo)
 14. [Jack Franklin's Scope and this in JavaScript](http://javascriptplayground.com/blog/2012/04/javascript-variable-scope-this/)
+15. [Ember Data](https://github.com/emberjs/data)
+16. [Models](http://guides.emberjs.com/v1.10.0/models/)
+17. [Specifying a route's model](http://emberjs.com/guides/routing/specifying-a-routes-model/)
+18. [Moment Timezone and _zones](http://stackoverflow.com/a/32869186/742173)
