@@ -56,9 +56,9 @@ In Ember, views are slightly different to how they are in general MVC. In MVC te
           
     ```html
     <div class="entry">
-      <h1>{{title}}</h1>
+      <h1>{{ "{{title" }}}}</h1>
       <div class="body">
-        {{body}}
+        {{ "{{body" }}}}
       </div>
     </div>
     ```
@@ -153,20 +153,20 @@ We'll start by adding a clock 'page' to our app, to display the current time: `e
 1. Our template file has already been generated at app/templates/clock.hbs. Open it up in your text editor and you'll see that by default this contains only the following:
     
     ```html
-    [[outlet]]
+    {{ "{{outlet" }}}}
     ```
-2. Replace {{outlet}} with the following: `<h2>Local Time: <strong>{{localTime}}</strong></h2>`.
+2. Replace {{ "{{outlet" }}}} with the following: `<h2>Local Time: <strong>{{ "{{localTime" }}}}</strong></h2>`.
 3. You'll notice that the page still renders "Welcome to Ember.js", albeit with "Local Time: ", underneath it. This is because the welcome message comes from `app/templates/application.hbs`. If you look in that file, you'll see two lines:
     
     ```html
     <h2 id="title">Welcome to Ember.js</h2>
     
-    [[outlet]]
+    {{ "{{outlet" }}}}
     ```
 4. When any view is navigated to by the app's user, application.hbs is shown, but with the view's template content inserted too.
 
 ### The main application template
-`application.hbs` is a special template created when you first created the app, which represents the main, or master application view. You are given this automatically so you'll always have something displayed at the root of your app (i.e. your-server.com/). Whenever you view any "page" in your app, it is actually the `application.hbs` template that is shown, but with the contents of the route's corresponding template inserted in place of the [[outlet]].
+`application.hbs` is a special template created when you first created the app, which represents the main, or master application view. You are given this automatically so you'll always have something displayed at the root of your app (i.e. your-server.com/). Whenever you view any "page" in your app, it is actually the `application.hbs` template that is shown, but with the contents of the route's corresponding template inserted in place of the {{ "{{outlet" }}}}.
  
 Since `clock` is going to be the only/main page of the app, it'd be nice to have it appear when we go to the root of our domain.
 
@@ -174,7 +174,7 @@ Since `clock` is going to be the only/main page of the app, it'd be nice to have
 
 `ember generate route application`
  
-At this point you will be prompted with the question [?] Overwrite app/templates/application.hbs?, as application.hbs already exists. It is fine to go ahead and overwrite it.  You'll notice that localhost:4200/clock will now only display "Local time:", because the new application.hbs only contains [[outlet]], and not the welcome message.
+At this point you will be prompted with the question [?] Overwrite app/templates/application.hbs?, as application.hbs already exists. It is fine to go ahead and overwrite it.  You'll notice that localhost:4200/clock will now only display "Local time:", because the new application.hbs only contains {{ "{{outlet" }}}}, and not the welcome message.
 
 #### Making the application route redirect to the clock route
 At this point, open your app/routes/application.js file and update the contents like so:
@@ -200,21 +200,21 @@ Update the contents of `app/templates/application.hbs` to look like this:
 <h1 id='title'>It's 5'o'clock somewhere</h1>
 
 <ul>
-    <li>{{#link-to 'clock'}}Clock{{/link-to}}</li>
-    <li>{{#link-to 'timezones'}}Manage Timezones{{/link-to}}</li>
+    <li>{{ "{{#link-to 'clock'" }}}}Clock{{ "{{/link-to" }}}}</li>
+    <li>{{ "{{#link-to 'timezones'" }}}}Manage Timezones{{ "{{/link-to" }}}}</li>
 </ul>
 
-{{outlet}}
+{{ "{{outlet" }}}}
 ```
 
-`{{#link-to}}` is a built-in Handlebars helper for creating links — it takes one parameter, the route you want to link to.
+`{{ "{{#link-to" }}}}` is a built-in Handlebars helper for creating links — it takes one parameter, the route you want to link to.
 
 If you go to look at your application now, you'll notice the page is blank. We've lost our "Local time:" heading. We must have an error in our code somewhere, so let's go and investigate now.
 
 ### Debugging Practice
 If you open the console tab in your developer tools, you should see an error coming specifically from Ember: `Uncaught Error: There is no route named timezones`.
 
-This is because we are trying to link to a timezones route that does not yet exist. We'll deal with this in a later article, so for now, update the line `<li>{{#link-to 'timezones'}}Manage Timezones{{/link-to}}</li>` to simply `<li>Manage Timezones</li>`.
+This is because we are trying to link to a timezones route that does not yet exist. We'll deal with this in a later article, so for now, update the line `<li>{{ "{{#link-to 'timezones'" }}}}Manage Timezones{{ "{{/link-to" }}}}</li>` to simply `<li>Manage Timezones</li>`.
 
 ## Controllers
 
@@ -280,7 +280,7 @@ In Ember terms, model + route + template together make up a resource. To generat
 ### Generating a resource for our app
 
 1. `ember generate resource timezones`
-2. You can also now revert the change we made to `app/templates/application.hbs` — open this file up and change the line `<li>Manage Timezones</li>` to `<li>{{#link-to 'timezones'}}Manage Timezones{{/link-to}}</li>`
+2. You can also now revert the change we made to `app/templates/application.hbs` — open this file up and change the line `<li>Manage Timezones</li>` to `<li>{{ "{{#link-to 'timezones'" }}}}Manage Timezones{{ "{{/link-to" }}}}</li>`
 
 ### Ember Data
 Our app needs a data store — we want each timezone included in our app to have a name and an offset value associated with it, and be able to save our data on the client-side so the app will work offline.
@@ -412,22 +412,21 @@ Let's create a timezones controller that adds the timezone data from Moment.js, 
     });
     ```
     
-Next we'll modify the timezones template to use the actions and variables we just created. We can use the `Ember.SelectView` and `{{action}}` helper to call our add and remove methods — update app/templates/timezones.hbs so it looks like this:
+Next we'll modify the timezones template to use the actions and variables we just created. We can use the `Ember.SelectView` and `{{ "{{action" }}}}` helper to call our add and remove methods — update app/templates/timezones.hbs so it looks like this:
 
 ```html
 <h2>Add Timezone</h2>
 
-<div>{{ view Ember.Select content=timezones selection=selectedTimezone
-   optionValuePath='content.offset' optionLabelPath='content.name'}}</div>
+<div>{{ "{{ view Ember.Select content=timezones selection=selectedTimezone optionValuePath='content.offset' optionLabelPath='content.name'" }}}}</div>
 
-<button {{action 'add'}}>Add Timezone</button>
+<button {{ "{{action 'add'" }}}}>Add Timezone</button>
 
 <h2>My Timezones</h2>
 
 <ul>
-{{#each model}}
-  <li>{{name}} <button {{action 'remove' this}}>Delete</button></li>
-{{/each}}
+{{ "{{#each model" }}}}
+  <li>{{ "{{name" }}}} <button {{ "{{action 'remove' this" }}}}>Delete</button></li>
+{{ "{{/each" }}}}
 </ul>
 ```
 
@@ -476,15 +475,15 @@ export default Ember.Controller.extend({
 });
 ```
 
-Finally, we will add an {{each}} helper to our clock template that will iterate over the timezones in our model and output their name and time properties to our view — update app/templates/clock.hbs like this:
+Finally, we will add an {{ "{{each" }}}} helper to our clock template that will iterate over the timezones in our model and output their name and time properties to our view — update app/templates/clock.hbs like this:
 
 ```html
-<h2>Local Time: <strong>{{localTime}}</strong></h2>
+<h2>Local Time: <strong>{{ "{{localTime" }}}}</strong></h2>
  
 <ul>
-  {{#each model}}
-    <li>{{name}}: <strong>{{time}}</strong></li>
-  {{/each}}
+  {{ "{{#each model" }}}}
+    <li>{{ "{{name" }}}}: <strong>{{ "{{time" }}}}</strong></li>
+  {{ "{{/each" }}}}
 </ul>
 ```
 
