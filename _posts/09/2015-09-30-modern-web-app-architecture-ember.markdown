@@ -109,7 +109,40 @@ Ember.js represents Models using model objects, which as before are contained in
       // your own features, as required
     });
     ```
+
+## Sample World Clock App
+[Original Demo](http://mdn.github.io/world-clock/#/clock), [Original Source Code](https://github.com/mdn/world-clock). 
  
+### Installing toolset
+
+External libs used:
+
+1. [Handlebars](http://handlebarsjs.com/) for writing application templates. Ember includes this automatically.
+2. [LocalForage](http://mozilla.github.io/localForage/#localforage) for storing and managing offline data. 
+3. [Moment Timezone](http://momentjs.com/timezone/) to provide a list of available timezones, and allow us to easily format them in a more readable way.
+
+Steps:
+
+1. Install git
+2. Install `node.js`. Ember CLI requires Node.js.
+3. Ember-cli `npm install -g ember-cli`
+
+### Setting up
+
+1. **Creating Project**: `ember new world-clock`
+2. **Serve**: `ember serve`. Ember CLI also provides a development server that allows you to view and debug your changes as you make them.
+3. Open [http://localhost:4200/](http://localhost:4200/).
+ 
+### Ember app structure
+
+1. *dist directory*: whenever Ember CLI builds your application, it places the final production-ready files of your app in this directory. You should never edit any of these files directly, as they will be overwritten any time Ember CLI builds your files.
+2. *app directory*: this is where you make direct changes to your application's code. The contents of this directory are built then copied into dist when you run ember serve.
+3. *public directory*: where you put raw assets such as fonts and images that don't require any building. This is copied over to the dist directory unchanged when you run ember serve.
+4. *package.json*: contains configuration information, such as the name of the app, and what dependencies it has.
+5. *Brocfile.js*: contains details of all the 3rd party libraries, assets, etc. that need to be included when your app is built. Ember CLI asset compilation is based on the broccoli asset pipeline tool: [Brocfile.js](https://github.com/joliss/broccoli) is broccoli's build specification file.
+
+A more detailed directory structure explanation can be found [here](http://www.ember-cli.com/user-guide/#folder-layout)
+
 ## References
 
 1. [Modern web app architecture](https://developer.mozilla.org/en-US/Apps/Build/Modern_web_app_architecture)
@@ -118,3 +151,8 @@ Ember.js represents Models using model objects, which as before are contained in
 4. [Naming Conventions](http://emberjs.com/guides/concepts/naming-conventions/)
 5. [Ember CLI](http://www.ember-cli.com/#overview)
 6. [Ember View](http://emberjs.com/guides/views/)
+7. [Handlebars](http://handlebarsjs.com/)
+8. [LocalForage](http://mozilla.github.io/localForage/#localforage)
+9. [Moment Timezone](http://momentjs.com/timezone/)
+10. [Brocfile.js](https://github.com/joliss/broccoli)
+11. [Folder Layout](http://www.ember-cli.com/user-guide/#folder-layout)
