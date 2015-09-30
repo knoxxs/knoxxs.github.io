@@ -216,6 +216,55 @@ If you open the console tab in your developer tools, you should see an error com
 
 This is because we are trying to link to a timezones route that does not yet exist. We'll deal with this in a later article, so for now, update the line `<li>{{#link-to 'timezones'}}Manage Timezones{{/link-to}}</li>` to simply `<li>Manage Timezones</li>`.
 
+### Generating a controller for our clock display
+Create the controller `ember generate controller clock`.
+
+Open up `app/controllers/clock.js`. To set the value of localTime, we will add it as a property within Ember.Controller.extend().
+
+```javascript
+import Ember from 'ember';
+
+export default Ember.Controller.extend({
+  localTime: new Date().toLocaleTimeString()
+});
+```
+
+Any property inside the controller is accessible inside that controller’s template (in this case `app/templates/clock.hbs`).
+
+### Making the clock update every second
+So far, our clock display just shows the time when the controller was initialized — and then doesn't change. This is not very useful; we ideally want to update it every second.
+
+```
+import Ember from 'ember';
+
+export default Ember.Controller.extend({
+    init: function() {
+        // Update the time.
+        this.updateTime();
+    },
+ 
+    updateTime: function() {
+        var _this = this;
+ 
+        // Update the time every second.
+        Ember.run.later(function() {
+            _this.set('localTime', new Date().toLocaleTimeString());
+            _this.updateTime();
+        }, 1000);
+    },
+ 
+    localTime: new Date().toLocaleTimeString()
+});
+```
+
+The two methods you've added are as follows:
+
+1. `init()` is a special method in Ember that runs automatically when the controller is first initialized. You can put whatever set up code you might need here; in this case you are just invoking the updateTime() method.
+2. `updateTime()` uses [`Ember.run.later()`](http://emberjs.com/api/classes/Ember.run.html#method_later) to run the code inside the contained function after 1000ms. The function sets a new value for the localTime property (using the Ember [`set()`](http://emberjs.com/api/classes/Ember.Controller.html#method_set) method), then runs the `updateTime()` function again, so the time is updated after each new second has gone by.
+
+This demonstrates how to work with Ember’s data-binding between controllers and templates.
+
+> Note: var `_this = this;` is used because of variable scoping in functions — we want to run the functions inside `Ember.run.later(function() { ... });` on `this` as it relates to `updateTime: function() { ... }`, so we store a reference to this inside the `_this` variable before we run the inner function. [Jack Franklin's Scope and this in JavaScript](http://javascriptplayground.com/blog/2012/04/javascript-variable-scope-this/) provides more context and explanation.
 ## References
 
 1. [Modern web app architecture](https://developer.mozilla.org/en-US/Apps/Build/Modern_web_app_architecture)
@@ -231,3 +280,4 @@ This is because we are trying to link to a timezones route that does not yet exi
 11. [Folder Layout](http://www.ember-cli.com/user-guide/#folder-layout)
 12. [redirect()](http://emberjs.com/api/classes/Ember.Route.html#method_redirect)
 13. [transitionTo()](http://emberjs.com/api/classes/Ember.Route.html#sts=transitionTo)
+14. [Jack Franklin's Scope and this in JavaScript](http://javascriptplayground.com/blog/2012/04/javascript-variable-scope-this/)
