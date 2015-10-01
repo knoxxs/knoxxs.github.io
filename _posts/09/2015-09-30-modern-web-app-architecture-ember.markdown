@@ -665,6 +665,7 @@ if (environment === 'production') {
 Next, go to your terminal or command line, and run the following build command in the root of your app: `ember build --environment=production`. Assuming the application built successfully, you'll see in the `/dist` directory that all of your files are minified and fingerprinted — optimized for production.
 
 ### Uploading to Github
+Just upload it on github pages.
 
 ## References
 
