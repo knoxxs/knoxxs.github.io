@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Scope and this in javascript"
+title:  "Scope and this in javascript"
 date:   2015-10-01 11:29:00
 categories: programming js
 tags: javascript scope this _this that
