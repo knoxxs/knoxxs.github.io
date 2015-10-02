@@ -24,39 +24,44 @@ There is a `ember-cli` plugin which can do all these things for you: [ember-cli-
     ```bash
     cd myBlog && ember install ember-cli-github-pages
     ```
-3. Commit the changes: 
+3. Remove the changes made to `environment.js`, as they are not required for Org/User pages
+    
+    ```bash
+    git checkout -- config/environment.js
+    ```
+4. Commit the changes: 
     
     ```bash
     git add -A && git commit -m "Added ember-cli-github-pages addon  https://github.com/poetic/ember-cli-github-pages"
     ```
-4. Create new branch named `ember` which will store all the ember related code: `git checkout -b ember`
-5. Run the following command as mentioned [above](https://github.com/poetic/ember-cli-github-pages#installation--setup):
+5. Create new branch named `ember` which will store all the ember related code: `git checkout -b ember`
+6. Run the following command as mentioned [above](https://github.com/poetic/ember-cli-github-pages#installation--setup):
     
     ```bash
     git checkout master && rm -rf `ls -a | grep -vE '\.gitignore|\.git|node_modules|bower_components|(^[.]{1,2}/?$)'` && git add -A && git commit -m "initialises gh-pages(in case of organisation master) commit"
     ```
-6. Switch back to ember branch:
+7. Switch back to ember branch:
     
     ```bash
     git checkout ember
     ```
-7. Build the site using ember-cli-github-pages:
+8. Build the site using ember-cli-github-pages:
     
     ```bash
     ember github-pages:commit --branch master --message "adds base site"
     ```
-8. Create new Org/User repo on Github and add the origin:
+9. Create new Org/User repo on Github and add the origin:
     
     ```bash
     git remote add origin https://github.com/knoxxs/knoxxs.github.io.git
     ```
     Here _knoxxs_ is my username.
-9. Push the master branch:
+10. Push the master branch:
     
     ```bash
     git push -u origin master
     ```
-10. Open `http://knoxxs.github.io/`.
+11. Open `http://knoxxs.github.io/`.
 
 I already made a [pull request](https://github.com/poetic/ember-cli-github-pages/pull/36) to include these steps in the plugin readme.
  
