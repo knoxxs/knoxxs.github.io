@@ -72,7 +72,7 @@ In case you are doing some testing or proof of concept thing and you don't want 
 5. [Are there reasons not to use JSONP for AJA~X requests?](http://stackoverflow.com/questions/19173/are-there-reasons-not-to-use-jsonp-for-ajax-requests)
 6. [Using CORS](http://www.html5rocks.com/en/tutorials/cors/)
 7. [Cross-domain Ajax with Cross-Origin Resource Sharing](https://www.nczonline.net/blog/2010/05/25/cross-domain-ajax-with-cross-origin-resource-sharing/)
-8. [Enable CORS](http://enable-cors.org/index.html) - This will give you everything on CORS.
+8. [Enable CORS](http://enable-cors.org/index.html)
 9. [JavaScript: Use a Web Proxy for Cross-Domain XMLHttpRequest Calls](https://developer.yahoo.com/javascript/howto-proxy.html)
 10. [Using XMLHttp to Make Calls With a Proxy](http://support.brightcove.com/en/video-cloud/docs/using-xmlhttp-make-calls-proxy)
 
