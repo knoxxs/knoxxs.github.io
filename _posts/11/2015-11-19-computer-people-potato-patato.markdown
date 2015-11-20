@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Computer/People = Potato/Patato
-date:   2015-11-18 11:12:00
+date:   2015-11-19 11:12:00
 categories: psychology interaction 
 tags: hci emotion behaviour 
 ---
