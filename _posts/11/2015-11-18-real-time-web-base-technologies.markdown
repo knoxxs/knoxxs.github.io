@@ -13,7 +13,7 @@ After AJAX there is a need of server side push to support things like notificati
 ## Comet
 Comet is a web application model in which a long-held HTTP request allows a web server to push data to a browser, without the browser explicitly requesting it. Comet is an umbrella term, encompassing multiple techniques for achieving this interaction. Comet is known by several other names, including Ajax Push, Reverse Ajax, Two-way-web, HTTP Streaming, and HTTP server push among others.
 
-### 1. Polling
+### 1. AJAX/Polling (request → response)
 
 _Procedure_:
 
@@ -21,7 +21,7 @@ _Procedure_:
 - If the server has no new data, then it send appropriate indication and closes the connection.
 - The client then waits a bit and sends another request after some time (after one second, for example).
 
-### 2. Long-polling
+### 2. Long-polling (request → wait → response)
 
 _Procedure_:
 
@@ -30,7 +30,7 @@ _Procedure_:
 - Once the server has data (message) for the client, it uses the connection and sends it back to the client.
 - Then the connection is closed.
 
-### 3. Server-Sent events
+### 3. Server-Sent events (client ← server)
 SSE is similar to the long-polling mechanism, except it does not send only one message per connection.
 
 _Procedure_:
@@ -42,7 +42,7 @@ _Procedure_:
 
 So, SSE typically reuses one connection for more messages (called events). SSE also defines a dedicated media type that describes a simple format of individual events sent from the server to the client. Also not that SSE is not duplex.
 
-### 4. WebSocket 
+### 4. WebSocket (client ↔ server)
 WebSocket technology is different from previous technologies as it provides a real full duplex connection.
 
 _Procedure_:
@@ -53,6 +53,11 @@ _Procedure_:
 - Both client and server can then send data to the other party at will whenever it is needed.
 
 The communication on the new WebSocket connection is no longer based on HTTP protocol and can be used for example for for online gaming or any other applications that require fast exchange of small chunks of data in flowing in both directions. To know more about why websockets 2.0 (using TCP) performs better than 1.0 (only http) follow [this](http://stackoverflow.com/questions/14703627/websockets-protocol-vs-http).
+
+### 5. WebRTC (peer ↔ peer)
+Transport to establish communication between clients and is transport-agnostic so uses UDP, TCP or even more abstract layers. By design it allows to transport data in reliable as well as unreliable ways. This is generally used for high volume data transfer such as video/audio streaming where reliability - is secondary. Both sides (peers) can push data to each other independently. While it can be used totally independent from any centralised servers it still require some way of exchanging endPoints data, where in most cases developers still use centralised servers to "link" peers. This is required only to exchange essential data for connection establishing - after connection is established server on aside is not required.
+
+WebRTC apps need a service via which they can exchange network and media metadata, a process known as signaling. It can use any of above four technologies for signaling.
 
 ## BOSH
 Bidirectional-streams Over Synchronous HTTP (BOSH) is a transport protocol that emulates a bidirectional stream between two entities (such as a client and a server) by using multiple synchronous HTTP request/response pairs without requiring the use of polling or asynchronous chunking. BOSH achieves this by avoiding HTTP polling, yet it does so without resorting to chunked HTTP responses as is done in the technique known as Comet.
@@ -75,3 +80,6 @@ There are many tools evolved over these base technologies. I will be covering so
 4. [REAL-TIME WEB TECHNOLOGIES GUIDE](http://www.leggetter.co.uk/real-time-web-technologies-guide/)
 5. [What are Long-Polling, Websockets, Server-Sent Events (SSE) and Comet?](http://stackoverflow.com/questions/11077857/what-are-long-polling-websockets-server-sent-events-sse-and-comet)
 6. [WebSockets protocol vs HTTP](http://stackoverflow.com/questions/14703627/websockets-protocol-vs-http)
+7. [HTML5 WebSocket vs Long Polling vs AJAX vs WebRTC vs Server-Sent Events](http://stackoverflow.com/questions/10028770/html5-websocket-vs-long-polling-vs-ajax-vs-webrtc-vs-server-sent-events)
+8. [WebRTC vs Websockets](http://stackoverflow.com/questions/18799364/webrtc-vs-websockets-if-webrtc-can-do-video-audio-and-data-why-do-i-need-web)
+8. [WebRTC and Websockets. Is there a difference](http://stackoverflow.com/questions/12739185/webrtc-and-websockets-is-there-a-difference)
