@@ -40,7 +40,7 @@ XMPP used to be called Jabber initially. [eJabber](https://www.ejabberd.im/) and
 [Actor](http://actorapp.github.io/platform/) Including modern applications for Web, iOS, iPad, Android and SDK for building your own WhatsApp.
  
 ### socket.io / Google Cloud Messaging / OneSignal 
-[socket.io](http://socket.io/) is the fastest and most reliable real-time engine
+[socket.io](http://socket.io/) is the fastest and most reliable real-time engine. To understand how `socket.io` works follow [this](http://stackoverflow.com/questions/16719282/how-does-socket-io-work).  
 
 [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/) is a simple and reliable messaging to reach over a billion devices.
  
@@ -156,3 +156,4 @@ Most of push services like OneSignal uses GCM underneath when used on mobile. So
 39. [Jiver](http://jiver.io/)
 40. [layer](https://layer.com/)
 41. [buddy](http://buddy.com/)
+42. [how does socket.io work?](http://stackoverflow.com/questions/16719282/how-does-socket-io-work)
