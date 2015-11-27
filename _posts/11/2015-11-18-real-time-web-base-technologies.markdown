@@ -52,7 +52,7 @@ _Procedure_:
 - Once a WebSocket connection is established, it can be used for bi-directional communication between the client and the server.
 - Both client and server can then send data to the other party at will whenever it is needed.
 
-The communication on the new WebSocket connection is no longer based on HTTP protocol and can be used for example for for online gaming or any other applications that require fast exchange of small chunks of data in flowing in both directions.
+The communication on the new WebSocket connection is no longer based on HTTP protocol and can be used for example for for online gaming or any other applications that require fast exchange of small chunks of data in flowing in both directions. To know more about why websockets 2.0 (using TCP) performs better than 1.0 (only http) follow [this](http://stackoverflow.com/questions/14703627/websockets-protocol-vs-http).
 
 ## BOSH
 Bidirectional-streams Over Synchronous HTTP (BOSH) is a transport protocol that emulates a bidirectional stream between two entities (such as a client and a server) by using multiple synchronous HTTP request/response pairs without requiring the use of polling or asynchronous chunking. BOSH achieves this by avoiding HTTP polling, yet it does so without resorting to chunked HTTP responses as is done in the technique known as Comet.
@@ -74,3 +74,4 @@ There are many tools evolved over these base technologies. I will be covering so
 3. [What are Server-Sent Events](https://jersey.java.net/documentation/latest/sse.html#d0e11362)
 4. [REAL-TIME WEB TECHNOLOGIES GUIDE](http://www.leggetter.co.uk/real-time-web-technologies-guide/)
 5. [What are Long-Polling, Websockets, Server-Sent Events (SSE) and Comet?](http://stackoverflow.com/questions/11077857/what-are-long-polling-websockets-server-sent-events-sse-and-comet)
+6. [WebSockets protocol vs HTTP](http://stackoverflow.com/questions/14703627/websockets-protocol-vs-http)
