@@ -132,6 +132,10 @@ Till now its clear that I will be using logback with slf4j. There are many thing
 
 [Here]({{ site.url }}assets/2015/06/selecting-java-logger/sprinklr-clone.zip) you can download the sample intellij project in which all the things till now are set-up.
 
+## Updates
+
+1. Jan 5, 2016: http://www.loggly.com/ultimate-guide/category/java/ is very good resource to know about loggin in depth. Will read it and update the article whenever I have to setup the logging next time.
+
 ## References:
 
 1. [Java Logging Tools and Frameworks](http://www.java-logging.com/)
