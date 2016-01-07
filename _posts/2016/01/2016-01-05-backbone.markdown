@@ -88,6 +88,18 @@ Backbone remains unopinionated about the process used to render `View` objects a
 ### Routing with URLs
 In rich web applications, we still want to provide linkable, bookmarkable, and shareable URLs to meaningful locations within an app. Use the Router to update the browser URL whenever the user reaches a new "place" in your app that they might want to bookmark or share. Conversely, the Router detects changes to the URL — say, pressing the "Back" button — and can tell your application exactly where you are now.
 
+## Sample app - Service form
+Next task is to make a service form as explained in [Your First Backbone.js App - Service Chooser](http://tutorialzine.com/2013/04/services-chooser-backbone-js/).
+
+Some of the issues I faced while creating this form:
+
+1. The article hasn't specified any css. So I copied the css from the [demo](http://demo.tutorialzine.com/2013/04/services-chooser-backbone-js/).
+2. `Collection.where` : [http://backbonejs.org/#Collection-where](http://backbonejs.org/#Collection-where)
+3. `tagname`: `this.el` can be resolved from a DOM selector string or an Element; otherwise it will be created from the view's `tagName`, `className`, `id` and `attributes` properties. If none are set, `this.el` is an empty `div`, which is often just fine. An `el` reference may also be passed in to the view's constructor. 
+4. `listenTo`: [http://backbonejs.org/#Events-listenTo](http://backbonejs.org/#Events-listenTo)
+5. `.prop`: [http://api.jquery.com/prop/](http://api.jquery.com/prop/)
+6. `this context`: [Scope and this in javascript](http://knoxxs.github.io/programming/js/2015/10/01/scope-and-this-in-javascript/)
+
 ## References:
 
 1. [Learn Backbone.js](https://www.udacity.com/course/ud990)
@@ -95,3 +107,4 @@ In rich web applications, we still want to provide linkable, bookmarkable, and s
 3. [Backbone primer](https://github.com/jashkenas/backbone/wiki/Backbone%2C-The-Primer)
 4. [Underscore template](http://underscorejs.org/#template)
 5. [React virtual DOM](http://facebook.github.io/react/docs/tutorial.html)
+6. [Your First Backbone.js App - Service Chooser](http://tutorialzine.com/2013/04/services-chooser-backbone-js/)
