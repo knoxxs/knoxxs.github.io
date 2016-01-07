@@ -33,7 +33,7 @@ While leaning something new, you mind has to go back and forth between two learn
 
 ### Procrastination, Memory, and Sleep
 
-#### A Procrastination Preview
+#### [A Procrastination Preview](https://www.coursera.org/learn/learning-how-to-learn/lecture/Dci3o/a-procrastination-preview)
 1. Procrastination occurs because if you don't like something a little bit, you activate areas of your brain associated with pain and then brain, naturally enough, looks for ways to stop this feeling by taking your attention to something else.
 2. But research found that not long after people actually start working up what they didn't like the feeling goes away. This I used to call _first step reluctance_.
 3. The solution is to take your attention to something pleasant thing momentarily. 
@@ -41,10 +41,10 @@ While leaning something new, you mind has to go back and forth between two learn
 **Pomodoro**: 
 25 minutes, no interruption focus. Then take a break.
 
-#### Practice Makes Permanent     
+#### [Practice Makes Permanent](https://www.coursera.org/learn/learning-how-to-learn/lecture/3YLAF/practice-makes-permanent)
 It helps make neuron pattern strong. Use pomodoro daily for a brief period of time to do practice.
  
-#### Introduction to Memory
+#### [Introduction to Memory](https://www.coursera.org/learn/learning-how-to-learn/lecture/X7E9r/introduction-to-memory)
 
 1. **Long term memory**: when you try to think something you learned or did in past
     1. Too much capacity to store stuff, but you have to keep revisiting the patterns so that you know where it exists else they will be burried under other items.
@@ -53,7 +53,7 @@ It helps make neuron pattern strong. Use pomodoro daily for a brief period of ti
     1. Working memory can hold four chunks of information at a time. We tend to automatically group memory items into chunks so that it automatically seems that our working memory is bigger.
     2. Techniques to remember something new or to sustain something in working memory: _Repetition_ (create more and new neurons) and _Closing your eyes_ (to keep any other items intruding working memory).
 
-To move something from working memory to long term memory you need time and practice. Use **spaced repetition technique**:
+To move something from working memory to long term memory you need time and practice. Use *spaced repetition technique*:
 M -> T -> W -> Not T -> F -> Not Sat -> Sun
 
 #### The Importance of Sleep in Learning
