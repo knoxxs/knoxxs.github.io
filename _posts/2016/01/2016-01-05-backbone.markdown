@@ -100,6 +100,16 @@ Some of the issues I faced while creating this form:
 5. `.prop`: [http://api.jquery.com/prop/](http://api.jquery.com/prop/)
 6. `this context`: [Scope and this in javascript](http://knoxxs.github.io/programming/js/2015/10/01/scope-and-this-in-javascript/)
 
+## Hello Backbone
+
+This explains the modularity brought by Backbone, in a very simple way. 
+
+Some of the issues I faced:
+
+1. `bindAll`: [http://underscorejs.org/#bindAll](http://underscorejs.org/#bindAll), [http://blog.bigbinary.com/2011/08/18/understanding-bind-and-bindall-in-backbone.html](http://blog.bigbinary.com/2011/08/18/understanding-bind-and-bindall-in-backbone.html)
+2. `el` vs `tagName`: [http://stackoverflow.com/questions/7432560/backbonejs-in-a-view-whats-the-difference-between-el-and-tagname](http://stackoverflow.com/questions/7432560/backbonejs-in-a-view-whats-the-difference-between-el-and-tagname)
+3. `_([1,2,3]).each`: [http://underscorejs.org/#chaining](http://underscorejs.org/#chaining)
+
 ## References:
 
 1. [Learn Backbone.js](https://www.udacity.com/course/ud990)
@@ -108,3 +118,4 @@ Some of the issues I faced while creating this form:
 4. [Underscore template](http://underscorejs.org/#template)
 5. [React virtual DOM](http://facebook.github.io/react/docs/tutorial.html)
 6. [Your First Backbone.js App - Service Chooser](http://tutorialzine.com/2013/04/services-chooser-backbone-js/)
+7. [Hello Backbone.js](http://arturadib.com/hello-backbonejs/)
