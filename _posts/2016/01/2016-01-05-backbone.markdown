@@ -110,6 +110,10 @@ Some of the issues I faced:
 2. `el` vs `tagName`: [http://stackoverflow.com/questions/7432560/backbonejs-in-a-view-whats-the-difference-between-el-and-tagname](http://stackoverflow.com/questions/7432560/backbonejs-in-a-view-whats-the-difference-between-el-and-tagname)
 3. `_([1,2,3]).each`: [http://underscorejs.org/#chaining](http://underscorejs.org/#chaining)
 
+## Diving Deeper with Backbone
+
+This is really great covering a lot of details.
+
 ## References:
 
 1. [Learn Backbone.js](https://www.udacity.com/course/ud990)
@@ -119,3 +123,4 @@ Some of the issues I faced:
 5. [React virtual DOM](http://facebook.github.io/react/docs/tutorial.html)
 6. [Your First Backbone.js App - Service Chooser](http://tutorialzine.com/2013/04/services-chooser-backbone-js/)
 7. [Hello Backbone.js](http://arturadib.com/hello-backbonejs/)
+8. [Backbone Basics](https://addyosmani.com/backbone-fundamentals/#backbone-basics)
