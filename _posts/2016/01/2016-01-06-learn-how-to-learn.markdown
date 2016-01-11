@@ -57,3 +57,16 @@ To move something from working memory to long term memory you need time and prac
 M -> T -> W -> Not T -> F -> Not Sat -> Sun
 
 #### The Importance of Sleep in Learning
+
+1. Just being awake creates toxic product in your brain. When you sleep, your brain cells sleep -> unblocking the stream so that fluid can flow.
+2. While sleeping, brain removes not so important patterns from the brain an strengthen important patterns more.
+3. During sleep, brain also rehearse some of the tougher parts of whatever we are trying to learn.
+4. Sleep is complete deactivation of conscious you in pre-frontal cortex, helps other areas of brain talking easily to one another.
+  
+#### Interview with Dr. Terrence Sejnowski
+
+Todos:
+
+1. Try to think of ideas while jogging.
+2. Learn context switching
+3. 
