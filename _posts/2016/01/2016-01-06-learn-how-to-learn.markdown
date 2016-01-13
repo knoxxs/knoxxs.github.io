@@ -69,4 +69,47 @@ Todos:
 
 1. Try to think of ideas while jogging.
 2. Learn context switching
-3. 
+
+
+## Week 2
+
+### Chunking—The Essentials
+
+#### What is a Chunk?
+
+>Analogy: Interlocking puzzle edges.
+ 
+1. Chunking is the mental leap which helps you unite bits of information together through meaning. 
+2. The new logical whole makes it easier to remember and also makes it easier to fit the chunk in larger picture
+3. using four chunks in working memory, one can make connection to information that is present in various part of the brain. This is different from random connection of the diffused mode.
+4. Focusing your connection to connect parts of the brain to tie together ideas is an important part of focused mode of learning. It also helps you get started in creating a chunk.
+5. When you are stressed these connections doesn't work very well.
+6. Chunks are pieces of information that are bound together through meaning or use.
+7. These connected chunks, connecting abstract thoughts and ideas, are basis of science, literature and art.
+8. A chunk is network of neurons that are used to firing together.
+9. Focused practice and repetition helps you to create chunks. Step by step you can become the master by making small chunks big.
+10. Focused practice and repetition is not the only thing you need to become a truly creative master of the material you are learning.
+11. Once you chunk an idea, a concept or an action you don't need to remeber all the little underlying details. Eg. getting dressed in the morning.
+
+#### How to Form a Chunk - Part 1
+
+1. The best chunks are the ones that are so well ingrained, that you don't even have to consciously think about connecting the neural pattern together.
+2. This is idea of moving complex ideas, movements or reactions into a single chunk.
+
+#### How to Form a Chunk - Part 2
+
+1. Chunking steps in every fields are little bit different.
+2. Chunking of mental ideas (not physical body motions)
+    1. Focus your undivided attention onto something you want learn. Because there are limited slots in working memory which you can use to reach other parts of brain to make ne patters as you are learning something new. In case non-complete focus some of the working memory chunks are not available, so you will be able to make less connections.
+    2. Understand the basic idea you are trying to chunk. Synthesize the gist.
+        - This can be done by taking turns of focused and diffused mode of thinking.
+        - It creates broad encompassing traces in neuron which can link to other memory traces.
+        - If you create a chunk, in case you don't understand, then that chunk would be useless. It won't relate to other material you are learning. 
+        - Just understanding doesn't necessarily creates a chunk that you can easily call to mind later.
+        - Reviewing or doing can help you do that. Closing everything and doing or solving what you understand.
+    3. Gaining context so that you see not just how, but also when to use this chunk.
+        - Context means going beyond the initial problem and seeing more broadly.
+        - Repeating and practicing with both related and unrelated (so that you also know ehen not to use it) problems.
+        - Practice
+3. There are two ways to learn bottom up and top down. Both are important to master any subject. Context is where bottom up and top down learning meets.
+     
