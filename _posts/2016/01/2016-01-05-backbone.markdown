@@ -6,6 +6,8 @@ categories: programming backbone ui
 tags: backbone tutorial resource model collection view router
 ---
 
+I planned to learn backbone to prepare for the startup weekend on 5-7 Feb. I participated in it so that I can build a social product idea I wanted to build from long. Here it goes.
+
 ## Introduction
 When working on a web application that involves a lot of JavaScript, one of the first things you learn is to stop tying your data to the DOM. It's all too easy to create JavaScript applications that end up as tangled piles of jQuery selectors and callbacks, all trying frantically to keep data in sync between the HTML UI, your JavaScript logic, and the database on your server. For rich client-side applications, a more structured approach is often helpful.
 
