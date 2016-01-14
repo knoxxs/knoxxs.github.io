@@ -77,7 +77,7 @@ Todos:
 
 #### What is a Chunk?
 
->Analogy: Interlocking puzzle edges.
+>Analogy: Interlocking edges puzzle .
  
 1. Chunking is the mental leap which helps you unite bits of information together through meaning. 
 2. The new logical whole makes it easier to remember and also makes it easier to fit the chunk in larger picture
@@ -109,7 +109,42 @@ Todos:
         - Reviewing or doing can help you do that. Closing everything and doing or solving what you understand.
     3. Gaining context so that you see not just how, but also when to use this chunk.
         - Context means going beyond the initial problem and seeing more broadly.
-        - Repeating and practicing with both related and unrelated (so that you also know ehen not to use it) problems.
+        - Repeating and practicing with both related and unrelated (so that you also know when not to use it) problems.
         - Practice
 3. There are two ways to learn bottom up and top down. Both are important to master any subject. Context is where bottom up and top down learning meets.
      
+#### Illusions of Competence
+
+1. Recall jsut after reading is much more efficient then rereading the book.
+2. The retrieval process itself enhances deep learning and help us performing hunks.
+3. Building connections between chunks, before the basic chunks are embedded in the brain, does not works well.
+4. using recall, mental retrieval of the key ideas, rather than passive re-reading, will make your study time more focused and effective.
+5. Re-reading is good only when its becomes exercise in spaced repetition.
+6. Merely glancing at a solution and thinking you know it yourself is one of the most common _Illusion of competence_ in learning.
+7. You must have the information persisting in your memory, if you are to master the material well enough to think creatively with it.
+8. Be careful of highlighting too much. Notes and comments are very good idea. (Todo)
+9. Recall helps you test and testing is very important to deal with Illusions of competence.
+10. Recalling material when you are outside your usual place of study cn also help you strengthen your grasp on the material.
+
+### Seeing the Bigger Picture
+
+#### What Motivates You?
+
+1. Learning something you are interested in is easy because there are neuromodulators released which not only carry information about the content of the experience but its importance and value to your future.
+2. Some of neuromodulators:
+    1. acetylcholine
+        - important for focused learning.
+        - lead to long term memory.
+        - also have profound impact on your conscious mind.
+    2. dopamine
+        - controls motivation
+        - part of large brain system that controls reward learning
+        - Dopamine is released from neurons when we receive an unexpected reward.
+        - have a very powerful impact on learning
+        - also impact decision making and value of sensory inputs
+        - also in business of predicting future rewards and not only immediate awards
+        - Addictive drugs increase dopamine activity and fool your brain into thinking that something wonderful has just happened.
+    3. serotonin
+        - strongly affects your social life
+        - its level is inversly related to risk taking behaviour.
+3. Emotion once thougth to be separate from cognition but recent research has shown that emotions are intertwined with perception & attention and interact with learning & memory.  
