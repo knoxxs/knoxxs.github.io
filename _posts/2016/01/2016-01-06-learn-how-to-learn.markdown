@@ -146,5 +146,42 @@ Todos:
         - Addictive drugs increase dopamine activity and fool your brain into thinking that something wonderful has just happened.
     3. serotonin
         - strongly affects your social life
-        - its level is inversly related to risk taking behaviour.
-3. Emotion once thougth to be separate from cognition but recent research has shown that emotions are intertwined with perception & attention and interact with learning & memory.  
+        - its level is inversely related to risk taking behaviour.
+3. Emotion once thought to be separate from cognition but recent research has shown that emotions are intertwined with perception & attention and interact with learning & memory.
+  
+#### The Value of a Library of Chunks
+
+1. What people do to enhance their knowledge and gain expertise is to gradually build the number of chunks in their mind. Valuable bits of information they can piece togther in new and creative ways.
+2. The bigger and more well practiced your chunked mental library, whatever the subject your are leaning, the more easily you will be able to solve problems and figure out solutions.
+3. Chunking isn't all you need to develop creative flexibility in your learning.
+4. Chunks can also help you understand new concepts
+    1. This is because when you grasp one chunk, you will find that this chunk is surprisingly related to many similar chunks, not only in that field but also in very different fields.
+    2. This is called **transfer**.
+5. As you gain more experience in chunking in any particular subject, you will find that the chunks your are able to create are bigger (ribbons are longer and neural patters are darker).
+6. When you are trying to figure something out, if you have a good library of these chunks, you can more easily skip to the right solution by metaphorically speaking, listening to whispers from your diffused mode.
+7. In building a chunked library you are training you brain not only to recognize a specific concept but different types and classes of concepts so that you can automatically know how to solve quickly and handle whatever you encounter.
+8. You will start to see patterns that simplify problem solving for you and will soon find different solution techniques lurking of at the edge of your memory.
+9. There are two ways to figure something out or solve problems:
+    1. Sequential step by step reasoning: Involves focused mode
+    2. Holistic (global) intuition: Diffused mode linking of several focused mode thoughts.
+10. Diffused mode semi's random way of making connection means that solution they provide should be very carefully verified using focused mode. Intuitive insights aren't always correct. 
+
+#### Overlearning, Choking, Einstellung, and Interleaving
+     
+1. When you are learning a new idea, you sometimes tend to practice it over and over again during the same study session. A little of this is useful and necessary, but continuing to study or practice after you have mastered what you can in the session is called **overlearning**.
+    1. It can produce automaticity that can be important when you're executing a sever in tennis or a perfect piano concerto.
+    2. If you choke on tests or public speaking then overlearning can be especially valuable.
+    3. Automaticity can indeed be helpful in times of nervousness, but be wary of repetitive overlearning during a single session.
+    4. The reality is, once you got the basic idea down during a session, continuing to hammer away at it, during the same session doesn't strengthen the kinds of long term memory connection you want to have strengthened. Worst yet, focusing at one technique is little like learning carpentry by only practicing with hammer.
+    5. Using a subsequent learning session to repeat what you are trying to learn is is just fine and often valuable.Repeating something you already know is easy. It can also bring the **Illusion of competence** that you have mastered the full range of material when you've actually only mastered the easy stuff.
+    6. Balance your study deliberately focusing on what you find more difficult. This focusing on more difficult material is called **deliberate practice**. (difference between a good student and great student).
+2. **Einstellung (Mindset)**: In this phenomenon, your initial simple thought, an idea you already have in mind or a neural pattern you have already developed & strengthened, may prevent a better idea or solution from being found.
+    1. Its really easy to do in sports and science.
+    2. You have to unlearn your erroneous older ideas or approaches even while you are leaning new ones.
+3. Understanding how to obtain a real solution is important in learning and life. Jumping in water without knowing how to swim is a recipe for sinking.
+4. Mastering a new subject means learning not only the basic chunks, but also learning how to select and use different chunks.
+    1. The best way to learn that is by practicing jumping back and forth between problems or situations that require different techniques or strategies. This is called **Interleaving**.
+    2. Analysing why some problems call for one technique as opposed to other.
+5. Practice and repetition is important in helping build solid neural patterns to draw on, it's interleaving that starts building flexibility and creativity.
+6. Research found that most paradigm shift in science are bought by young people or people who were originally trained in a different discipline. They are not so easily trapped by einstellung. 
+    
