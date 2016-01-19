@@ -183,5 +183,38 @@ Todos:
     1. The best way to learn that is by practicing jumping back and forth between problems or situations that require different techniques or strategies. This is called **Interleaving**.
     2. Analysing why some problems call for one technique as opposed to other.
 5. Practice and repetition is important in helping build solid neural patterns to draw on, it's interleaving that starts building flexibility and creativity.
-6. Research found that most paradigm shift in science are bought by young people or people who were originally trained in a different discipline. They are not so easily trapped by einstellung. 
-    
+6. Research found that most paradigm shift in science are bought by young people or people who were originally trained in a different discipline. They are not so easily trapped by einstellung.
+ 
+## Week 3
+
+### Procrastination
+
+#### Tackling Procrastination - It's Easier, and More Valuable, Than You Think
+
+1. Arsenic eating example: gradually (but long term effects are not good)
+2. The lazy person approach to tackle procrastination
+3. Inner zombies: The routine, habitual responses your brain falls into as a result of specific cues. These responses are often focused on making the here and now better.
+4. Unlike procrastination which is easy to fall into, will power is hard to come by. It uses a lot of neural resources. You should not use will power on fending off procrastination except when absolutely necessary.
+5. We procrastinate about things which will make us a little bit uncomfortable/unhappy -> pain center of our brain light up -> focus attention on something more enjoyable.
+    - This will make you feel better/happy temporarily. But long term effects of habitual avoidance can be nasty.
+6. Procrastination can be a single monumentally important keystone bad habit, a habit in other words that influences many important areas of your life.
+    1. It shares features with addiction. It offers temporarily excitement and relief from something boring reality
+    2. You start to tell yourself stories and reasons. You devise irrational excuses that sound superficially reasonable.
+
+#### [Zombies Everywhere](https://www.coursera.org/learn/learning-how-to-learn/lecture/p7wRU/zombies-everywhere)
+
+1. Once you have chunked how to do something then your brain goes into sort of zombie mode, where it only semi-aware of a few key factors, instead being overwhelmed by all the data.
+2. Neuro scientifically: chunking is related to habit.
+    1. Habit is an energy saver for us. 
+    2. We go into habitual zombie mode far more often then we think.
+3. Habits as four parts:
+    1. **The cue**: The trigger which launches you into zombie mode. Its neither helpful or harmful.
+    2. **The routine**: The zombie mode. The routine habitual response brain is used to falling into when it receives the cue. It can be useful, harmless or sometimes harmful.
+    3. **The reward**: Every habit develops and continues because it rewards us. It gives us an immediate little feeling of pleasure.
+        - Procrastination is an easy habit to develop because the reward, moving your midn to something more pleasant, happens so quickly and easily.
+        - Finding ways to avoid good habits is important for escaping procrastination.
+    4. **The belief**: Habits have power because you believe in them.
+
+#### [Surf's Up: Process Versus Product](https://www.coursera.org/learn/learning-how-to-learn/lecture/wTEpf/surfs-up-process-versus-product)
+
+1. 
