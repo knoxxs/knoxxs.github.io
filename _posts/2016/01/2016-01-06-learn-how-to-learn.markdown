@@ -216,5 +216,42 @@ Todos:
     4. **The belief**: Habits have power because you believe in them.
 
 #### [Surf's Up: Process Versus Product](https://www.coursera.org/learn/learning-how-to-learn/lecture/wTEpf/surfs-up-process-versus-product)
+Mental tips and tricks about learning.
 
-1. 
+1. Its perfectly normal to start with a few negative feeling about beginning a learning session. Even if it is something you ordinary like. Its how you handle those feeling that matters.
+    - Non-procrastinators put their negative feelings aside saying things to themselves like: Quit wasting time, get going, you will feel better soon.
+2. If any task make you feel uncomfortable, there is another helpful way to re-frame things: *learn to focus on process not product*.
+    - **Process**: The flow of time and the habits & actions associated with that flow of time. Eg. I am going to spend 20 mins working.
+    - **Product**: Its the outcome. Eg. homework assignment.
+    - Processes relate to simple habits, which allow you to do unpleasant tasks that need to be done.
+    - Product is what triggers the pain that cause you to procrastinate.
+    - Easiest way to focus on process is Pomodoro.
+    - The key is when a distraction arises, which inevitably will, you want to train yourself to just let is flow by.
+    - By focusing on process rather than product, you allow yourself to back away from judging yourself: am I getting closer to finishing? Just decide the process, don't decide the product: Don't care of the product finishes or not. 
+    
+#### [Harnessing Your Zombies to Help You](https://www.coursera.org/learn/learning-how-to-learn/lecture/YS6FO/harnessing-your-zombies-to-help-you)
+
+Harnessing your zombie power of habit to help you avoid procrastination while minimizing your use of willpower.
+
+1. The trick to overriding a habit is to look to change your reaction to cue. To do that you have to apply willpower. Components of habits from procrastination's perspective.
+    - **The cue**: Recognize what launches you into your zombie procrastination mode.
+        -Cue falls into four categories:
+            1. location
+            2. time
+            3. how you feel
+            4. reactions: either to other people or to something just happend
+        - Procrastination is an automatic habit, therefore you are often unaware that you have begun to procrastinate.
+        - To avoid this shut off cues during Promodoro sessions (be isolated)
+    - **The routine**: Unhappy -> focusing on something comfortable.
+        - Your brain wants to automatically go into this routine when you got your cue.
+        - This is the reaction point where you must actively focus on rewiring your old habits.
+        - This can be done with a plan eg. developing a new ritual. Try and try until the plan succeeds. Savor the victories when the plan works.
+    - **The reward**: May need some investigation:
+        - Why are you procrastinating?
+        - Can you substitute an emotional payoff, may be a feeling of pride for accomplishing something, a sense of satisfaction?
+        - Bet or contest
+        - Some fun reward: like reading with latte, surfing, game without guilt
+        - Bigger reward with bigger achievement: movie ticket, clothes etc.
+    - **The belief**: The most important part of changing your procrastination habit is the belief that you can do it.
+        - Develop a new community to strengthen your beliefs: Developing and encouraging culture with like minded friends.
+        
