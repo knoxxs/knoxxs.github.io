@@ -211,7 +211,7 @@ Todos:
     1. **The cue**: The trigger which launches you into zombie mode. Its neither helpful or harmful.
     2. **The routine**: The zombie mode. The routine habitual response brain is used to falling into when it receives the cue. It can be useful, harmless or sometimes harmful.
     3. **The reward**: Every habit develops and continues because it rewards us. It gives us an immediate little feeling of pleasure.
-        - Procrastination is an easy habit to develop because the reward, moving your midn to something more pleasant, happens so quickly and easily.
+        - Procrastination is an easy habit to develop because the reward, moving your mind to something more pleasant, happens so quickly and easily.
         - Finding ways to avoid good habits is important for escaping procrastination.
     4. **The belief**: Habits have power because you believe in them.
 
@@ -255,3 +255,22 @@ Harnessing your zombie power of habit to help you avoid procrastination while mi
     - **The belief**: The most important part of changing your procrastination habit is the belief that you can do it.
         - Develop a new community to strengthen your beliefs: Developing and encouraging culture with like minded friends.
         
+#### [Juggling Life and Learning](https://www.coursera.org/learn/learning-how-to-learn/lecture/QuZsE/juggling-life-and-learning)
+
+1. Planning -> Weekly -> Daily. The day before so that you subconscious mind to grapple with tasks on the list.
+2. Balance tasks (focused and diffused mode)
+3. Do the most important and most dislike tasks first thing in the morning. At least one promodoro.
+4. If you don't write tasks in a list, they can lurk at the edge of the four slots in your working memory, taking up valuable mental real estate. 
+
+### Memory
+
+#### Diving Deeper into Memory
+
+1. We have outstanding visual and spatial memory system which can help form part of our long term memory. Eg. Looking at new house. This is developed because our ancestors needed "where things are" and "how they look" memory more.
+2. To begin tapping into your visual memory system try making a very memorable visual image representing one key item you want to remember.
+3. The more neural hooks you can build by evoking the senses, the easier it will be for you recall the concept and what it means.
+4. Focusing your attention bring something into your temp. working memory, but to move it to long term memory two things should happen:
+    - The idea should be memorable (The more it is memorable the more easy it is to recall) 
+    - It must be repeated
+5. Use index cards technique to relate and recall.
+6. Before sleep sumarized all day learning. (Try to blog it)
