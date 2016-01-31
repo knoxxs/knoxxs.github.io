@@ -260,7 +260,9 @@ Harnessing your zombie power of habit to help you avoid procrastination while mi
 1. Planning -> Weekly -> Daily. The day before so that you subconscious mind to grapple with tasks on the list.
 2. Balance tasks (focused and diffused mode)
 3. Do the most important and most dislike tasks first thing in the morning. At least one promodoro.
-4. If you don't write tasks in a list, they can lurk at the edge of the four slots in your working memory, taking up valuable mental real estate. 
+4. If you don't write tasks in a list, they can lurk at the edge of the four slots in your working memory, taking up valuable mental real estate.
+5. Write what works for you to overcome procrastination and what doesn't. (Todo)
+6. Broaden your passion instead of just following them. (Todo)
 
 ### Memory
 
@@ -272,5 +274,25 @@ Harnessing your zombie power of habit to help you avoid procrastination while mi
 4. Focusing your attention bring something into your temp. working memory, but to move it to long term memory two things should happen:
     - The idea should be memorable (The more it is memorable the more easy it is to recall) 
     - It must be repeated
-5. Use index cards technique to relate and recall.
-6. Before sleep sumarized all day learning. (Try to blog it)
+5. Use index cards technique to relate and recall. (Name on front and solution on back)
+6. Before sleep summarize all day learning. (Todo Try to blog it)
+
+#### What is Long Term Memory?
+
+1. Hippocampus is important part of our brain system for learning and memory of facts and events.
+2. Without hippocampus it is not possible to store new long term memories into cortex, a process called memory consolidation.
+3. Whenever we recall a memory it changes, a process called reconsolidation.
+4. Astrocytes, a glial cell, provide nutrients to neurons. They also make extracellular ion balance. Also involved in repair after injury.
+5. Astrocytes might help in learning. Mice and Einstein example.
+
+#### Creating Meaningful Groups and the Memory Palace Technique
+
+1. Creating meaningful group to simplify the learning.
+    1. mnemonics (short form)
+    2. Todo create a tool to find sentences to form mnemonics
+2. Memory Palace technique
+    1. Powerful way of grouping things you want to remember.
+    2. You imagine yourself walking through a place you know well, coupled with shockingly memorable images of what you want to remember.
+    3. Practice till you become fast in it.
+3. Memory tricks allow people to expand their working memory with access to long term memory.
+4. The memory process itself becomes an exercise in creativity. The more you memorize using these innovative techniques ,the more creative you become.
