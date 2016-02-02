@@ -1,0 +1,17 @@
+---
+layout: post
+title:  Gitlab
+date:   2016-02-02 22:57:00
+categories: programming git
+tags: git github gitlab bitbucket
+---
+
+Today I came across gitlab. I used github and bitbucket before. But never heard of gitlab. Its cool piece of software. Here are some details:
+
+1. Gitlab editions and features [https://about.gitlab.com/features/#compare](https://about.gitlab.com/features/#compare)
+2. Gitlab [https://about.gitlab.com/gitlab-com/](https://about.gitlab.com/gitlab-com/)
+3. Gitlab v/s github v/s bitbucket [https://about.gitlab.com/comparison/](https://about.gitlab.com/comparison/)
+4. Gitlab's continuous integration [https://about.gitlab.com/gitlab-ci/](https://about.gitlab.com/gitlab-ci/)
+5. Gitlab community edition's source code [https://github.com/gitlabhq/gitlabhq](https://github.com/gitlabhq/gitlabhq)
+
+
