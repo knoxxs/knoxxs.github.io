@@ -35,7 +35,7 @@ While leaning something new, you mind has to go back and forth between two learn
 
 #### [A Procrastination Preview](https://www.coursera.org/learn/learning-how-to-learn/lecture/Dci3o/a-procrastination-preview)
 1. Procrastination occurs because if you don't like something a little bit, you activate areas of your brain associated with pain and then brain, naturally enough, looks for ways to stop this feeling by taking your attention to something else.
-2. But research found that not long after people actually start working up what they didn't like the feeling goes away. This I used to call _first step reluctance_.
+2. But research found that not long after people actually start working up what they didn't like, the feeling goes away. This I used to call _first step reluctance_.
 3. The solution is to take your attention to something pleasant thing momentarily. 
 
 **Pomodoro**: 
@@ -65,8 +65,6 @@ M -> T -> W -> Not T -> F -> Not Sat -> Sun
   
 #### Interview with Dr. Terrence Sejnowski
 
-Todos:
-
 1. Try to think of ideas while jogging.
 2. Learn context switching
 
@@ -81,7 +79,7 @@ Todos:
  
 1. Chunking is the mental leap which helps you unite bits of information together through meaning. 
 2. The new logical whole makes it easier to remember and also makes it easier to fit the chunk in larger picture
-3. using four chunks in working memory, one can make connection to information that is present in various part of the brain. This is different from random connection of the diffused mode.
+3. Using four chunks in working memory, one can make connection to information that is present in various part of the brain. This is different from random connection of the diffused mode.
 4. Focusing your connection to connect parts of the brain to tie together ideas is an important part of focused mode of learning. It also helps you get started in creating a chunk.
 5. When you are stressed these connections doesn't work very well.
 6. Chunks are pieces of information that are bound together through meaning or use.
@@ -89,7 +87,7 @@ Todos:
 8. A chunk is network of neurons that are used to firing together.
 9. Focused practice and repetition helps you to create chunks. Step by step you can become the master by making small chunks big.
 10. Focused practice and repetition is not the only thing you need to become a truly creative master of the material you are learning.
-11. Once you chunk an idea, a concept or an action you don't need to remeber all the little underlying details. Eg. getting dressed in the morning.
+11. Once you chunk an idea, a concept or an action, you don't need to remember all the little underlying details. Eg. getting dressed in the morning.
 
 #### How to Form a Chunk - Part 1
 
@@ -115,16 +113,16 @@ Todos:
      
 #### Illusions of Competence
 
-1. Recall jsut after reading is much more efficient then rereading the book.
+1. Recall just after reading is much more efficient then rereading the book.
 2. The retrieval process itself enhances deep learning and help us performing hunks.
 3. Building connections between chunks, before the basic chunks are embedded in the brain, does not works well.
-4. using recall, mental retrieval of the key ideas, rather than passive re-reading, will make your study time more focused and effective.
+4. Using recall, mental retrieval of the key ideas, rather than passive re-reading, will make your study time more focused and effective.
 5. Re-reading is good only when its becomes exercise in spaced repetition.
 6. Merely glancing at a solution and thinking you know it yourself is one of the most common _Illusion of competence_ in learning.
 7. You must have the information persisting in your memory, if you are to master the material well enough to think creatively with it.
 8. Be careful of highlighting too much. Notes and comments are very good idea. (Todo)
 9. Recall helps you test and testing is very important to deal with Illusions of competence.
-10. Recalling material when you are outside your usual place of study cn also help you strengthen your grasp on the material.
+10. Recalling material when you are outside your usual place of study can also help you strengthen your grasp on the material.
 
 ### Seeing the Bigger Picture
 
@@ -151,7 +149,7 @@ Todos:
   
 #### The Value of a Library of Chunks
 
-1. What people do to enhance their knowledge and gain expertise is to gradually build the number of chunks in their mind. Valuable bits of information they can piece togther in new and creative ways.
+1. What people do to enhance their knowledge and gain expertise is to gradually build the number of chunks in their mind. Valuable bits of information they can piece together in new and creative ways.
 2. The bigger and more well practiced your chunked mental library, whatever the subject your are leaning, the more easily you will be able to solve problems and figure out solutions.
 3. Chunking isn't all you need to develop creative flexibility in your learning.
 4. Chunks can also help you understand new concepts
@@ -169,11 +167,11 @@ Todos:
 #### Overlearning, Choking, Einstellung, and Interleaving
      
 1. When you are learning a new idea, you sometimes tend to practice it over and over again during the same study session. A little of this is useful and necessary, but continuing to study or practice after you have mastered what you can in the session is called **overlearning**.
-    1. It can produce automaticity that can be important when you're executing a sever in tennis or a perfect piano concerto.
+    1. It can produce automaticity that can be important when you're executing a seve in tennis or a perfect piano concerto.
     2. If you choke on tests or public speaking then overlearning can be especially valuable.
     3. Automaticity can indeed be helpful in times of nervousness, but be wary of repetitive overlearning during a single session.
     4. The reality is, once you got the basic idea down during a session, continuing to hammer away at it, during the same session doesn't strengthen the kinds of long term memory connection you want to have strengthened. Worst yet, focusing at one technique is little like learning carpentry by only practicing with hammer.
-    5. Using a subsequent learning session to repeat what you are trying to learn is is just fine and often valuable.Repeating something you already know is easy. It can also bring the **Illusion of competence** that you have mastered the full range of material when you've actually only mastered the easy stuff.
+    5. Using a subsequent learning session to repeat what you are trying to learn is is just fine and often valuable. Repeating something you already know is easy. It can also bring the **Illusion of competence** that you have mastered the full range of material when you've actually only mastered the easy stuff.
     6. Balance your study deliberately focusing on what you find more difficult. This focusing on more difficult material is called **deliberate practice**. (difference between a good student and great student).
 2. **Einstellung (Mindset)**: In this phenomenon, your initial simple thought, an idea you already have in mind or a neural pattern you have already developed & strengthened, may prevent a better idea or solution from being found.
     1. Its really easy to do in sports and science.
@@ -212,7 +210,7 @@ Todos:
     2. **The routine**: The zombie mode. The routine habitual response brain is used to falling into when it receives the cue. It can be useful, harmless or sometimes harmful.
     3. **The reward**: Every habit develops and continues because it rewards us. It gives us an immediate little feeling of pleasure.
         - Procrastination is an easy habit to develop because the reward, moving your mind to something more pleasant, happens so quickly and easily.
-        - Finding ways to avoid good habits is important for escaping procrastination.
+        - Finding ways to reward good habits is important for escaping procrastination.
     4. **The belief**: Habits have power because you believe in them.
 
 #### [Surf's Up: Process Versus Product](https://www.coursera.org/learn/learning-how-to-learn/lecture/wTEpf/surfs-up-process-versus-product)
@@ -239,7 +237,7 @@ Harnessing your zombie power of habit to help you avoid procrastination while mi
             1. location
             2. time
             3. how you feel
-            4. reactions: either to other people or to something just happend
+            4. reactions: either to other people or to something just happened
         - Procrastination is an automatic habit, therefore you are often unaware that you have begun to procrastinate.
         - To avoid this shut off cues during Promodoro sessions (be isolated)
     - **The routine**: Unhappy -> focusing on something comfortable.
@@ -261,8 +259,8 @@ Harnessing your zombie power of habit to help you avoid procrastination while mi
 2. Balance tasks (focused and diffused mode)
 3. Do the most important and most dislike tasks first thing in the morning. At least one promodoro.
 4. If you don't write tasks in a list, they can lurk at the edge of the four slots in your working memory, taking up valuable mental real estate.
-5. Write what works for you to overcome procrastination and what doesn't. (Todo)
-6. Broaden your passion instead of just following them. (Todo)
+5. Write what works for you to overcome procrastination and what doesn't.
+6. Broaden your passion instead of just following them.
 
 ### Memory
 
@@ -275,21 +273,19 @@ Harnessing your zombie power of habit to help you avoid procrastination while mi
     - The idea should be memorable (The more it is memorable the more easy it is to recall) 
     - It must be repeated
 5. Use index cards technique to relate and recall. (Name on front and solution on back)
-6. Before sleep summarize all day learning. (Todo Try to blog it)
+6. Before sleep summarize all day learning.
 
 #### What is Long Term Memory?
 
 1. Hippocampus is important part of our brain system for learning and memory of facts and events.
-2. Without hippocampus it is not possible to store new long term memories into cortex, a process called memory consolidation.
-3. Whenever we recall a memory it changes, a process called reconsolidation.
+2. Without hippocampus it is not possible to store new long term memories into cortex, a process called **memory consolidation**.
+3. Whenever we recall a memory it changes, a process called **reconsolidation**.
 4. Astrocytes, a glial cell, provide nutrients to neurons. They also make extracellular ion balance. Also involved in repair after injury.
 5. Astrocytes might help in learning. Mice and Einstein example.
 
 #### Creating Meaningful Groups and the Memory Palace Technique
 
-1. Creating meaningful group to simplify the learning.
-    1. mnemonics (short form)
-    2. Todo create a tool to find sentences to form mnemonics
+1. Creating meaningful group to simplify the learning: mnemonics (short form)
 2. Memory Palace technique
     1. Powerful way of grouping things you want to remember.
     2. You imagine yourself walking through a place you know well, coupled with shockingly memorable images of what you want to remember.
@@ -318,12 +314,12 @@ Harnessing your zombie power of habit to help you avoid procrastination while mi
 
 #### Create a Lively Visual Metaphor or Analogy
      
-1. On more sophisticated understading of the topic, you can revise your metaphors or toss them away and create more meaningful one.
+1. On more sophisticated understanding of the topic, you can revise your metaphors or toss them away and create more meaningful one.
 2. Metaphors and analogies are useful for getting people out of Einstellung.
 
 #### No Need for Genius Envy
      
-1. At some point self-consciously understanding why you do what you do, just slows you down and interupts the flow resulting in worse decisions.
+1. At some point self-consciously understanding why you do what you do, just slows you down and interrupts the flow resulting in worse decisions.
 2. Intelligence matters
     1. Being smarter often equates to having a larger working memory.
     2. You might chunk 9 things instead of four in STM which helps you learn fast. But it also makes it more difficult for you to be creative because of Einstellung.
@@ -355,7 +351,7 @@ Harnessing your zombie power of habit to help you avoid procrastination while mi
 #### A Test Checklist
 
 1. Test of recall and different problem solving techniques during preparation is of fundamental importance.
-2. Plan both studying and testing session. (Todo)
+2. Plan both studying and testing session.
 3. Testing is wonderful way of concentrating your mind.
 4. Checklist to see whether your preparation for test taking is on target (Richard Felder)
     1. Did you make a serious effort to understand the text?
@@ -366,7 +362,7 @@ Harnessing your zombie power of habit to help you avoid procrastination while mi
     6. Did you understand all you homework problem solutions?
     7. Did you ask in class for explanations of homework problem solutions that weren't clear to you?
     8. Followed the study guide?
-    9. Did you attempt to outline lot of problme solutions quickly?
+    9. Did you attempt to outline lot of problem solutions quickly?
     10. Did you go over the study guide and problems with classmates and quiz one another?
     11. Did you attend the review session and discussed your doubts?
     12. Did you get a reasonable night sleep before the test?
@@ -389,11 +385,34 @@ Empower test taking skills
     2. But its how you interpret these symptoms makes all the difference. The story you tell yourself about why you are stressed.
     3. Turn your attention to something good (excitement of test than fear). 
     4. Also momentarily turn your attention to your breathing. This counteracts the flight or flight response that fuels anxiety.
-2. Face your fears and always have a plan B. (Todo life and startup)
-3. Divide your worries between good worries and bad worries. Write them down. Then try to ignore bad worries. (Todo)
+2. Face your fears and always have a plan B.
+3. Divide your worries between good worries and bad worries. Write them down. Then try to ignore bad worries.
 4. Brain can trick you into thinking that what you have done is correct. Try to blink, take deep breath to try to shift you attention and then double check what you have done using big picture perspective asking yourself does this make sense.
 5. Try to have different perspective in learning and understanding. Like top-down & bottom-up.
 6. Try to define some rules to check what you have done is correct or not. Like checking units of both side of equation in maths.
 
+## Todo
+Things I have to remind myself of doing or following. Usually I don't do following.
 
-Todo: Todos in it and the things which I knew wrong.
+1. For things you don't know plan to include diffused mode.
+2. Spaced repetition,
+3. Learn something in a way to form chunk efficiently.
+4. Try to think of ideas while jogging.
+5. Plan to learn context switching.
+6. Recall the material you learn.
+7. Deliberate practice
+8. Beware of illusions of competence and Einstellung
+9. Interleaving
+10. Procrastination:
+    1. Habit
+    2. Product not the process
+    3. Rewards
+    4. Write what works for you to overcome procrastination and what doesn't.
+11. Broaden your passion instead of just following them.
+12. Before sleep summarize all day learning. (Blog)
+13. Create visual metaphor
+14. Change your thinking, change your life.
+15. Plan both studying and testing session.
+16. Beware of the story you tell yourself about why you are stressed.
+17. Face your fears and always have a plan B. (Todo life and startup)
+18. Divide your worries between good worries and bad worries.
