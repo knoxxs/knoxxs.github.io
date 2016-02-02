@@ -19,7 +19,7 @@ In this post I will be making notes about coursera's course - [Learning how to l
 
 The important point to note is at a time you can be only in one mode of thinking.
 
-todo video motivation
+I can relate it to [The puzzle of motivation](http://www.ted.com/talks/dan_pink_on_motivation?language=en) video I watched recently.
 
 #### [Focused v/s diffused thinking](https://www.coursera.org/learn/learning-how-to-learn/lecture/GVacn/using-the-focused-and-diffuse-modes-or-a-little-dali-will-do-you)
 
@@ -28,7 +28,7 @@ While leaning something new, you mind has to go back and forth between two learn
 #### [What is learning](https://www.coursera.org/learn/learning-how-to-learn/lecture/7iJVR/what-is-learning)
 
 1. What we learn over time is very difficult for computers to learn e.g. seeing, listening. But what we learn very fast like math and science is very easy for computer to do.
-2. Most of the complex situation in the brain ar handled below the level of our consciousness. We don't need to know these heavy lifting in order to survive.
+2. Most of the complex situation in the brain are handled below the level of our consciousness. We don't need to know these heavy lifting in order to survive.
 3. You are not the same person you were after a night's sleep or even a nap.
 
 ### Procrastination, Memory, and Sleep
@@ -296,3 +296,104 @@ Harnessing your zombie power of habit to help you avoid procrastination while mi
     3. Practice till you become fast in it.
 3. Memory tricks allow people to expand their working memory with access to long term memory.
 4. The memory process itself becomes an exercise in creativity. The more you memorize using these innovative techniques ,the more creative you become.
+
+## Week 4
+
+### Renaissance Learning and Unlocking Your Potential I
+
+#### How to Become a Better Learner
+
+1. Physical exercise. New cells will be created in Hippocampus
+2. Practice can repair as well as train the brain. Also learning something new.
+3. Pre-frontal cortex influence complex analysis, social behavior, ability to make decisions, ability to plan.
+4. The visual cortex reaches maturation in childhood.
+5. The prefrontal cortex reaches maturation in early adulthood.
+
+#### Introduction to Renaissance Learning and Unlocking Your Potential
+     
+1. Learning doesn't progress logically, so that each day adds an additional neat packages to your knowledge shelf.
+2. Sometimes you hit a wall in constructing your understanding. Things that made sense before can suddenly seem confusing. This type of knowledge collapse seems to occur when your mind is restructuring its understanding, building a more solid foundation.
+3. It takes time to assimilate new knowledge. You'll inevitably go through some periods when you seem to take and exasperating step backwards, in your understanding. This is natural phenomenon.
+4. When you emerge from these periods of temporary frustration, your knowledge base will take a surprising leap forward. 
+
+#### Create a Lively Visual Metaphor or Analogy
+     
+1. On more sophisticated understading of the topic, you can revise your metaphors or toss them away and create more meaningful one.
+2. Metaphors and analogies are useful for getting people out of Einstellung.
+
+#### No Need for Genius Envy
+     
+1. At some point self-consciously understanding why you do what you do, just slows you down and interupts the flow resulting in worse decisions.
+2. Intelligence matters
+    1. Being smarter often equates to having a larger working memory.
+    2. You might chunk 9 things instead of four in STM which helps you learn fast. But it also makes it more difficult for you to be creative because of Einstellung.
+3. Those people who can't hold a lot in mind at once, you loose focus and start daydreaming in lectures and have to get to some quiet place to focus so you can use your working memory.
+    1. Welcome to the clan of creative.
+    2. Smaller working memory means you can easily generalize your learning into new, more creative combinations. Because your working memory, which grows from the focusing abilities of the prerfontal cortex doesn't lock everything up so tightly. You can easily get input from other part of your brains. You may have to work harder to understand what's going on.
+4. The Imposter Syndrome: The feeling that you are an imposter. Imposter syndrome involves frequent feelings of inadequacy.
+
+#### Change Your Thoughts, Change Your Life
+
+1. People can enhance the development of their neuronal circuits by practicing thoughts that use those neurons. We can make significant changes in our brain by changing how we think.
+2. Approaching material with a goal of learning it on your own, can give you a unique path to mastery.
+3. People are as competitive as co-operative. Don't empathize always.
+4. Try to have perseverance.
+
+### Renaissance Learning and Unlocking Your Potential II
+
+#### The Value of Teamwork
+
+1. Right hemisphere help us step back and put our work into big picture perspective.Take a deep breadth and revisit to see what you have done does make sense or not. 
+2. Left hemisphere interprets the world for us and will go to the great lengths to keep those interpretation unchanging. --> Can result in feeling of over-confidence.
+3. Let more interactions between the hemispheres.
+4. Feynman: "The first principal is that you must not fool yourself and you are the easiest person to fool".
+5. Easy way to catch your errors is to Brainstorm with others who are also smartly focused on the topic.
+6. Friends and teammates can serve as sort of ever questioning large scale diffuse mode outside your brain that can catch what you missed.
+7. Explaining to others helps you build your own understanding. 
+8. Study groups can be powerfully effective for learning, but if study sessions turns into socializing occasions, all bets are off.
+
+#### A Test Checklist
+
+1. Test of recall and different problem solving techniques during preparation is of fundamental importance.
+2. Plan both studying and testing session. (Todo)
+3. Testing is wonderful way of concentrating your mind.
+4. Checklist to see whether your preparation for test taking is on target (Richard Felder)
+    1. Did you make a serious effort to understand the text?
+    2. Did you work with classmates on homework problems or at least check your solutions with others?
+    3. Did you attempt to outline every homework problem solution before working with classmates?
+    4. Did you participate actively in homework group discussion?
+    5. Did you consult with the instructor or TA when you are having trouble?
+    6. Did you understand all you homework problem solutions?
+    7. Did you ask in class for explanations of homework problem solutions that weren't clear to you?
+    8. Followed the study guide?
+    9. Did you attempt to outline lot of problme solutions quickly?
+    10. Did you go over the study guide and problems with classmates and quiz one another?
+    11. Did you attend the review session and discussed your doubts?
+    12. Did you get a reasonable night sleep before the test?
+
+#### Hard Start - Jump to Easy
+Empower test taking skills
+ 
+1. Classic way: Easy --> Hard (Solving simple will you give you the confidence to solve the hard ones)
+2. Better way: Hard --> Easy
+    1. Hard problems need more time
+    2. They might also need creative powers of diffuse mode. But to access diffuse mode, you need to not be focusing on what you so badly want to solve.
+    3. Start with hard and quickly jump to easy problems.
+    4. It can also help you avoid Einstellung.
+    5. That's why sometimes solutions pops up after walking out of the door.
+     
+#### Final Helpful Hints for Tests
+
+1. Body puts out chemicals such as cortisol when its under stress.
+    1. This can cause sweaty palms, a racing heart, a knot on the pilt of your stomach
+    2. But its how you interpret these symptoms makes all the difference. The story you tell yourself about why you are stressed.
+    3. Turn your attention to something good (excitement of test than fear). 
+    4. Also momentarily turn your attention to your breathing. This counteracts the flight or flight response that fuels anxiety.
+2. Face your fears and always have a plan B. (Todo life and startup)
+3. Divide your worries between good worries and bad worries. Write them down. Then try to ignore bad worries. (Todo)
+4. Brain can trick you into thinking that what you have done is correct. Try to blink, take deep breath to try to shift you attention and then double check what you have done using big picture perspective asking yourself does this make sense.
+5. Try to have different perspective in learning and understanding. Like top-down & bottom-up.
+6. Try to define some rules to check what you have done is correct or not. Like checking units of both side of equation in maths.
+
+
+Todo: Todos in it and the things which I knew wrong.
