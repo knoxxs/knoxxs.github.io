@@ -9,8 +9,11 @@ Its the my pitch for Syzygy.
 
 ### The problem
 
-- Underprivileged: Orphanages, Old age homes etc. 
-- Many are working to solve this with money but relations is what these people are missing (which made them underprivileged) and they need.
+- Many people who don't have the luxury of having a family.
+- There are many ways to help them financially but what is more important for them is someone's time.
+- They need relations (which made them underprivileged initially)
+- We can always help with our time.
+- Can guide them towards their entire life.
 
 ### Syzygy 
 
