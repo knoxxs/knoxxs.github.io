@@ -17,9 +17,8 @@ Its the my pitch for Syzygy.
 > means: a pair of connected or corresponding things.
 
 - Provides a platform where you can connect with them
-- The system takes care of the hassle of connecting with NGO so that you can take care of connecting with people  
-- It can be a guide to you to help manage relations.
-- Also provides a system for NGO to manage the relations- online & offline meetings.
+- The system takes care of the hassle of connecting with NGO, so that you can take care of connecting with people  
+- For you: it acts as a guide to help you manage relations at every step and for organisations: it provides a system to manage the relations- online & offline meetings.
 - Can sprout a relation
 
 ### Inspiration
