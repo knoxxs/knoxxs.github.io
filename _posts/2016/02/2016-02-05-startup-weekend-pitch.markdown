@@ -7,32 +7,29 @@ tags: pitch event startup-weekend
 ---
 Its the my pitch for Syzygy.
 
-### [Speaking Exchange](http://www.adweek.com/adfreak/perfect-match-brazilian-kids-learn-english-video-chatting-lonely-elderly-americans-157523)
-
-- The idea
-- The impact
-- Its a win-win situation
-
 ### The problem
 
-- We
-    - Want to do something, but don't really do something
-    - Time is much more impact than money
-- Them
-    - Alone
-    - Very less relations (after all they matters the most)
-    - Can use a life guide
+- Underprivileged: Orphanages, Old age homes etc. 
+- Money can help but relations is what they are missing (which made them underprivileged) and they need
 
 ### Syzygy 
 
 > means: a pair of connected or corresponding things.
 
-- A network where both can come together to talk
+- A one point network where both can come together to talk and connect
+- There relations can be scheduled and managed 
 - A relation can sprout
+
+### Inspiration
+
+[Speaking Exchange](http://www.adweek.com/adfreak/perfect-match-brazilian-kids-learn-english-video-chatting-lonely-elderly-americans-157523)
+
+<iframe width="360" height="215" src="https://www.youtube.com/embed/-S-5EfwpFOk" frameborder="0" allowfullscreen></iframe>
+
 
 ### Me?
 
-- Yet another person at 23. Want to do something meaningful and to help
+- Want to do something meaningful and to help
 - Graduated in 2014
 - Worked for an year in Sprinklr
 - Now working with Supertext for about 7 months
