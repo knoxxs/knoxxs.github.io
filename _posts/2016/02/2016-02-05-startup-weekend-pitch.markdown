@@ -30,9 +30,6 @@ Its the my pitch for Syzygy.
 
 ### Me?
 
-- Want to do something meaningful and to help
-- Graduated in 2014
-- Worked for an year in Sprinklr
-- Now working with Supertext for about 7 months
+Abhishek Gupta, worked 1 year in Sprinklr and working with Supertext, a Bangalore based startup, for past 7 months. 
     
 
