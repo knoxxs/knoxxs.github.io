@@ -27,7 +27,7 @@ Its the my pitch for Syzygy.
 
 > means: a pair of connected or corresponding things.
 
-- A network where both can come together
+- A network where both can come together to talk
 - A relation can sprout
 
 ### Me?
