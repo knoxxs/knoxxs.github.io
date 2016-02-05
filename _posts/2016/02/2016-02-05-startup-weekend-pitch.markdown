@@ -10,15 +10,16 @@ Its the my pitch for Syzygy.
 ### The problem
 
 - Underprivileged: Orphanages, Old age homes etc. 
-- Money can help but relations is what they are missing (which made them underprivileged) and they need
+- Many are working to solve this with money but relations is what these people are missing (which made them underprivileged) and they need.
 
 ### Syzygy 
 
 > means: a pair of connected or corresponding things.
 
 - Provides a platform where you can connect with them
-- A direct medium to communicate without any intermediary organisation.  
-- Manages when and how they are connecting i.e. helping managing the relations.
+- The system takes care of the hassle of connecting with NGO so that you can take care of connecting with people  
+- It can be a guide to you to help manage relations.
+- Also provides a system for NGO to manage the relations- online & offline meetings.
 - Can sprout a relation
 
 ### Inspiration
