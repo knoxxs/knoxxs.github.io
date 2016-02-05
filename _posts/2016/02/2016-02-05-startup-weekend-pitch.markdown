@@ -16,9 +16,9 @@ Its the my pitch for Syzygy.
 
 > means: a pair of connected or corresponding things.
 
-- A one point network where both can come together to talk and connect
-- Manages when and how they are connecting i.e. helping managing relations.
-- Removes the hassle and provides a direct medium to connect without any intermediary organisation.  
+- Provides a platform where you can connect with them
+- A direct medium to communicate without any intermediary organisation.  
+- Manages when and how they are connecting i.e. helping managing the relations.
 - Can sprout a relation
 
 ### Inspiration
