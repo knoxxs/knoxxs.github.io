@@ -17,8 +17,9 @@ Its the my pitch for Syzygy.
 > means: a pair of connected or corresponding things.
 
 - A one point network where both can come together to talk and connect
-- There relations can be scheduled and managed 
-- A relation can sprout
+- Manages when and how they are connecting i.e. helping managing relations.
+- Removes the hassle and provides a direct medium to connect without any intermediary organisation.  
+- Can sprout a relation
 
 ### Inspiration
 
