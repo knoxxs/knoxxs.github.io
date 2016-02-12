@@ -32,3 +32,7 @@ github: https://github.com/knoxxs/knoxxs.github.io
 # Error: https://travis-ci.org/knoxxs/knoxxs.github.io/builds/81470182
 # Solution: https://github.com/jekyll/jekyll/issues/2938#issuecomment-56237068
 exclude: [vendor]
+
+# http://jekyllrb.com/docs/upgrading/2-to-3/#all-my-posts-are-gone-whered-they-go
+# Email with subject: [knoxxs/knoxxs.github.io] Page build failure
+future: true
