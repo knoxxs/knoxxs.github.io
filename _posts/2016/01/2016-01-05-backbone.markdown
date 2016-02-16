@@ -56,7 +56,7 @@ When fetching raw JSON data from an API, a `Collection` will automatically popul
 ```javascript
 [{"id": 1}] ..... populates a Collection with one model.
 {"id": 1} ....... populates a Model with one attribute.
-```javascript
+```
 
 However, it's fairly common to encounter APIs that return data in a different format than what Backbone expects. For example, consider fetching a Collection from an API that returns the real data array wrapped in metadata:
 
@@ -70,7 +70,8 @@ However, it's fairly common to encounter APIs that return data in a different fo
     {"id": 4, "title": "The Great Gatsby"}
   ]
 }
-```javascript
+```
+
 In the above example data, a Collection should populate using the "books" array rather than the root object structure. This difference is easily reconciled using a parse method that returns (or transforms) the desired portion of API data:
 
 ```javascript
@@ -114,7 +115,215 @@ Some of the issues I faced:
 
 ## Diving Deeper with Backbone
 
-This is really great covering a lot of details.
+[Developing Backbone.js Applications- By Addy Osmani: Backbone Basics](https://addyosmani.com/backbone-fundamentals/#backbone-basics) is really great covering a lot of details.
+
+### Model
+
+- `initialize()`
+- `defaults`
+- `Model.get()` provides easy access to a model’s attributes.
+- `toJSON()`: read or clone all of a model’s data attributes.
+    - This method returns a copy of the attributes as an object (not a JSON string despite its name).
+    - When `JSON.stringify()` is passed an object with a `toJSON()` method, it stringifies the return value of `toJSON()` instead of the original object.
+- `Model.set()` sets a hash containing one or more attributes on the model.
+    - When any of these attributes alter the state of the model, a change event is triggered on it.
+    - Change events for each attribute are also triggered and can be bound to (e.g. change:name, change:age)
+- Models expose an `.attributes` attribute which represents an internal hash containing the state of that model.
+    - Setting values through the `.attributes` attribute on a model bypasses triggers bound to the model.
+    - Passing `{silent:true}` on set doesn’t delay individual "change:attr" events. Instead they are silenced entirely:
+        
+        ```javascript
+        var Person = new Backbone.Model();
+        Person.on("change:name", function() { console.log('Name changed'); });
+        Person.set({name: 'Andrew'});
+        // log entry: Name changed
+        
+        Person.set({name: 'Jeremy'}, {silent: true});
+        // no log entry
+        
+        console.log(Person.hasChanged("name"));
+        // true: change was recorded
+        console.log(Person.hasChanged(null));
+        // true: something (anything) has changed
+        ```
+- Listening for changes to your model: If you want to receive a notification when a Backbone model changes you can bind a listener to the model for its change event. A convenient place to add listeners is in the initialize() function as shown below:
+        
+    ```javascript
+    var Todo = Backbone.Model.extend({
+      // Default todo attribute values
+      defaults: {
+        title: '',
+        completed: false
+      },
+    
+      initialize: function(){
+        console.log('This model has been initialized.');
+        this.on('change:title', function(){
+            console.log('Title value for this model has changed.');
+        });
+      },
+    
+      setTitle: function(newTitle){
+        this.set({ title: newTitle });
+      }
+    });
+    
+    var myTodo = new Todo();
+    
+    // Both of the following changes trigger the listener:
+    myTodo.set('title', 'Check what\'s logged.');
+    myTodo.setTitle('Go fishing on Sunday.');
+    
+    // But, this change type is not observed, so no listener is triggered:
+    myTodo.set('completed', true);
+    console.log('Todo set as completed: ' + myTodo.get('completed'));
+    
+    // Above logs:
+    // This model has been initialized.
+    // Title value for this model has changed.
+    // Title value for this model has changed.
+    // Todo set as completed: true
+    ```
+- Validation
+    - Backbone supports model validation through `model.validate()`
+    - By default, validation occurs when the model is persisted using the `save()` method or when `set()` is called if `{validate:true}` is passed as an argument.
+        
+        ```javascript
+        var Person = new Backbone.Model({name: 'Jeremy'});
+        
+        // Validate the model name
+        Person.validate = function(attrs) {
+          if (!attrs.name) {
+            return 'I need your name';
+          }
+        };
+        
+        // Change the name
+        Person.set({name: 'Samuel'});
+        console.log(Person.get('name'));
+        // 'Samuel'
+        
+        // Remove the name attribute, force validation
+        Person.unset('name', {validate: true});
+        // false
+        ```
+    - If the attributes provided are valid, nothing should be returned from `.validate()`. If they are invalid, an error value should be returned instead.
+    - On error:
+        - An `invalid` event will be triggered, setting the `validationError` property on the model with the value which is returned by this method.
+        - `.save()` will not continue
+    - **Note**: the attributes object passed to the validate function represents what the attributes would be after completing the current set() or save(). This object is distinct from the current attributes of the model and from the parameters passed to the operation. Since it is created by shallow copy, it is not possible to change any Number, String, or Boolean attribute of the input within the function, but it is possible to change attributes in nested objects
+    - Validation on initialization is possible but of limited use, as the object being constructed is internally marked invalid but nevertheless passed back to the caller. 
+- `unset()` removes an attribute by deleting it from the internal model attributes hash.
+
+### Views
+
+- `el` is basically a reference to a DOM element and all views must have one.
+- There are two ways to associate a DOM element with a view: a new element can be created for the view and subsequently added to the DOM or a reference can be made to an element which already exists in the page.
+- If you want to create a new element for your view, set any combination of the following properties on the view: `tagName, id, and className`. A new element will be created for you by the library and a reference to it will be available at the `el` property. If nothing is specified `tagName` defaults to `div`.
+- `$el and $()`: The `view.$el` property is equivalent to `$(view.el)` and `view.$(selector)` is equivalent to `$(view.el).find(selector)`.
+- When declaring a View, `options, el, tagName, id and className` may be defined as functions, if you want their values to be determined at runtime.
+- Overriding `this.el` needs to both change the DOM reference and re-bind events to the new element (and unbind from the old). `setElement` will create a cached `$el` reference for you, moving the delegated events for a view from the old element to the new one.
+- `render()` is an optional function that defines the logic for rendering a template.
+    - The `_.template` method in Underscore compiles JavaScript templates into functions which can be evaluated for rendering.
+    - The `render()` method uses this template by passing it the `toJSON()` encoding of the attributes of the model associated with the view. The template returns its markup.
+    A common Backbone convention is to return `this` at the end of `render()`. This is useful for a number of reasons, including:
+        - Making views easily reusable in other parent views.
+        - Creating a list of elements without rendering and painting each of them individually, only to be drawn once the entire list is populated.
+- The Backbone `events` hash allows us to attach event listeners to either `el`-relative custom selectors, or directly to el if no selector is provided.
+    - An event takes the form of a key-value pair `'eventName selector': 'callbackFunction'` and a number of DOM event-types are supported, including `click`, `submit`, `mouseover`, `dblclick` and more.
+    - What isn’t instantly obvious is that while Backbone uses jQuery’s .delegate() underneath, it goes further by extending it so that this always refers to the current view object within callback functions.
+    - The declarative, delegated jQuery events means that you don’t have to worry about whether a particular element has been rendered to the DOM yet or not. Usually with jQuery you have to worry about presence or absence in the DOM all the time when binding events.
+    - Note that you can also bind methods yourself using `_.bind(this.viewEvent, this)`, which is effectively what the value in each event’s key-value pair is doing. Below we use `_.bind` to re-render our view when a model changes.
+    
+        ```javascript
+        var TodoView = Backbone.View.extend({
+          initialize: function() {
+            this.model.bind('change', _.bind(this.render, this));
+          }
+        });
+        ```
+
+### Collections
+
+- Collections are sets of Models and are created by extending `Backbone.Collection`.
+    
+    ```javascript
+    var Todo = Backbone.Model.extend({
+      defaults: {
+        title: '',
+        completed: false
+      }
+    });
+    
+    var TodosCollection = Backbone.Collection.extend({
+      model: Todo
+    });
+    
+    var myTodo = new Todo({title:'Read the whole book', id: 2});
+    
+    // pass array of models on collection instantiation
+    var todos = new TodosCollection([myTodo]);
+    console.log("Collection size: " + todos.length); // Collection size: 1
+    ```
+- Models can be added and removed using the `add()` and `remove()` methods. Both accept individual models and lists of models.
+- When using `add()` on a collection, passing `{merge: true}` causes duplicate models to have their attributes merged in to the existing models, instead of being ignored.
+- The most straight-forward way to retrieve model is to use `Collection.get()` which accepts a single id.
+    - In client-server applications, collections contain models obtained from the server. Anytime you’re exchanging data between the client and a server, you will need a way to uniquely identify models. In Backbone, this is done using the `id`, `cid`, and `idAttribute` properties.
+    - Each model in Backbone has an `id`, which is a unique identifier that is either an integer or string (e.g., a UUID). Models also have a `cid` (client id) which is automatically generated by Backbone when the model is created. Either identifier can be used to retrieve a model from a collection.
+    - The `idAttribute` is the identifying attribute name of the model returned from the server (i.e. the id in your database).
+    - The value of a model’s `idAttribute` should be set by the server when the model is saved.
+- Internally, `Backbone.Collection` contains an array of models enumerated by their `id` property.
+- As collections represent a group of items, we can listen for `add` and `remove` events which occur when models are added to or removed from a collection. Here’s an example:
+    
+    ```javascript
+    var TodosCollection = new Backbone.Collection();
+    
+    TodosCollection.on("add", function(todo) {
+      console.log("I should " + todo.get("title") + ". Have I done it before? "  + (todo.get("completed") ? 'Yeah!': 'No.' ));
+    });
+    
+    TodosCollection.add([
+      { title: 'go to Jamaica', completed: false },
+      { title: 'go to China', completed: false },
+      { title: 'go to Disneyland', completed: true }
+    ]);
+    
+    // The above logs:
+    // I should go to Jamaica. Have I done it before? No.
+    // I should go to China. Have I done it before? No.
+    // I should go to Disneyland. Have I done it before? Yeah!
+    ```
+- In addition, we’re also able to bind to a `change` event to listen for changes to any of the models in the collection.
+    
+    ```javascript
+    var TodosCollection = new Backbone.Collection();
+    
+    // log a message if a model in the collection changes
+    TodosCollection.on("change:title", function(model) {
+        console.log("Changed my mind! I should " + model.get('title'));
+    });
+    
+    TodosCollection.add([
+      { title: 'go to Jamaica.', completed: false, id: 3 },
+    ]);
+    
+    var myTodo = TodosCollection.get(3);
+    
+    myTodo.set('title', 'go fishing');
+    // Logs: Changed my mind! I should go fishing
+    ```
+-   
+
+## Building a Todo application from scratch
+
+I followed the complete tutorial and partially copied and typed the code. Some doubts which I faced are:
+ 
+1. The current css shared in the book is different from the examples for which the book has been written. So I have to find the right css. It can be found [here](https://raw.githubusercontent.com/tastejs/todomvc/e3d86f9b773d0490025c4388a64213526a1929b3/examples/backbone/bower_components/todomvc-common/base.css).
+2. Also I got doubts about why to keep `app` variable in the global scope. Most of the times when I see backbone code, its wrapped in self executing wrapper. I have also heard about `require.js`.
+3. Also how underscore methods work on back elements.
+
+But after all this I am still not completely satisfied by my learning. So I decided to write the complete todo app on my on again by only looking at the working example. Let see how I do it. 
+
 
 ## References:
 
