@@ -215,6 +215,9 @@ Another way applications can interact with garbage collection is by invoking ful
 
 One of the most commonly encountered uses of explicit garbage collection occurs with RMI's distributed garbage collection (DGC).
 
+## To read:
+
+http://www.javacodegeeks.com/2015/07/jvm-buzzwords-java-developers-should-understand.html
 
 ## References:
 
