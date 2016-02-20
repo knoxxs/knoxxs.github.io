@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Python [de]serialisation {draft}"
+title:  Python [de]serialisation {draft}
 date:   2016-02-20 16:59:00
 categories: programming python json
 tags: json pickle type metaclass jsonconstruct simplejson demjson mongoengine
