@@ -1,7 +1,11 @@
 # Dependencies
 markdown:         kramdown
-#redcarpet:
-#  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+#https://github.com/jekyll/jekyll/issues/4202
+#https://help.github.com/articles/updating-your-markdown-processor-to-kramdown/
+kramdown:
+  input: GFM
+  hard_wrap: false
+
 # http://stackoverflow.com/questions/16099153/table-not-render-when-use-redcarpet-in-jekyll-github-pages
 highlighter:      rouge
 
