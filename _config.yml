@@ -3,7 +3,7 @@ markdown:         redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 # http://stackoverflow.com/questions/16099153/table-not-render-when-use-redcarpet-in-jekyll-github-pages
-highlighter:      pygments
+highlighter:      rouge
 
 # Permalinks
 permalink:        pretty
