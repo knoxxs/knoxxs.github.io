@@ -31,6 +31,97 @@ I want a job scheduler in python something like [Quartz-Scheduler](https://quart
 
 I choose PS finally as it is more powerful and celery requires setup time and is is not meant for task scheduling primarily.
 
+1. [APScheduler Job not running after restart](http://stackoverflow.com/questions/35707630/apscheduler-job-not-running-after-restart/35708579#35708579)
+2. My chat on IRC understanding the differences between Quartz and APS:
+    
+    ```
+    knoxxs
+    Hey guys can someone help me with http://stackoverflow.com/questions/35707630/apscheduler-job-not-running-after-restart
+    
+    agronholm
+    knoxxs: have you read the docs?
+    
+    knoxxs
+    Ya, I read them today only. Am I missing something basic? :/
+    
+    agronholm
+    yeah, the description of how misfire grace time works
+    
+    knoxxs
+    let me check
+    
+    knoxxs
+    thanks
+    
+    agronholm
+    if this was a recurring job it'd simply calculate its next run time
+    
+    knoxxs
+    Ya after defining `misfire_grace_time` it worked. Actuallly, when I debugged the code, I saw it submitting the job to the threadpool.
+    
+    knoxxs
+    One more thing, the benefit of storing the sate in persistent store is only beneficial in case of error. Am I right?
+    
+    knoxxs
+    I am coming from Java background and used Quartz scheduler. It didn't had any such functionality. So I am having a hard time in digesting it.
+    
+    knoxxs
+    @agronholm
+    
+    agronholm
+    knoxxs: storing the state is beneficial if you need a job to persist over restarts
+    
+    agronholm
+    in my case I needed persistence so that if the app was down when it needed to generate reports, it wouldn't know to do that otherwise after restart
+    
+    agronholm
+    or worse, it would do it again and overwrite the reports
+    
+    agronholm
+    for that I'd have to set a misfire grace time of several hours at least
+    
+    knoxxs
+    ok
+    
+    knoxxs
+    one more thing...after reading the docs, I understood that in APS we need the register the job after creating the scheduler instance.
+    
+    knoxxs
+    Because of this the if someone has to write a new job they have to register it manually. Is there any way to automate this.
+    
+    knoxxs
+    IMHO Quartz, the java scheduler, used to store the registry in db
+    
+    knoxxs
+    I think I can do the same with APS too.
+    
+    knoxxs
+    Am i thinking in right direction? Also why no one else needed it before?
+    
+    agronholm
+    knoxxs: what registry are you talking about?
+    
+    agronholm
+    if you add a job to the job store, it will stay there if the job store is persistent
+    
+    knoxxs
+    Initially I have to add the job to scheduler instance.
+    
+    agronholm
+    yes, as you would in quartz too
+    
+    knoxxs
+    Ohhh I got it ... In quartz I used to extend a class. That must be informing quartz
+    
+    knoxxs
+    base job class of quartz
+    
+    knoxxs
+    thanks... Yeah The standard base class was doing everything. I checked it.
+    
+    knoxxs
+    Thanks for all the help. :)
+    ```
 **Extra resources**:
 
 1. [Scheduled Jobs with Custom Clock Processes in Python with APScheduler](https://devcenter.heroku.com/articles/clock-processes-python)
