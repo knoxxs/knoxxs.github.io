@@ -6,6 +6,8 @@ categories: python setup
 tags: install pip setup.py setuptools requirement
 ---
 
+How to manage project dependency in python.
+
 ## What I followed
 
 1. [Packaging and Distributing Projects](https://python-packaging-user-guide.readthedocs.org/en/latest/distributing/)
