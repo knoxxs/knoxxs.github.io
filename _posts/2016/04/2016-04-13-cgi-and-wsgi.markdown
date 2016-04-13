@@ -14,3 +14,4 @@ tags: web server wsgi cgi http
 6. [How Python web frameworks, WSGI and CGI fit together](http://stackoverflow.com/questions/219110/how-python-web-frameworks-wsgi-and-cgi-fit-together)
 7. [Is there a speed difference between WSGI and FCGI?](http://stackoverflow.com/questions/1747266/is-there-a-speed-difference-between-wsgi-and-fcgi)
 8. [WSGI Servers](https://www.fullstackpython.com/wsgi-servers.html)
+9. [What's the equivalent of ruby's rack or python's wsgi for Java?](http://stackoverflow.com/questions/11752355/whats-the-equivalent-of-rubys-rack-or-pythons-wsgi-for-java)
