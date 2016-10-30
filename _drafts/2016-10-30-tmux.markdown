@@ -1,0 +1,12 @@
+---
+layout: post
+title:  tmux
+date:   2016-10-30 16:21:00
+categories: linux shell
+tags: tmux screen linux shell ssh multiple-sessions
+---
+
+1. http://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/
+2. http://www.howardism.org/Technical/Linux/tmux.html
+3. https://www.sitepoint.com/tmux-a-simple-start/
+4. https://danielmiessler.com/study/tmux/#gs.wdhh6jQ
